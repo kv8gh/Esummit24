@@ -1,5 +1,9 @@
+import { connectMongoDB } from "@/lib/mongodb";
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google'
+import {Users} from "@/models/user";
+import { NextResponse } from "next/server";
+
 
 const authOptions={
     providers:[
@@ -15,7 +19,11 @@ const authOptions={
             console.log("Account",account);
             if(account.provider==='google'){
                 try{
-                    const res=await fetch("http://localhost:3001/api/register",{
+                    await connectMongoDB()
+                    const userExists=await Users.findOne({email});
+                    console.log(userExists)
+                    if(!userExists){
+                        const res=await fetch("http://localhost:3001/api/register",{
                         method:"POST",
                         headers:{
                             "Content-Type":"application/json"
@@ -27,6 +35,12 @@ const authOptions={
                     if(res.ok){
                         return user;
                     }
+                    }else{
+                        console.log("User has already registerd");
+                        return NextResponse.json({ message: "User has already registered", status: 200 });
+                    }
+
+                    
                 }catch(error){
                     console.log(error);
                 }

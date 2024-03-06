@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Esummit241"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "combine"
+	}
+}
