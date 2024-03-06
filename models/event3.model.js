@@ -5,7 +5,7 @@ const event3Schema = mongoose.Schema(
     {
         user:{
             type: mongoose.Schema.Types.ObjectId,
-            ref: UsersDetails,
+            ref: Users,
         }
     }
 )
