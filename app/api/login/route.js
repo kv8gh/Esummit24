@@ -1,6 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { UsersDetails } from "@/models/Userdetails";
+import {generateTokens} from "./generateTokens/route.js"
 
 
 export async function POST(req){
@@ -10,6 +11,9 @@ export async function POST(req){
         const newUserDetail = new UsersDetails({ firstName,lastName,regNo,mobno});
   
         await newUserDetail.save();
+
+
+        //console.log(accessToken);
      
         return NextResponse.json({ message: "User Details entered ", status: 200 });
 
