@@ -30,6 +30,7 @@ const userDetailSchema = new Schema(
       
         
     },
+    {timestamps:true},
     { collection: "UsersDetails" }
 );
 
