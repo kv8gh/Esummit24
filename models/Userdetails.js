@@ -23,10 +23,10 @@ const userDetailSchema = new Schema(
         },
         
     
-        // date: {
-        //     type: Date,
-        //     default: Date.now(),
-        // },
+        date: {
+            type: Date,
+            default: Date.now(),
+        },
       
         
     },
