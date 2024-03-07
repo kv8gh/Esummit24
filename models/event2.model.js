@@ -29,9 +29,9 @@ const teamSchema = mongoose.Schema(
       type: String,
     }
   },
-  { collection: 'Event2Model' }
+  { collection: 'Event2' }
 );
 
-export const Event2Model =
-  mongoose.models.Event2Model ||
-  mongoose.model('Event2Model', teamSchema);
+export const Event2 =
+  mongoose.models.Event2 ||
+  mongoose.model('Event2', teamSchema);
