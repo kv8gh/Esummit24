@@ -52,7 +52,7 @@ export async function POST(req,{params}){
             })
         }
 
-        await User.findOneAndUpdate(
+        await Users.findOneAndUpdate(
             { _id: req.body.userId },
             { teamId: null, teamRole: null }
         );
