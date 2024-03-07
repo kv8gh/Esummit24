@@ -1,6 +1,7 @@
 
 import mongoose from 'mongoose';
 import { Schema } from 'mongoose';
+import {Users} from './user'
 
 const teamSchema = new Schema(
     {
@@ -10,7 +11,7 @@ const teamSchema = new Schema(
         },
         teamLeaderId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Users",
+            ref: "UsersDetails",
         },
         teamNumber: {
             type: Number

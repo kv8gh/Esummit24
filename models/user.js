@@ -13,11 +13,7 @@ const userSchema = new Schema(
     password:{
         type:String
     },
-    teamId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "TeamDetails",
-  },
-
+    
    
    
   

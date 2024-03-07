@@ -1,7 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import {Users} from "@/models/user";
-import {generateTokens} from "../login/generateTokens/route"
+import {generateTokens} from "../login/generateTokensUser/route"
 
 
 export async function POST(req){
@@ -13,9 +13,7 @@ export async function POST(req){
         const newUser = new Users({ name, email, password });
         
         await newUser.save();
-        const { accessToken, refreshToken } = await generateTokens(newUser);
-        console.log(accessToken);
-        console.log(refreshToken);
+       
         console.log(name)
         return NextResponse.json({ message: "User registered", status: 200 });
         }else{
