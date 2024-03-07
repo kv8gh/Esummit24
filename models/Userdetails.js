@@ -21,6 +21,14 @@ const userDetailSchema = new Schema(
         mobno: {
             type: Number,
         },
+        teamRole:{
+            type:Number,
+        },
+        teamId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "TeamModel",
+        },
+      
         
     
         date: {
