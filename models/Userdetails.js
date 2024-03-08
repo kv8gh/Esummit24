@@ -22,7 +22,7 @@ const userDetailSchema = new Schema(
             type: Number,
         },
         teamRole:{
-            type:Number,
+            type:Number, // 0 for leader, 1 for member
         },
         teamId: {
             type: mongoose.Schema.Types.ObjectId,
