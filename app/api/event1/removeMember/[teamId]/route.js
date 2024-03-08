@@ -52,13 +52,13 @@ export async function POST(req,{params}){
             })
         }
 
-        await Users.findOneAndUpdate(
+        await UsersDetails.findOneAndUpdate(
             { _id: req.body.userId },
-            { teamId: null, teamRole: null }
+            { teamId: null, teamRole: -1 }
         );
     
         //updating team
-        await Team.findOneAndUpdate(
+        await TeamModel.findOneAndUpdate(
             { _id: req.params.teamId },
             { $pull: { members: req.body.userId } }
         );

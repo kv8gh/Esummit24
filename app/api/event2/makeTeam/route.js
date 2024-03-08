@@ -2,9 +2,8 @@ import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { UsersDetails } from "@/models/Userdetails";
 import { Event2 } from "@/models/event2.model";
-import { Users } from "@/models/user";
-import { middleware } from "../../middleware/route";
-import {getTokenDetails} from "../../../../utils/auth"
+
+import {getTokenDetails} from "../../../../utils/authuser"
 
 export async function POST(req){
     try{
