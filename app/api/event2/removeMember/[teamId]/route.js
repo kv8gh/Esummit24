@@ -53,7 +53,7 @@ export async function POST(req, { params }) {
     );
 
     //updating team
-    await Team.findOneAndUpdate(
+    await Event2.findOneAndUpdate(
       { _id: req.params.teamId },
       { $pull: { members: req.body.userId } }
     );
