@@ -54,11 +54,7 @@ export async function POST(req, { params }) {
     );
 
     //updating team
-<<<<<<< Updated upstream
     await Event2.findOneAndUpdate(
-=======
-    await TeamModel.findOneAndUpdate(
->>>>>>> Stashed changes
       { _id: req.params.teamId },
       { $pull: { members: req.body.userId } }
     );
