@@ -1,13 +1,25 @@
 "use client"
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function UserDetails() {
+   const { data: session, status } = useSession();
+
+   // use session chl rha h baaki frondend me data kese lena h aap log dekh lo
+   console.log("vbndsbnchvbhvf",status);
+   //console.log("fsdbhbsbvdfwad",data);
+   // console.log("fgfcgcgfdfdsds",session);
+    console.log("+++++++--------");
+    console.log(session);
+    //console.log(data);
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [regNo, setRegNo] = useState('');
     const [mobNo, setMobNo] = useState('');
 
     const handleSubmit = async (event) => {
+       
         event.preventDefault();
         
         try {
@@ -16,6 +28,8 @@ export default function UserDetails() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                Authorization:`Bearer ${session.accessTokenBackend}`,
+                'Access-Control-Allow-Origin':'*',
                 body: JSON.stringify({
                     firstName,
                     lastName,

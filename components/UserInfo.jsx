@@ -6,6 +6,9 @@ import UserDetails from "./userDetails";
 export default function UserInfo() {
     const { status, data: session } = useSession();
 
+    
+
+
     if (status === "authenticated") {
         return  <UserDetails/>;
     } else {

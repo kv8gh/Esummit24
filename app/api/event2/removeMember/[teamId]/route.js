@@ -7,6 +7,7 @@ import { Users } from "@/models/user";
 import { getTokenDetails } from "../../../../../utils/authuser";
 import { generateTokens } from "../../../login/generateTokensTeam/route";
 import UserDetails from "@/components/userDetails";
+import { TeamModel } from "@/models/TeamDetails";
 
 export async function POST(req, { params }) {
   try {

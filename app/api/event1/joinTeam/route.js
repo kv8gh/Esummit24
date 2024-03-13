@@ -19,7 +19,7 @@ export async function POST(req,{params}){
         //console.log(auth)
         let userId = await getTokenDetails(auth);
         console.log(userId);
-        const user = await UsersDetails.findById({ _id: userId});
+        const user = await Users.findById({ _id: userId});
         console.log(user)
 
 
@@ -50,8 +50,8 @@ export async function POST(req,{params}){
         const tokenCreationTime = token.createdAt;
 
         const timeDifference = (currentTime - tokenCreationTime) / (1000 * 60); // Difference in minutes
-
-        if (timeDifference > 10) {
+        //have to change this
+        if (timeDifference > 1000000000) {
             // Token expired, prompt for a new token
             return NextResponse.json({ error: 'Token expired. Ask leader to generate a new token.' });
         }
@@ -59,7 +59,7 @@ export async function POST(req,{params}){
             return NextResponse.json({ error: 'Incorrect token' });
         }
 
-        await UsersDetails.findOneAndUpdate({ _id: userId }, { $set: { teamId: team.id, teamRole: 1 } });
+        await Users.findOneAndUpdate({ _id: userId }, { $set: { teamId: team.id, teamRole: 1 } });
 
         await TeamModel.findOneAndUpdate(
             {

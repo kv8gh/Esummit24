@@ -17,7 +17,7 @@ export async function POST(req){
   
         let userId = await getTokenDetails(auth);
         console.log(userId);
-        const user = await UsersDetails.findById(userId);
+        const user = await Users.findById(userId);
 
         if (user.teamRole != "1") {
             return NextResponse.json({
@@ -41,7 +41,7 @@ export async function POST(req){
         team.members.pull(userId);
         await team.save();
 
-        await UsersDetails.findByIdAndUpdate(userId, { $set: { teamId: null, teamRole:-1 } });
+        await Users.findByIdAndUpdate(userId, { $set: { teamId: null, teamRole:-1 } });
 
         
 
