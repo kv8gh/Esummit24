@@ -5,7 +5,7 @@ import { TeamModel } from "@/models/TeamDetails";
 import { Users } from "@/models/user";
 
 import {getTokenDetails} from "../../../../utils/authuser"
-import { generateTokens } from "../../login/generateTokensTeam/route";
+
 
 
 export async function POST(req){
@@ -21,7 +21,7 @@ export async function POST(req){
         let userId = await getTokenDetails(auth);
         console.log(userId)
      
-        const user = await UsersDetails.findById({ _id: userId});
+        const user = await Users.findById({ _id: userId});
         
         console.log(user);
 
@@ -41,12 +41,12 @@ export async function POST(req){
 
     
 
-    await UsersDetails.findByIdAndUpdate(
+    await Users.findByIdAndUpdate(
         { _id: userId },
         { $set: { teamId: newTeam._id } }
     );
 
-    const { accessToken, refreshToken } = await generateTokens(newTeam);
+    //const { accessToken, refreshToken } = await generateTokens(newTeam);
     //console.log(accessToken);
     //console.log(refreshToken);
  

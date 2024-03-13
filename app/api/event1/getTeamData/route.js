@@ -8,7 +8,7 @@ import {getTokenDetails} from "../../../../utils/authuser"
 import { generateTokens } from "../../login/generateTokensTeam/route";
 
 
-export async function POST(req){
+export async function GET(req){
     try{
         await connectMongoDB();
         const headers = req.headers;
@@ -21,7 +21,8 @@ export async function POST(req){
         let userId = await getTokenDetails(auth);
         console.log(userId)
      
-        const user = await UsersDetails.findById({ _id: userId});
+        const user = await Users.findById({ _id: userId});
+        
         if(!user){
             return NextResponse.json({ message: "User Not found"});
         }

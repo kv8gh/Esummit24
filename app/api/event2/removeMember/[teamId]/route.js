@@ -7,6 +7,7 @@ import { Users } from "@/models/user";
 import { getTokenDetails } from "../../../../../utils/authuser";
 import { generateTokens } from "../../../login/generateTokensTeam/route";
 import UserDetails from "@/components/userDetails";
+import { TeamModel } from "@/models/TeamDetails";
 
 export async function POST(req, { params }) {
   try {
@@ -53,7 +54,11 @@ export async function POST(req, { params }) {
     );
 
     //updating team
+<<<<<<< Updated upstream
     await Event2.findOneAndUpdate(
+=======
+    await TeamModel.findOneAndUpdate(
+>>>>>>> Stashed changes
       { _id: req.params.teamId },
       { $pull: { members: req.body.userId } }
     );

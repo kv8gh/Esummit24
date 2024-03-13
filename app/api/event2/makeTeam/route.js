@@ -4,8 +4,13 @@ import { UsersDetails } from "@/models/Userdetails";
 import { Event2 } from "@/models/event2.model";
 import { Users } from "@/models/user";
 
+<<<<<<< Updated upstream
 import { getTokenDetails } from "../../../../utils/authuser";
 import { generateTokens } from "../../login/generateTokensTeam/route";
+=======
+import {Users} from "@/models/user"
+import {getTokenDetails} from "../../../../utils/authuser"
+>>>>>>> Stashed changes
 
 export async function POST(req) {
   try {

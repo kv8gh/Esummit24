@@ -21,7 +21,7 @@ export async function POST(req){
         let userId = await getTokenDetails(auth);
         console.log(userId)
      
-        const user = await UsersDetails.findById({ _id: userId});
+        const user = await Users.findById({ _id: userId});
         if(!user){
             return NextResponse.json({ message: "User Not found"});
         }

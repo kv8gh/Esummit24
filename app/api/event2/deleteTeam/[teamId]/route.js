@@ -48,7 +48,7 @@ export async function POST(req, { params }) {
       teamId: teamId,
     });
 
-    await UsersDetails.findByIdAndUpdate(
+    await Users.findByIdAndUpdate(
       { _id: userId },
       { teamId: null, teamRole: null }
     );

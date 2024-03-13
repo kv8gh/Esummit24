@@ -10,10 +10,21 @@ const userSchema = new Schema(
     name: {
       type: String,
     },
-    password:{
-        type:String
+    regNo: {
+      type: String,
     },
-    
+    mobno: {
+      type: Number,
+  },
+    teamRole:{
+      type:Number, // 0 for leader, 1 for member
+  },
+    teamId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "TeamModel",
+  },
+
+   
    
    
   
