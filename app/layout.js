@@ -1,5 +1,8 @@
+import Navbar from "../components/Navbar";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "../lib/Providers";
+import { getServerSession } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,8 +14,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Layout here */}
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AuthProvider>
+          <div className="max-w-3xl mx-auto">
+            <Navbar />
+            {children}
+          </div>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
