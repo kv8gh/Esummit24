@@ -1,12 +1,12 @@
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const userSchema = new Schema(
   {
     email: {
       type: String,
     },
-   
+
     name: {
       type: String,
     },
@@ -15,22 +15,21 @@ const userSchema = new Schema(
     },
     mobno: {
       type: Number,
-  },
-    teamRole:{
-      type:Number, // 0 for leader, 1 for member
-  },
+    },
+    teamRole: {
+      type: Number, // 0 for leader, 1 for member
+    },
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "TeamModel",
+    },
+    events: {
+      type: Array,
+      default: [],
+    },
   },
-
-   
-   
-   
-  
-  },
-  { collection: 'Users' }
+  { collection: "Users" }
 );
 
 export const Users =
-  mongoose.models.Users || mongoose.model('Users', userSchema);
+  mongoose.models.Users || mongoose.model("Users", userSchema);

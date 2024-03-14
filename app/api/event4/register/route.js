@@ -18,17 +18,17 @@ export async function GET(req, res) {
       return NextResponse.json({ message: "User not found." }, { status: 404 });
     }
     const currentEventsArr = user.events;
-    if (currentEventsArr.includes(3)) {
+    if (currentEventsArr.includes(4)) {
       return NextResponse.json(
-        { message: "User has already registered for the event3." },
+        { message: "User has already registered for the event4." },
         { status: 200 }
       );
     }
-    const modifiedEventsArr = [...currentEventsArr, 3];
+    const modifiedEventsArr = [...currentEventsArr, 4];
     user.events = modifiedEventsArr;
     await user.save();
     return NextResponse.json(
-      { message: "User registered for event3 successfully." },
+      { message: "User registered for event4 successfully." },
       { status: 200 }
     );
   } catch (err) {
