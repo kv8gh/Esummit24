@@ -18,7 +18,7 @@ export async function POST(req){
         console.log(userId);
         const user = await UsersDetails.findById(userId);
 
-        if (user.teamRole != "1") {
+        if (user.event1TeamRole != "1") {
             return NextResponse.json({
                 message: "Leader cant leave the team",
             });

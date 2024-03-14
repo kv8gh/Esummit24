@@ -57,7 +57,7 @@ export default function LeaderDashboard() {
           if (user.event1TeamId == null) {
             router.push('/makeTeam');
           } else {
-            if (user.teamRole == '1') {
+            if (user.event1TeamRole == '1') {
               router.push('/memberDashboard');
             } else {
               setIsLoading(false);
@@ -206,10 +206,10 @@ export default function LeaderDashboard() {
         <div className="flex flex-wrap justify-center">
           {teamMembersData.map((el) => {
             return (
-              <div key={el.firstName}>
+              <div key={el.name}>
                 <Card
-                  name={el.firstName}
-                  Role={el.teamRole === '0' ? 'Leader' : 'Member'}
+                  name={el.name}
+                  Role={el.event1TeamRole === 0 ? 'Leader' : 'Member'}
                   regNo={el.regNo}
                   phone={el.mobno}
                   leader={true}

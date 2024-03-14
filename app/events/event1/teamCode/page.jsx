@@ -44,7 +44,7 @@ export default function TeamCode() {
         console.log('user', user)
         if (user.hasFilledDetails === true) {
           if (user.event1TeamId !== null) {
-            if (user.teamRole !== '0') {
+            if (user.event1TeamRole !== '0') {
               router.push('/memberDashboard');
             }
           } else {
