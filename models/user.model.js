@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -20,22 +20,26 @@ const userSchema = new Schema(
     },
     event1TeamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event1',
+      ref: "Event1",
     },
     event2TeamRole: {
       type: Number, // 0 for leader, 1 for member
     },
     event2TeamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event2',
+      ref: "Event2",
     },
     hasFilledDetails: {
       type: Boolean,
       default: false,
     },
+    events: {
+      type: Array,
+      default: [],
+    },
   },
-  { collection: 'Users' }
+  { collection: "Users" }
 );
 
 export const Users =
-  mongoose.models.Users || mongoose.model('Users', userSchema);
+  mongoose.models.Users || mongoose.model("Users", userSchema);
