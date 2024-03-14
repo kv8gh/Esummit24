@@ -33,7 +33,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   }, [status, router]);
 
   const getData = ()=>{
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    fetch(`api/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
@@ -79,7 +79,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const fetchTeamName = async () => {
     setisLoading(true);
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/team/getTeamViaToken`, {
+      const response = await fetch(`/api/event1/getTeamViaToken`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
     // Send a request to the API to join the team with the team code.
     setIsMoadalLoading(true);
     try {
-      const response = await fetch('api/event1/joinTeam', {
+      const response = await fetch('/api/event1/joinTeam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
