@@ -1,7 +1,6 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { getTokenDetails } from "@/utils/authuser";
-import { TeamToken } from "@/models/teamToken";
 import { customAlphabet } from "nanoid";
 import { getToken } from "next-auth/jwt";
 import { Event1 } from "@/models/event1.model";
