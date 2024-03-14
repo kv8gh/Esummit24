@@ -9,9 +9,9 @@ export default function Page() {
       <br></br>
       info about Event1
       <br></br>
-      {/* <button onClick={()=>router.push( "/event2/makeTeam" )}>
+      {/* <button onClick={()=>router.push( "/events/event2/makeTeam" )}>
         Register
       </button> */}
-      <Link href={'/event2/makeTeam'}>Register</Link>
+      <Link href={'/events/event2/makeTeam'}>Register</Link>
     </div>;
   }
