@@ -40,13 +40,8 @@ export default function UserDetails() {
   const handleRegNo = (e) => {
     const inputValue = e.target.value;
     setRegNo(inputValue.toUpperCase());
-
-    const isValidInput = /^[2][0-3][a-zA-Z]{3}\d{4}$/i.test(regNo.trim());
-    if (isValidInput) {
-      setRegError(false);
-    } else {
-      setRegError(true);
-    }
+    
+    
   };
 
   const handleSubmit = async () => {
@@ -54,9 +49,20 @@ export default function UserDetails() {
     console.log(firstName);
     console.log(lastName);
 
+    const regNoNew = document.getElementById('regNo').value;
+    const isValidInput = (/^[2][0-3][a-zA-Z]{3}\d{4}$/).test(regNoNew.trim());
+    console.log(isValidInput);
+    if (isValidInput) {
+      setRegError(false);
+      console.log(regError);
+    } else {
+      setRegError(true);
+    }
+
+    
     if (mobNo !== "" && regNo !== "") {
       if (mobNo.length === 10) {
-        if (!regError && regNo.length === 9) {
+        if (isValidInput && regNo.length === 9) {
           console.log(mobNo);
           console.log(regNo);
           try {
