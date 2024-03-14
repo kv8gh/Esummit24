@@ -1,11 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { Event2 } from "@/models/event2.model";
-import { Users } from "@/models/user";
+import { Users } from "@/models/user.model";
+import { NextResponse } from "next/server";
 
-import {getTokenDetails} from "../../../../utils/authuser"
-import { generateTokens } from "../../login/generateTokensTeam/route";
+import { getToken } from "next-auth/jwt";
+import { getTokenDetails } from "../../../../utils/authuser";
 
 
 export async function POST(req){
@@ -16,8 +15,8 @@ export async function POST(req){
 
       
 
-        const auth = req.headers.get("authorization").split(' ')[1];
- 
+        const token = await getToken({req})
+        const auth = token ? token.accessTokenFromBackend : null
         let userId = await getTokenDetails(auth);
         console.log(userId)
      

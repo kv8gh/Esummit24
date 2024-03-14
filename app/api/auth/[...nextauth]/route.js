@@ -1,11 +1,11 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import NextAuth from "next-auth/next";
-import GoogleProvider from 'next-auth/providers/google'
-import {Users} from "@/models/user";
-import { NextResponse } from "next/server";
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+import { Users } from "@/models/user.model";
 import { OAuth2Client } from 'google-auth-library';
+import NextAuth from "next-auth/next";
+import GoogleProvider from 'next-auth/providers/google';
+import { NextResponse } from "next/server";
 import { generateTokens } from "../../login/generateTokensUser/route";
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const GOOGLE_AUTHORIZATION_URL =
   "https://accounts.google.com/o/oauth2/v2/auth?" +
   new URLSearchParams({

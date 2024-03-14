@@ -1,19 +1,19 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { TeamModel } from "@/models/TeamDetails";
-import { Users } from "@/models/user";
+import { UsersDetails } from "@/models/Userdetails";
+import { NextResponse } from "next/server";
 
-import { getTokenDetails } from "../../../../../utils/authuser";
-import { generateTokens } from "../../../login/generateTokensTeam/route";
 import UserDetails from "@/components/userDetails";
+import { getToken } from "next-auth/jwt";
+import { getTokenDetails } from "../../../../../utils/authuser";
 
 export async function POST(req, { params }) {
   try {
     await connectMongoDB();
-    const headers = req.headers;
 
-    const auth = req.headers.get("authorization").split(" ")[1];
+    const token = await getToken({req})
+    const auth = token ? token.accessTokenFromBackend : null
+    let userId = await getTokenDetails(auth);
 
     const teamId = params.teamId;
     const team = await TeamModel.findById({ _id: teamId });
@@ -25,7 +25,6 @@ export async function POST(req, { params }) {
       });
     }
 
-    let userId = await getTokenDetails(auth);
     const userToRemove = await UserDetails.findById({ _id: userId });
     if (!userToRemove) {
       return NextResponse.json({ message: "UserID is invalid", status: 200 });

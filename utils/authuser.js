@@ -1,7 +1,6 @@
-import {connectMongoDB} from '@/lib/mongodb';
-import { Users } from '@/models/user';
+import { connectMongoDB } from '@/lib/mongodb';
+import { Users } from '@/models/user.model';
 import { jwtVerify } from 'jose';
-import mongoose from 'mongoose';
 
 export  async function getTokenDetails(token) {
   try {

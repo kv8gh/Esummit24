@@ -1,11 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
 import { TeamModel } from "@/models/TeamDetails";
-import { getTokenDetails } from "@/utils/authuser";
 import { TeamToken } from "@/models/teamToken";
-import { customAlphabet } from 'nanoid';
-import { Users } from "@/models/user";
-import { UsersDetails } from "@/models/Userdetails";
+import { Users } from "@/models/user.model";
+import { getTokenDetails } from "@/utils/authuser";
+import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
 
 
@@ -14,10 +13,11 @@ export async function POST(req,{params}){
     try{
         
         await connectMongoDB();
-        const headers = req.headers;
-        const auth = req.headers.get("authorization").split(' ')[1];
-        //console.log(auth)
+
+        const token = await getToken({req})
+        const auth = token ? token.accessTokenFromBackend : null
         let userId = await getTokenDetails(auth);
+
         console.log(userId);
         const user = await Users.findById({ _id: userId});
         console.log(user)
@@ -38,9 +38,9 @@ export async function POST(req,{params}){
             return NextResponse.json({ error: 'Team is Full' });
           }
         // console.log(team)
-        const token = await TeamToken.findOne({ teamId: team._id });
+        const teamToken = await TeamToken.findOne({ teamId: team._id });
 
-        if (!token) {
+        if (!teamToken) {
             return res.status(404).json({ error: 'Token not found' });
         }
 

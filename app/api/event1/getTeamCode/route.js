@@ -1,19 +1,20 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
-import { TeamModel } from "@/models/TeamDetails";
 import { getTokenDetails } from "@/utils/authuser";
-import { TeamToken } from "@/models/teamToken";
 import { customAlphabet } from "nanoid";
+import { getToken } from "next-auth/jwt";
+import { Event1 } from "@/models/event1.model";
 
 export async function POST(req, { params }) {
   try {
     await connectMongoDB();
-    const headers = req.headers;
-    const auth = req.headers.get("authorization").split(" ")[1];
-    console.log(auth);
+
+    const token = await getToken({req})
+    const auth = token ? token.accessTokenFromBackend : null
     let userId = await getTokenDetails(auth);
+    
     // console.log(userId);
-    const team = await TeamModel.findOne({ teamLeaderId: userId });
+    const team = await Event1.findOne({ teamLeaderId: userId });
     if (!team) {
       return NextResponse.json({ message: "Team Not found" });
     }
@@ -30,7 +31,7 @@ export async function POST(req, { params }) {
         createdAt: new Date(),
       }).save();
 
-      await TeamModel.findOneAndUpdate(
+      await Event1.findOneAndUpdate(
         { _id: team._id },
         { $set: { teamCode: teamCode } }
       );
@@ -56,7 +57,7 @@ export async function POST(req, { params }) {
           { teamId: team._id },
           { $set: { token: newTeamCode, createdAt: currentTime } }
         );
-        await TeamModel.findOneAndUpdate(
+        await Event1.findOneAndUpdate(
           { _id: team._id },
           { $set: { teamCode: newTeamCode } }
         );
