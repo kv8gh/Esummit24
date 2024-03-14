@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
+import DeleteTeamButton from '@/components/DeleteTeamButton';
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -237,7 +238,8 @@ export default function LeaderDashboard() {
         >
           Start Quiz
         </button> */}
-        {/* <DeleteTeamButton onClick={() => deleteTeam()} /> */}
+
+        <DeleteTeamButton onClick={() => deleteTeam()} />
 
         {isQualified && (
           <div className="flex flex-col text-white items-center border p-2 rounded-xl my-2">

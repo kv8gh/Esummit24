@@ -59,7 +59,7 @@ export async function POST(req, { params }) {
 
         await Users.findOneAndUpdate(
             { _id: userId },
-            { $set: { teamId: team.id, teamRole: 1 } }
+            { $set: { event1TeamId: team.id, event1TeamRole: 1 } }
         );
 
         await Event1.findOneAndUpdate(
