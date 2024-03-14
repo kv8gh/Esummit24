@@ -122,7 +122,7 @@ const TeamPage = () => {
       style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
     {isLoading && <LoadingScreen/>}
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">Team : {teamName}</h1>
