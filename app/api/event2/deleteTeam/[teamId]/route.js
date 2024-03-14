@@ -1,6 +1,6 @@
 import { connectMongoDB } from "@/lib/mongodb";
+import { TeamToken } from "@/models/event1TeamToken";
 import { Event2 } from "@/models/event2.model";
-import { TeamToken } from "@/models/teamToken";
 import { Users } from "@/models/user.model";
 import { getTokenDetails } from "@/utils/authuser";
 import { getToken } from "next-auth/jwt";

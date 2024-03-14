@@ -44,11 +44,11 @@ export default function TeamCode() {
         console.log('user', user)
         if (user.hasFilledDetails === true) {
           if (user.event1TeamId !== null) {
-            if (user.event1TeamRole !== '0') {
-              router.push('/memberDashboard');
+            if (user.event1TeamRole !== 0) {
+              router.push('/events/event1/memberDash');
             }
           } else {
-            router.push('/joinTeam');
+            router.push('/events/event1/joinTeam');
           }
         } else {
           router.push('/userDetails');

@@ -102,7 +102,7 @@ const MakeTeam = () => {
 
   const handleJoinTeam = () => {
     // Redirect to JoinTeam page
-    router.push('/joinTeam');
+    router.push('/events/event1/joinTeam');
   };
 
   return (

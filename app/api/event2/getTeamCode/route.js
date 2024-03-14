@@ -1,10 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
+import { TeamToken } from "@/models/event1TeamToken";
 import { Event2 } from "@/models/event2.model";
 import { getTokenDetails } from "@/utils/authuser";
-import { TeamToken } from "@/models/teamToken";
 import { customAlphabet } from "nanoid";
 import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
 export async function POST(req, { params }) {
   try {

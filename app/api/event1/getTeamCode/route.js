@@ -4,8 +4,9 @@ import { getTokenDetails } from "@/utils/authuser";
 import { customAlphabet } from "nanoid";
 import { getToken } from "next-auth/jwt";
 import { Event1 } from "@/models/event1.model";
+import { event1TeamToken } from "@/models/event1TeamToken";
 
-export async function POST(req, { params }) {
+export async function GET(req, { params }) {
   try {
     await connectMongoDB();
 
@@ -25,7 +26,7 @@ export async function POST(req, { params }) {
         10
       )();
       // const teamCode = nanoid(10)
-      const newToken = await new TeamToken({
+      const newToken = await new event1TeamToken({
         teamId: team._id,
         token: teamCode,
         createdAt: new Date(),
@@ -38,7 +39,7 @@ export async function POST(req, { params }) {
 
       return NextResponse.json({ teamCode: teamCode, teamName: team.teamName });
     } else {
-      const token = await TeamToken.findOne({ teamId: team._id });
+      const token = await event1TeamToken.findOne({ teamId: team._id });
 
       if (!token) {
         return NextResponse.json({ message: "Token not found" });
@@ -53,7 +54,7 @@ export async function POST(req, { params }) {
           "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
           10
         )();
-        await TeamToken.findOneAndUpdate(
+        await event1TeamToken.findOneAndUpdate(
           { teamId: team._id },
           { $set: { token: newTeamCode, createdAt: currentTime } }
         );

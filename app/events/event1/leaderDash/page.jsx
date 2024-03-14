@@ -8,6 +8,7 @@ import boardImg from '@/public/assets/boardpics/image2.svg';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
+import Link from 'next/link';
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -194,15 +195,15 @@ export default function LeaderDashboard() {
             Start FP 9.0
           </button>
         )}
-        {/* {teamMembersData.length < 4 && (
+        {teamMembersData.length < 4 && (
           <Link
             className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
-            href="/teamCode"
+            href="/events/event1/teamCode"
           >
             {" "}
             Add Members{" "}
           </Link>
-        )} */}
+        )}
         <div className="flex flex-wrap justify-center">
           {teamMembersData.map((el) => {
             return (

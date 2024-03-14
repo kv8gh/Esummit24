@@ -1,7 +1,4 @@
-import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
-import { TeamToken } from "@/models/teamToken";
+import { TeamToken } from "@/models/event1TeamToken";
 
 
 import jwt from "jsonwebtoken";
