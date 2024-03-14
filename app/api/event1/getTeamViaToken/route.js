@@ -1,11 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { TeamModel } from "@/models/TeamDetails";
-import { Users } from "@/models/user";
+import { NextResponse } from "next/server";
 
-import { getTokenDetails } from "../../../../utils/authuser";
-import { generateTokens } from "../../login/generateTokensTeam/route";
 
 export async function POST(req) {
   try {

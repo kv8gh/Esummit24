@@ -88,7 +88,7 @@ const MakeTeam = () => {
         );
       } else {
         // Team name is unique, so redirect to TeamCode page
-        router.push("/leaderDashboard");
+        router.push("/events/evetn1/leaderDashboard");
       }
       // else {
       //  // Team name is already used, display an error message

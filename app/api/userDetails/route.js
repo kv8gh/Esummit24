@@ -1,8 +1,7 @@
 import { connectMongoDB } from '@/lib/mongodb';
-import { Users } from '@/models/user.js';
+import { Users } from '@/models/user.model.js';
 import { getTokenDetails } from '@/utils/authuser.js';
 import { getToken } from 'next-auth/jwt';
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function POST(req) {
@@ -18,7 +17,7 @@ export async function POST(req) {
     console.log('regNo', regNo, mobNo);
 
     await Users.findByIdAndUpdate(userId, {
-      $set: { regNo: regNo, mobNo: Number(mobNo) },
+      $set: { regNo: regNo, mobNo: Number(mobNo), hasFilledDetails: true},
     });
 
     return NextResponse.json({

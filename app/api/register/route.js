@@ -1,7 +1,6 @@
 import { connectMongoDB } from "@/lib/mongodb";
+import { Users } from "@/models/user.model";
 import { NextResponse } from "next/server";
-import {Users} from "@/models/user";
-import {generateTokens} from "../login/generateTokensUser/route"
 
 
 export async function POST(req){

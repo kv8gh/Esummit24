@@ -1,12 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { Event2 } from "@/models/event2.model";
-import { generateTokens } from "../../../login/generateTokensTeam/route";
-import { getTokenDetails } from "@/utils/authuser";
 import { TeamToken } from "@/models/teamToken";
-import { Users } from "@/models/user";
+import { Users } from "@/models/user.model";
+import { getTokenDetails } from "@/utils/authuser";
 import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
 export async function POST(req, { params }) {
   try {

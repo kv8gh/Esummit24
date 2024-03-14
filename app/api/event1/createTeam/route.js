@@ -1,10 +1,10 @@
 import { connectMongoDB } from '@/lib/mongodb';
-import { Users } from '@/models/user';
+import { Users } from '@/models/user.model';
 import { NextResponse } from 'next/server';
 
-import { getTokenDetails } from '../../../../utils/authuser';
-import { getToken } from 'next-auth/jwt';
 import { Event1 } from '@/models/event1.model';
+import { getToken } from 'next-auth/jwt';
+import { getTokenDetails } from '../../../../utils/authuser';
 
 export async function POST(req) {
   try {
@@ -36,7 +36,7 @@ export async function POST(req) {
 
     await Users.findByIdAndUpdate(
       { _id: userId },
-      { $set: { teamId: newTeam._id } }
+      { $set: { teamId: newTeam._id, teamRole: 0 } }
     );
 
     return NextResponse.json({

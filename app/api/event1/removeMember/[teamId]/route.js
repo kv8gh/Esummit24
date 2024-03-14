@@ -1,13 +1,11 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { TeamModel } from "@/models/TeamDetails";
-import { Users } from "@/models/user";
+import { UsersDetails } from "@/models/Userdetails";
+import { NextResponse } from "next/server";
 
-import { getTokenDetails } from "../../../../../utils/authuser";
-import { generateTokens } from "../../../login/generateTokensTeam/route";
 import UserDetails from "@/components/userDetails";
 import { getToken } from "next-auth/jwt";
+import { getTokenDetails } from "../../../../../utils/authuser";
 
 export async function POST(req, { params }) {
   try {
