@@ -134,7 +134,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           */
           
           // non react friendly 
-          window.location.href = '/memberDashboard'; 
+          window.location.href = '/events/event1/memberDash'; 
 
         }, 1000);
       } else {
