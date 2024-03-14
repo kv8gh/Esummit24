@@ -42,17 +42,17 @@ export default function TeamCode() {
       .then((data) => {
         const user = data.user;
         console.log('user', user)
-        // if (user.hasFilledDetails === true) {
+        if (user.hasFilledDetails === true) {
           if (user.teamId !== null) {
             if (user.teamRole !== '0') {
-              // router.push('/memberDashboard');
+              router.push('/memberDashboard');
             }
           } else {
-            // router.push('/joinTeam');
+            router.push('/joinTeam');
           }
-        // } else {
-        //   router.push('/userDetails');
-        // }
+        } else {
+          router.push('/userDetails');
+        }
         fetch(`/api/event1/getTeamCode`, {
           content: 'application/json',
           method: 'GET',
