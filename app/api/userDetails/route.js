@@ -1,5 +1,5 @@
 import { connectMongoDB } from '@/lib/mongodb';
-import { Users } from '@/models/user.js';
+import { Users } from '@/models/user.model.js';
 import { getTokenDetails } from '@/utils/authuser.js';
 import { getToken } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';

@@ -1,10 +1,10 @@
 import { connectMongoDB } from '@/lib/mongodb';
-import { Users } from '@/models/user';
+import { Users } from '@/models/user.model';
 import { NextResponse } from 'next/server';
 
-import { getTokenDetails } from '../../../../utils/authuser';
-import { getToken } from 'next-auth/jwt';
 import { Event1 } from '@/models/event1.model';
+import { getToken } from 'next-auth/jwt';
+import { getTokenDetails } from '../../../../utils/authuser';
 
 export async function GET(req) {
     try {

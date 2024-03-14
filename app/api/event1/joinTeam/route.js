@@ -1,12 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
 import { TeamModel } from "@/models/TeamDetails";
-import { getTokenDetails } from "@/utils/authuser";
 import { TeamToken } from "@/models/teamToken";
-import { customAlphabet } from 'nanoid';
-import { Users } from "@/models/user";
-import { UsersDetails } from "@/models/Userdetails";
+import { Users } from "@/models/user.model";
+import { getTokenDetails } from "@/utils/authuser";
 import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
 
 
