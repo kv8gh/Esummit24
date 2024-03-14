@@ -1,10 +1,31 @@
-'use client'
+"use client";
 
-export default function Page(){
-    return(
-        <main>
-            <h1>Event 5</h1>
-            <button className="border border-black p-2">Register</button>
-        </main>
-    )
+import RegisterButton from "@/components/events/RegisterButton";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+export default function Page() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+
+  useEffect(() => {
+    if (router.isReady) {
+      if (status === "unauthenticated") {
+        //Checks if session is not ready and redirects to root.
+
+        router.push("/");
+      } else if (status === "authenticated") {
+        // toast.success("Logged In");
+        console.log(session);
+      }
+    }
+  }, [status, router]);
+  return (
+    <main>
+      <h1>Event 5</h1>
+      <RegisterButton event={5} token={session?.accessTokenBackend}/>
+    </main>
+  );
 }
