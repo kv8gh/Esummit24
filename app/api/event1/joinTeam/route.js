@@ -1,5 +1,5 @@
 import { connectMongoDB } from '@/lib/mongodb';
-import { Event1 } from '@/models/TeamDetails';
+import { Event1 } from '@/models/event1.model';
 import { event1TeamToken } from '@/models/event1TeamToken';
 import { Users } from '@/models/user.model';
 import { getTokenDetails } from '@/utils/authuser';
