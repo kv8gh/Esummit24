@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const RegisterButton = ({ event, token }) => {
-  const [userDetails, setUserDeatials] = useState({});
+  const [userDetails, setUserDeatials] = useState(null);
   const [eventRegistered, setEventRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -92,7 +92,7 @@ const RegisterButton = ({ event, token }) => {
           }
         }}
       >
-        {loading ? "loading..." : eventRegistered ? "Deregister" : "Register"}
+        {loading || !userDetails ? "loading..." : eventRegistered ? "Deregister" : "Register"}
       </button>
     </>
   );
