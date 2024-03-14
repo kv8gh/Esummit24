@@ -8,7 +8,7 @@ export  async function getTokenDetails(token) {
     console.log("fsdaghjgdshbfzhjdbvsjhbdfhjcbghjgfd")
     const tokenDetails = await jwtVerify(
       token,
-      new TextEncoder().encode(process.env.REFRESH_TOKEN_SECRET)
+      new TextEncoder().encode(process.env.ACCESS_TOKEN_SECRET)
     );
 
 

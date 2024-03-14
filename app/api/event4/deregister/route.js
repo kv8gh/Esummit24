@@ -1,4 +1,4 @@
-import { Users } from "@/models/user";
+import { Users } from "@/models/user.model";
 import { connectMongoDB } from "@/lib/mongodb";
 import { getTokenDetails } from "@/utils/authuser";
 import { NextResponse } from "next/server";
@@ -16,11 +16,14 @@ export async function GET(req, _) {
     if (!user) {
       return NextResponse.json({ message: "User not found." }, { status: 404 });
     }
-    const currentEventsArr = user.events;
+    let currentEventsArr = new Array();
+    if (user.events) {
+      currentEventsArr = user.events;
+    }
     if (!currentEventsArr.includes(4)) {
       return NextResponse.json(
         { message: "User has not registered for event4 previously." },
-        { status: 200 }
+        { status: 400 }
       );
     }
     for (let i = 0; i < currentEventsArr.length; i++) {
