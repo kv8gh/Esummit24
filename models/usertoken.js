@@ -22,5 +22,5 @@ const userTokenSchema = new Schema(
 );
 
 export const UserToken =
-  mongoose.model.UserToken ||
+  mongoose.models.UserToken ||
   mongoose.model('UserToken', userTokenSchema);
