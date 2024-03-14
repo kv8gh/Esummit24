@@ -1,17 +1,31 @@
+"use client"
 
+import SignInBtn from "@/components/SignInBtn";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
+  
+  const { status, data: session } = useSession();
 
-    <div className="flex flex-col">
-      <Link href="/events/event1"> Go to Event 1</Link>
-      <Link href="/events/event2"> Go to Event 2</Link>
-      <Link href="/events/event3"> Go to Event 3</Link>
-      <Link href="/events/event4"> Go to Event 4</Link>
-      <Link href="/events/event5"> Go to Event 5</Link>
-      <Link href="/events/event6"> Go to Event 6</Link>
-    </div>
+  const router = useRouter();
 
-  )
+  // if (status === "authenticated") {
+  //     router.push('/userDetails')
+  // } else {
+      return <div>
+        {/* main esuumit reg landing page */}
+        <SignInBtn />
+
+        {/* <button className="m-3"> User Details </button> */}
+        <Link href="/events/event1" className="m-3"> go to Event 1</Link>
+        <Link href="/events/event2" className="m-3"> go to Event 2</Link>
+        <Link href="/events/event3" className="m-3"> go to Event 3</Link>
+        <Link href="/events/event4" className="m-3"> go to Event 4</Link>
+        <Link href="/events/event5" className="m-3"> go to Event 5</Link>
+        <Link href="/events/event6" className="m-3"> go to Event 6</Link>
+
+      </div>
+  // }
 } 
