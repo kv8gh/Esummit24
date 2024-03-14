@@ -3,10 +3,9 @@ import { connectMongoDB } from "@/lib/mongodb";
 import { getTokenDetails } from "@/utils/authuser";
 import { NextResponse } from "next/server";
 
-export async function GET(req, res) {
+export async function GET(req, _) {
   try {
     await connectMongoDB();
-    const headers = req.headers;
     const auth = req.headers.get("authorization").split(" ")[1];
     const userId = await getTokenDetails(auth);
     if (!userId) {
@@ -20,18 +19,22 @@ export async function GET(req, res) {
     let currentEventsArr = new Array();
     if (user.events) {
       currentEventsArr = user.events;
-      if (currentEventsArr.includes(3)) {
-        return NextResponse.json(
-          { message: "User has already registered for the event3." },
-          { status: 200 }
-        );
+    }
+    if (!currentEventsArr.includes(3)) {
+      return NextResponse.json(
+        { message: "User has not registered for event3 previously." },
+        { status: 400 }
+      );
+    }
+    for (let i = 0; i < currentEventsArr.length; i++) {
+      if (currentEventsArr[i] === 3) {
+        currentEventsArr.splice(i, 1);
       }
-    } 
-    const modifiedEventsArr = [...currentEventsArr, 3];
-    user.events = modifiedEventsArr;
+    }
+    user.events = currentEventsArr;
     await user.save();
     return NextResponse.json(
-      { message: "User registered for event3 successfully." },
+      { message: "User deregistered for event3 successfully." },
       { status: 200 }
     );
   } catch (err) {
