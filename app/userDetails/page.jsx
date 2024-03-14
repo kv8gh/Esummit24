@@ -1,99 +1,150 @@
-"use client"
+"use client";
 
-import { useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function UserDetails() {
-   const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [regNo, setRegNo] = useState('');
-    const [mobNo, setMobNo] = useState('');
-    // const router = useRouter();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [regNo, setRegNo] = useState("");
+  const [mobNo, setMobNo] = useState("");
+  const [regError,setRegError] = useState(false);
+  // const router = useRouter();
 
-    const handleSubmit = async () => {
+  const handleFirstnameChange = (e) => {
+    const inputValue = e.target.value.replace(/[^a-zA-Z]/g, ""); // Allow only alphabets
+    setFirstName(inputValue);
+  };
 
-        console.log('button ')
-       
-        try {
-            const response = await fetch('/api/userDetails', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                Authorization:`Bearer ${session.accessTokenBackend}`,
-                'Access-Control-Allow-Origin':'*',
-                body: JSON.stringify({
-                    // firstName,
-                    // lastName,
-                    regNo,
-                    mobNo
-                })
-            });
+  const handleLastnameChange = (e) => {
+    const inputValue = e.target.value.replace(/[^a-zA-Z]/g, ""); // Allow only alphabets
+    setLastName(inputValue);
+  };
 
-            if (response.ok) {
-                console.log('Data saved successfully');
-         
-                // setFirstName('');
-                // setLastName('');
-                setRegNo('');
-                setMobNo('');
+  const handlePhoneNumber = (e) => {
+    const inputValue = e.target.value.replace(/[^0-9]/g, ""); // Allow Only numbers
+    setMobNo(inputValue.trim());
 
-                // router.push('/')
+    // if (isValidInput || input === '') {
+    //   setUserPhoneNumber(input);
+    //   setPhoneError(''); // Reset error state
+    // } else {
+    //   setPhoneError('Invalid Phone Number'); // Set error state
+    // }
+  };
 
-            } else {
-                console.error('Failed to save data:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error saving data:', error);
-        }
-    };
+  const handleRegNo = (e) => {
+    const inputValue =  e.target.value;
+    setRegNo(inputValue.toUpperCase());
 
-    return (
-        <div>
-            {/* <div>
-                <label htmlFor="firstName">First Name:</label>
-                <input
-                    type="text"
-                    id="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    style={{ color: 'black' }}
-                />
-            </div>
-            <div>
-                <label htmlFor="lastName">Last Name:</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    style={{ color: 'black' }}
-                />
-            </div> */}
-            <div>
-                <label htmlFor="regNo">Registration Number:</label>
-                <input
-                    type="text"
-                    id="regNo"
-                    value={regNo}
-                    onChange={(e) => setRegNo(e.target.value)}
-                    style={{ color: 'black' }}
-                />
-            </div>
-            <div>
-                <label htmlFor="mobNo">Mobile Number:</label>
-                <input
-                    type="text"
-                    id="mobNo"
-                    value={mobNo}
-                    onChange={(e) => setMobNo(e.target.value)}
-                    style={{ color: 'black' }}
-                />
-            </div>
-            <button onClick={()=>handleSubmit()}>Submit</button>
-        </div>
-    );
+    const isValidInput = /^[2][0-4][a-zA-Z]{3}\d{4}$/i.test(inputValue.trim());
+    if(isValidInput){
+        setRegError(false);
+    }else{
+      setRegError(true);
+    }
+  }
+  
+  const handleSubmit = () => {
+    console.log("button ");
+    console.log(firstName);
+    console.log(lastName);
+    if (!regError) {
+      console.log(regNo);
+    } else {
+      toast.error("Please enter a valid registration number");
+      return;
+    }
+    if (mobNo.length === 10) {
+      console.log(mobNo);
+    } else {
+      toast.error("Please enter a valid mobile number");
+      return;
+    }
+
+    toast.success('Your details are submitted');
+    // try {
+    //     const response = await fetch('/api/userDetails', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         Authorization:`Bearer ${session.accessTokenBackend}`,
+    //         'Access-Control-Allow-Origin':'*',
+    //         body: JSON.stringify({
+    //             // firstName,
+    //             // lastName,
+    //             regNo,
+    //             mobNo
+    //         })
+    //     });
+
+    //     if (response.ok) {
+    //         console.log('Data saved successfully');
+
+    //         // setFirstName('');
+    //         // setLastName('');
+    //         setRegNo('');
+    //         setMobNo('');
+
+    //         // router.push('/')
+
+    //     } else {
+    //         console.error('Failed to save data:', response.statusText);
+    //     }
+    // } catch (error) {
+    //     console.error('Error saving data:', error);
+    // }
+  };
+
+  return (
+    <div className="h-[100vh] flex flex-col items-center gap-6">
+      <div>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          value={firstName}
+          onChange={handleFirstnameChange}
+          style={{ color: "black" }}
+        />
+      </div>
+      <div>
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          value={lastName}
+          onChange={handleLastnameChange}
+          style={{ color: "black" }}
+        />
+      </div>
+      <div>
+        <label htmlFor="regNo">Registration Number:</label>
+        <input
+          type="text"
+          id="regNo"
+          value={regNo}
+          onChange={handleRegNo}
+          style={{ color: "black" }}
+        />
+      </div>
+      <div>
+        <label htmlFor="mobNo">Mobile Number:</label>
+        <input
+          type="text"
+          id="mobNo"
+          value={mobNo}
+          onChange={handlePhoneNumber}
+          style={{ color: "black" }}
+        />
+      </div>
+      <button onClick={() => handleSubmit()}>Submit</button>
+      <Toaster />
+    </div>
+  );
 }
