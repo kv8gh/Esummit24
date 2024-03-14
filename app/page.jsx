@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       {/* main esuumit reg landing page */}
-      <SignInBtn />
+      {/* <SignInBtn /> */}
 
       {/* <button className="m-3"> User Details </button> */}
       <div className="grid grid-cols-2">
