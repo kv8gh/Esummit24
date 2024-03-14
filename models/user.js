@@ -22,6 +22,10 @@ const userSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'TeamModel',
     },
+    hasFilledDetails: {
+      type: Boolean,
+      default: false,
+    },
   },
   { collection: 'Users' }
 );

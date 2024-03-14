@@ -6,7 +6,7 @@ import LoadingScreen from '@/Components/LoadingScreen';
 import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import boardImg from "public/assets/boardpics/image2.svg";
+import boardImg from "@/public/assets/boardpics/image2.svg";
 import { useEffect, useState } from 'react';
 
 const TeamPage = () => {
