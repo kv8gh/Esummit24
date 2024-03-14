@@ -4,6 +4,7 @@ export default function Page() {
     <br></br>
     info about Event1
     <br></br>
+    
     <button>
       Register
     </button>

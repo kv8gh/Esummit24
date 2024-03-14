@@ -17,7 +17,6 @@ const GOOGLE_AUTHORIZATION_URL =
   const gettokenfrombackend=async (user,account)=>{
     await connectMongoDB()
     const token=account.id_token;
-   // console.log("+++++",token);
     const email=user.email;
     //console.log("------",email);
     const ticket = await client.verifyIdToken({
@@ -84,7 +83,6 @@ const authOptions={
        
         
         async jwt({ token, user, account }) {
-            console.log("fdsbhajhfxdjjwrv",account)
             if (account && user) {
                 return {
                   idToken: account.id_token,
@@ -106,14 +104,9 @@ const authOptions={
             session.user = token.user;
             session.accessToken = token.accessToken;
             session.accessTokenBackend = token.accessTokenFromBackend;
-            console.log("Access token from backend",session.accessTokenBackend)
             session.error = token.error;
             session.idToken = token.idToken;
             if (token.accessTokenFromBackend) {
-                console.log("------------")
-                console.log(token.accessTokenFromBackend)
-                console.log("++++++++++")
-                console.log(session);
                 return session;
             }
                 return null;

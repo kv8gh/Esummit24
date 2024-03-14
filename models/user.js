@@ -6,28 +6,22 @@ const userSchema = new Schema(
     email: {
       type: String,
     },
-   
     name: {
       type: String,
     },
     regNo: {
       type: String,
     },
-    mobno: {
+    mobNo: {
       type: Number,
-  },
-    teamRole:{
-      type:Number, // 0 for leader, 1 for member
-  },
+    },
+    teamRole: {
+      type: Number, // 0 for leader, 1 for member
+    },
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "TeamModel",
-  },
-
-   
-   
-   
-  
+      ref: 'TeamModel',
+    },
   },
   { collection: 'Users' }
 );
