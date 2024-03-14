@@ -40,7 +40,7 @@ const TeamPage = () => {
 
   const getData = ()=>{
     setIsLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    fetch(`/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
@@ -73,7 +73,7 @@ const TeamPage = () => {
 
   const fetchDataFromBackend = () => {
     setIsLoading(true);
-    fetch('/team/getTeamDetails', {
+    fetch('/team/getTeamData', {
       content: "application/json",
       method: "GET",
       headers: {

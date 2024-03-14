@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 import { getTokenDetails } from '../../../../utils/authuser';
 import { getToken } from 'next-auth/jwt';
-import { Event2 } from '@/models/event2.model';
+import { Event1 } from '@/models/event1.model';
 
 export async function POST(req) {
   try {
@@ -20,7 +20,7 @@ export async function POST(req) {
     console.log(user);
 
     const { teamName } = await req.json();
-    const team = await Event2.findOne({ teamName: teamName });
+    const team = await Event1.findOne({ teamName: teamName });
     if (team) {
       return NextResponse.json({
         message: 'Team Already registered ',
@@ -28,7 +28,7 @@ export async function POST(req) {
       });
     }
 
-    const newTeam = await new Event2({
+    const newTeam = await new Event1({
       teamName: teamName,
       teamLeaderId: userId,
       members: [userId],

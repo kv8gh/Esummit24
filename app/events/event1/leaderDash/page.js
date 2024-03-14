@@ -1,14 +1,13 @@
-"use client"
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // import LeaderDashboardCards from "./LeaderDashboardCards";
-import Card from "@/Components/Card";
-import LoadingScreen from "@/Components/LoadingScreen";
-import Navbar from "@/Components/Navbar";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import boardImg from "public/assets/boardpics/image2.svg";
-import toast, { Toaster } from "react-hot-toast";
+import Card from '@/Components/Card';
+import LoadingScreen from '@/Components/LoadingScreen';
+import boardImg from '@/public/assets/boardpics/image2.svg';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -16,73 +15,73 @@ export default function LeaderDashboard() {
   const [deleted, setDeleted] = useState(false);
   const [remove, setRemove] = useState(false);
   const [id, setId] = useState();
-  const [teamId, setTeamId] = useState("");
-  const [teamLeaderId, setTeamLeaderId] = useState("");
-  const [teamName, setTeamName] = useState("");
+  const [teamId, setTeamId] = useState('');
+  const [teamLeaderId, setTeamLeaderId] = useState('');
+  const [teamName, setTeamName] = useState('');
   const [teamMembersData, setTeamMemberData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isQualified, setIsQualified] = useState(null);
-  // const router = useRouter();
-  // const {data: session} = useSession();
 
   const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (router.isReady) {
-      if (status === "unauthenticated") {
-        router.push("/");
-      } else if (status === "authenticated") {
-        getData();
-        fetchDataFromBackend();
-      }
+    console.log('uussee');
+    if (status === 'unauthenticated') {
+      router.push('/');
+    } else if (status === 'authenticated') {
+      console.log('aauutthh');
+      getData();
+      fetchDataFromBackend();
     }
   }, [status, router]);
 
   const getData = () => {
     setIsLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
-      content: "application/json",
-      method: "GET",
+    fetch(`/userDetails`, {
+      content: 'application/json',
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Origin': '*',
       },
     })
       .then((res) => res.json())
       .then((data) => {
         const user = data.user;
+        console.log('user');
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
           if (user.teamId == null) {
-            router.push("/makeTeam");
+            router.push('/makeTeam');
           } else {
-            if (user.teamRole == "1") {
-              router.push("/memberDashboard");
+            if (user.teamRole == '1') {
+              router.push('/memberDashboard');
             } else {
               setIsLoading(false);
             }
           }
         } else {
-          router.push("/userDetails");
+          router.push('/userDetails');
         }
       });
   };
 
   const fetchDataFromBackend = () => {
     setIsLoading(true);
-    fetch( "/team/getTeamDetails", {
-      content: "application/json",
-      method: "GET",
+    fetch('/api/event1/getTeamData', {
+      content: 'application/json',
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Origin': '*',
       },
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log('dataa', data);
         setTeamId(data.teamDetails._id);
         setTeamMemberData(data.teamDetails.members);
         setTeamName(data.teamDetails.teamName);
@@ -108,12 +107,12 @@ export default function LeaderDashboard() {
   function removeMember(id) {
     setRemove((prev) => !prev);
     setIsLoading(true);
-    fetch( "/team/remove/" + teamId, {
-      method: "POST",
+    fetch('/team/remove/' + teamId, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         userId: id,
@@ -126,34 +125,34 @@ export default function LeaderDashboard() {
       })
       .then(() => {
         setRemove(!remove);
-        toast.success("Member removed successfully.");
+        toast.success('Member removed successfully.');
       });
   }
 
   function deleteTeam() {
     if (teamMembersData.length !== 1) {
-      toast.error("First remove all other members.");
+      toast.error('First remove all other members.');
       return;
     }
     setIsLoading(true);
     setDeleted(!deleted);
-    fetch( "/team/deleteTeam/" + teamId, {
-      method: "POST",
+    fetch('/team/deleteTeam/' + teamId, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Origin': '*',
       },
     })
       .then((res) => res.json())
       .then((data) => {})
       .then(() => {
-        router.push("/makeTeam");
-        toast.success("Team Deleted.");
+        router.push('/makeTeam');
+        toast.success('Team Deleted.');
         setIsLoading(false);
       })
       .catch(() => {
-        toast.error("Something went wrong.");
+        toast.error('Something went wrong.');
         setIsLoading(false);
       });
   }
@@ -161,10 +160,8 @@ export default function LeaderDashboard() {
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
-      style={{ backgroundImage: "url(/assets/bg/spceBg.svg)" }}
-    >
+      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}>
       {isLoading && <LoadingScreen />}
-      <Navbar />
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">
@@ -173,29 +170,27 @@ export default function LeaderDashboard() {
 
         {teamMembersData.length < 3 && (
           <div
-            style={{ backgroundColor: "#141B2B" }}
-            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5"
-          >
+            style={{ backgroundColor: '#141B2B' }}
+            className="p-2 outline outline-slate-700 outline-2 rounded-md mb-5">
             <p className="text-white">
-              I understand that if the team I have created does not meet the
-              minimum requirement of 3 members per team before the end of
-              registrations, random members who&lsquo;ve registered would be
-              added to my team
+              I understand that if the team I have created does not
+              meet the minimum requirement of 3 members per team
+              before the end of registrations, random members
+              who&lsquo;ve registered would be added to my team
             </p>
           </div>
         )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
-        { isQualified &&
-         ( <button
+        {isQualified && (
+          <button
             className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            onClick={()=>{
-              router.push("/levels/level0")
-            }}
-          >
+            onClick={() => {
+              router.push('/levels/level0');
+            }}>
             Start FP 9.0
-          </button>)
-        }
+          </button>
+        )}
         {/* {teamMembersData.length < 4 && (
           <Link
             className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
@@ -208,18 +203,19 @@ export default function LeaderDashboard() {
         <div className="flex flex-wrap justify-center">
           {teamMembersData.map((el) => {
             return (
-              <Card
-                key={el.firstName}
-                name={el.firstName}
-                Role={el.teamRole === "0" ? "Leader" : "Member"}
-                regNo={el.regNo}
-                phone={el.mobno}
-                leader={true}
-                removeMember={() => {
-                  removeMember(el._id);
-                }}
-                imageSrc={boardImg}
-              />
+              <div key={el.firstName}>
+                <Card
+                  name={el.firstName}
+                  Role={el.teamRole === '0' ? 'Leader' : 'Member'}
+                  regNo={el.regNo}
+                  phone={el.mobno}
+                  leader={true}
+                  removeMember={() => {
+                    removeMember(el._id);
+                  }}
+                  imageSrc={boardImg}
+                />
+              </div>
             );
           })}
 
@@ -242,8 +238,8 @@ export default function LeaderDashboard() {
         {isQualified && (
           <div className="flex flex-col text-white items-center border p-2 rounded-xl my-2">
             <h1 className="text-lg font-bold">
-              Congratulations! Your team has been shortlisted for the main round
-              of Futurepreneurs 9.0.
+              Congratulations! Your team has been shortlisted for the
+              main round of Futurepreneurs 9.0.
             </h1>
             <h6 className="font-bold">See you at the event!</h6>
             <h6>Date : 19 January 2024</h6>

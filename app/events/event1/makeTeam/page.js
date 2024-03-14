@@ -28,7 +28,7 @@ const MakeTeam = () => {
   }, [status, router]);
 
   const getData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    fetch(`/userDetails`, {
       content: 'application/json',
       method: 'GET',
       headers: {
@@ -81,13 +81,14 @@ const MakeTeam = () => {
 
       if (data.message == 'User Already Part of a Team') {
         // show toast
+        console.log('already part of team')
       } else if (data.message == 'TeamName Already Exists') {
         toast.error(
           'Team name already used. Please choose a different name.'
         );
       } else {
         // Team name is unique, so redirect to TeamCode page
-        // router.push("/leaderDashboard");
+        router.push("/leaderDashboard");
       }
       // else {
       //  // Team name is already used, display an error message
@@ -103,12 +104,6 @@ const MakeTeam = () => {
     // Redirect to JoinTeam page
     router.push('/joinTeam');
   };
-  //useEffect(()=>{
-  //  if(!session){
-  //
-  //    router.push("/");
-  //  }
-  //},[])
 
   return (
     <div

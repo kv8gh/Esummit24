@@ -4,7 +4,7 @@ import Navbar from "@/Components/Navbar";
 import { AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import bg from "public/assets/bg/spceBg.svg";
 import copyIcon from "public/assets/icons/copyIcon.svg";
 import { useEffect, useState } from "react";
@@ -36,7 +36,7 @@ export default function TeamCode() {
   const [alertText, setAlertText] = useState(""); //Store the alert text to be displayed
 
   const getData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    fetch(`/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
