@@ -1,23 +1,18 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
 import { TeamModel } from "@/models/TeamDetails";
 import { Users } from "@/models/user";
+import { NextResponse } from "next/server";
 
-import {getTokenDetails} from "../../../../utils/authuser"
-import { generateTokens } from "../../login/generateTokensTeam/route";
+import { getTokenDetails } from "../../../../utils/authuser";
+import { getToken } from "next-auth/jwt";
 
 
 export async function GET(req){
     try{
         await connectMongoDB();
-        const headers = req.headers;
-        
 
-      
-
-        const auth = req.headers.get("authorization").split(' ')[1];
- 
+        const token = await getToken({req})
+        const auth = token ? token.accessTokenFromBackend : null
         let userId = await getTokenDetails(auth);
         console.log(userId)
      

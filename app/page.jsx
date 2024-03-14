@@ -1,13 +1,10 @@
 
 import Link from "next/link";
-import UserInfo from "../components/UserInfo";
 
 export default function Home() {
   return (
 
     <div className="flex flex-col">
-
-
       <Link href="/events/event1"> Go to Event 1</Link>
       <Link href="/events/event2"> Go to Event 2</Link>
       <Link href="/events/event3"> Go to Event 3</Link>
@@ -18,4 +15,3 @@ export default function Home() {
 
   )
 } 
-   

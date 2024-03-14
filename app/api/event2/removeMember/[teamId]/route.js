@@ -8,13 +8,16 @@ import { getTokenDetails } from "../../../../../utils/authuser";
 import { generateTokens } from "../../../login/generateTokensTeam/route";
 import UserDetails from "@/components/userDetails";
 import { TeamModel } from "@/models/TeamDetails";
+import { getToken } from "next-auth/jwt";
 
 export async function POST(req, { params }) {
   try {
     await connectMongoDB();
-    const headers = req.headers;
+    
+    const token = await getToken({req})
+    const auth = token ? token.accessTokenFromBackend : null
+    let userId = await getTokenDetails(auth);
 
-    const auth = req.headers.get("authorization").split(" ")[1];
 
     const teamId = params.teamId;
     const team = await Event2.findById({ _id: teamId });
@@ -26,7 +29,6 @@ export async function POST(req, { params }) {
       });
     }
 
-    let userId = await getTokenDetails(auth);
     const userToRemove = await UserDetails.findById({ _id: userId });
     if (!userToRemove) {
       return NextResponse.json({ message: "UserID is invalid", status: 200 });
