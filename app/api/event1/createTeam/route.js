@@ -36,7 +36,7 @@ export async function POST(req) {
 
     await Users.findByIdAndUpdate(
       { _id: userId },
-      { $set: { teamId: newTeam._id, teamRole: 0 } }
+      { $set: { event1TeamId: newTeam._id, event1TeamRole: 0 } }
     );
 
     return NextResponse.json({
