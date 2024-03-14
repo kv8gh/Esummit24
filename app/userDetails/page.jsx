@@ -12,7 +12,7 @@ export default function UserDetails() {
   const [lastName, setLastName] = useState("");
   const [regNo, setRegNo] = useState("");
   const [mobNo, setMobNo] = useState("");
-  const [regError,setRegError] = useState(false);
+  const [regError, setRegError] = useState(true);
   const router = useRouter();
 
   const handleFirstnameChange = (e) => {
@@ -38,74 +38,70 @@ export default function UserDetails() {
   };
 
   const handleRegNo = (e) => {
-    const inputValue =  e.target.value;
+    const inputValue = e.target.value;
     setRegNo(inputValue.toUpperCase());
 
-    const isValidInput = /^[2][0-4][a-zA-Z]{3}\d{4}$/i.test(inputValue.trim());
-    if(isValidInput){
-        setRegError(false);
-    }else{
+    const isValidInput = /^[2][0-3][a-zA-Z]{3}\d{4}$/i.test(regNo.trim());
+    if (isValidInput) {
+      setRegError(false);
+    } else {
       setRegError(true);
     }
-  }
-  
+  };
+
   const handleSubmit = async () => {
     console.log("button ");
     console.log(firstName);
     console.log(lastName);
-    
-    if(mobNo!=='' && regNo!==''){
-      if(mobNo.length===10){
-        if(!regError){
-          console.log(mobNo)
-          console.log(regNo)
+
+    if (mobNo !== "" && regNo !== "") {
+      if (mobNo.length === 10) {
+        if (!regError && regNo.length === 9) {
+          console.log(mobNo);
+          console.log(regNo);
           try {
-            const response = await fetch('/api/userDetails', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                Authorization:`Bearer ${session.accessTokenBackend}`,
-                'Access-Control-Allow-Origin':'*',
-                body: JSON.stringify({
-                    // firstName,
-                    // lastName,
-                    regNo,
-                    mobNo
-                })
+            const response = await fetch("/api/userDetails", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              Authorization: `Bearer ${session.accessTokenBackend}`,
+              "Access-Control-Allow-Origin": "*",
+              body: JSON.stringify({
+                // firstName,
+                // lastName,
+                regNo,
+                mobNo,
+              }),
             });
-    
+
             if (response.ok) {
-                console.log('Data saved successfully');
+              console.log("Data saved successfully");
 
-                // setFirstName('');
-                // setLastName('');
-                setRegNo('');
-                setMobNo('');
-                toast.success('Details submitted successfully')
-    
-                router.push('/')
-    
+              // setFirstName('');
+              // setLastName('');
+              setRegNo("");
+              setMobNo("");
+              toast.success("Details submitted successfully");
+
+              router.push("/");
             } else {
-                console.error('Failed to save data:', response.statusText);
-                toast.error('Failed to save data');
+              console.error("Failed to save data:", response.statusText);
+              toast.error("Failed to save data");
             }
-        } catch (error) {
-            console.error('Error saving data:', error);
+          } catch (error) {
+            console.error("Error saving data:", error);
             toast.error("Server Error");
+          }
+        } else {
+          toast.error("Please give valid registration number");
         }
-        }else{
-          toast.error('Please give valid registration number')
-        }
-      }else{
-        toast.error('Please give valid mobile number')
+      } else {
+        toast.error("Please give valid mobile number");
       }
-    }else{
-      toast.error("Please fill all the fields")
+    } else {
+      toast.error("Please fill all the fields");
     }
-
-    
-    
   };
 
   return (
