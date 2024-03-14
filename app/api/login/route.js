@@ -1,20 +1,26 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
-import { UsersDetails } from "@/models/Userdetails";
-import {generateTokens} from "./generateTokensUser/route.js"
 import { Users } from "@/models/user.js";
 import { getTokenDetails } from "@/utils/authuser.js";
+import { getToken } from "next-auth/jwt";
+import { headers } from 'next/headers';
+import { NextResponse } from "next/server";
 
 
 export async function POST(req){
     try{
         await connectMongoDB();
+        const headersList = headers()
+    // const authorization = headersList.get('authorization')
+        const token = await getToken({req})    
+        console.log('ff', token)
+
         const auth = req.headers.get("authorization").split(' ')[1];
  
         let userId = await getTokenDetails(auth);
         console.log(userId);
         const user=await Users.findById(userId);
         console.log(user);
+
         const {regNo,mobno}=await req.json();
         
         await Users.findByIdAndUpdate(userId,{$set:{regNo:regNo,mobno:mobno}})
@@ -26,7 +32,6 @@ export async function POST(req){
         //console.log(accessToken);
      
         return NextResponse.json({ message: "User Details entered ", status: 200 });
-
         
 
     }catch(error) {

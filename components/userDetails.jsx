@@ -1,27 +1,26 @@
 "use client"
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export default function UserDetails() {
    const { data: session, status } = useSession();
 
    // use session chl rha h baaki frondend me data kese lena h aap log dekh lo
-   console.log("vbndsbnchvbhvf",status);
    //console.log("fsdbhbsbvdfwad",data);
    // console.log("fgfcgcgfdfdsds",session);
-    console.log("+++++++--------");
-    console.log(session);
     //console.log(data);
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [regNo, setRegNo] = useState('');
     const [mobNo, setMobNo] = useState('');
+    // const router = useRouter();
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async () => {
+
+        console.log('button ')
        
-        event.preventDefault();
-        
         try {
             const response = await fetch('http://localhost:3001/api/login', {
                 method: 'POST',
@@ -37,7 +36,7 @@ export default function UserDetails() {
                     mobNo
                 })
             });
-            
+
             if (response.ok) {
                 console.log('Data saved successfully');
          
@@ -45,6 +44,9 @@ export default function UserDetails() {
                 setLastName('');
                 setRegNo('');
                 setMobNo('');
+
+                // router.push('/')
+
             } else {
                 console.error('Failed to save data:', response.statusText);
             }
@@ -54,7 +56,7 @@ export default function UserDetails() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <div>
             <div>
                 <label htmlFor="firstName">First Name:</label>
                 <input
@@ -95,7 +97,7 @@ export default function UserDetails() {
                     style={{ color: 'black' }}
                 />
             </div>
-            <button type="submit">Submit</button>
-        </form>
+            <button onClick={()=>handleSubmit()}>Submit</button>
+        </div>
     );
 }
