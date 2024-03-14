@@ -13,17 +13,16 @@ export async function GET(req) {
         const token = await getToken({ req });
         const auth = token ? token.accessTokenFromBackend : null;
         let userId = await getTokenDetails(auth);
-        console.log(userId);
+        console.log('dddddd', userId);
 
         const user = await Users.findById({ _id: userId });
 
         if (!user) {
             return NextResponse.json({ message: 'User Not found' });
         }
-
         console.log(user);
 
-        const teamId = user.teamId;
+        const teamId = user.event1TeamId;
         const team = await Event1.findById(teamId);
         if (!team) {
             return NextResponse.json({ message: 'Team is not there ' });

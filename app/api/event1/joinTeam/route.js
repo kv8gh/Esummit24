@@ -23,7 +23,7 @@ export async function POST(req,{params}){
         console.log(user)
 
 
-        if (user.teamId) {
+        if (user.event1TeamId) {
             return NextResponse.json({ message: "User is already a part of team" });
         }
        

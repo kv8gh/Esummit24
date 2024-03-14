@@ -24,13 +24,13 @@ export async function POST(req){
             });
         }
 
-        if (!user.teamId) {
+        if (!user.event1TeamId) {
             return NextResponse.json({
                 message: "User is not part of any team",
             });
         }
 
-        const team = await Event2.findById(user.teamId);
+        const team = await Event2.findById(user.event1TeamId);
         if (!team) {
             return NextResponse.json({
                 message: "Team not found",

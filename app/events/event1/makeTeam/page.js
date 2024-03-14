@@ -42,7 +42,7 @@ const MakeTeam = () => {
         const user = data.user;
         setShowConsent(user.consent);
         if (user.hasFilledDetails == true) {
-          if (user.teamId !== null) {
+          if (user.event1TeamId !== null) {
             const redirect =
               user.teamRole == '1'
                 ? '/memberDashboard'

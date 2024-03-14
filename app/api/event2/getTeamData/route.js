@@ -27,7 +27,7 @@ export async function POST(req){
         
         console.log(user);
 
-        const teamId = user.teamId;
+        const teamId = user.event1TeamId;
         const team = await Event2.findById(teamId);
         if (!team) {
             return NextResponse.json({ message: "Team is not there " });

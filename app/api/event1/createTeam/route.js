@@ -13,7 +13,7 @@ export async function POST(req) {
     const token = await getToken({ req });
     const auth = token ? token.accessTokenFromBackend : null;
     let userId = await getTokenDetails(auth);
-    console.log(userId);
+    console.log('ddddddd', userId);
 
     const user = await Users.findById({ _id: userId });
 

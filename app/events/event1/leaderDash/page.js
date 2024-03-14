@@ -37,6 +37,7 @@ export default function LeaderDashboard() {
   }, [status, router]);
 
   const getData = () => {
+    console.log('ssdd')
     setIsLoading(true);
     fetch(`/userDetails`, {
       content: 'application/json',
@@ -53,7 +54,7 @@ export default function LeaderDashboard() {
         console.log('user');
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
-          if (user.teamId == null) {
+          if (user.event1TeamId == null) {
             router.push('/makeTeam');
           } else {
             if (user.teamRole == '1') {
@@ -69,6 +70,7 @@ export default function LeaderDashboard() {
   };
 
   const fetchDataFromBackend = () => {
+    console.log('ffdd')
     setIsLoading(true);
     fetch('/api/event1/getTeamData', {
       content: 'application/json',
@@ -87,6 +89,7 @@ export default function LeaderDashboard() {
         setTeamName(data.teamDetails.teamName);
         setTeamLeaderId(data.teamDetails.teamLeaderId);
         setIsQualified(data.teamDetails.isQualified);
+
         setIsLoading(false);
       })
       .catch((err) => {});

@@ -1,11 +1,11 @@
 'use client';
 import Alert from '@/Components/Alert';
+import bg from '@/public/assets/bg/spceBg.svg';
+import copyIcon from '@/public/assets/icons/copyIcon.svg';
 import { AnimatePresence } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import bg from '@/public/assets/bg/spceBg.svg';
-import copyIcon from '@/public/assets/icons/copyIcon.svg';
 import { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import LoadingIcons from 'react-loading-icons';
@@ -43,7 +43,7 @@ export default function TeamCode() {
         const user = data.user;
         console.log('user', user)
         if (user.hasFilledDetails === true) {
-          if (user.teamId !== null) {
+          if (user.event1TeamId !== null) {
             if (user.teamRole !== '0') {
               router.push('/memberDashboard');
             }
