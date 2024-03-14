@@ -29,20 +29,20 @@ const userSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Event2',
     },
-    event3TeamRole: {
-      type: Number, // 0 for leader, 1 for member
-    },
-    event3TeamId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event3',
-    },
-    event4TeamRole: {
-      type: Number, // 0 for leader, 1 for member
-    },
-    event4TeamId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event4',
-    },
+    // event3TeamRole: {
+    //   type: Number, // 0 for leader, 1 for member
+    // },
+    // event3TeamId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Event3',
+    // },
+    // event4TeamRole: {
+    //   type: Number, // 0 for leader, 1 for member
+    // },
+    // event4TeamId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'Event4',
+    // },
 
     hasFilledDetails: {
       type: Boolean,

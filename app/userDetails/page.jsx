@@ -13,7 +13,7 @@ export default function UserDetails() {
   const [regNo, setRegNo] = useState("");
   const [mobNo, setMobNo] = useState("");
   const [regError,setRegError] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleFirstnameChange = (e) => {
     const inputValue = e.target.value.replace(/[^a-zA-Z]/g, ""); // Allow only alphabets
@@ -49,61 +49,68 @@ export default function UserDetails() {
     }
   }
   
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("button ");
     console.log(firstName);
     console.log(lastName);
-    if (!regError) {
-      console.log(regNo);
-    } else {
-      toast.error("Please enter a valid registration number");
-      return;
+    
+    if(mobNo!=='' && regNo!==''){
+      if(mobNo.length===10){
+        if(!regError){
+          console.log(mobNo)
+          console.log(regNo)
+          try {
+            const response = await fetch('/api/userDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                Authorization:`Bearer ${session.accessTokenBackend}`,
+                'Access-Control-Allow-Origin':'*',
+                body: JSON.stringify({
+                    // firstName,
+                    // lastName,
+                    regNo,
+                    mobNo
+                })
+            });
+    
+            if (response.ok) {
+                console.log('Data saved successfully');
+
+                // setFirstName('');
+                // setLastName('');
+                setRegNo('');
+                setMobNo('');
+                toast.success('Details submitted successfully')
+    
+                router.push('/')
+    
+            } else {
+                console.error('Failed to save data:', response.statusText);
+                toast.error('Failed to save data');
+            }
+        } catch (error) {
+            console.error('Error saving data:', error);
+            toast.error("Server Error");
+        }
+        }else{
+          toast.error('Please give valid registration number')
+        }
+      }else{
+        toast.error('Please give valid mobile number')
+      }
+    }else{
+      toast.error("Please fill all the fields")
     }
-    if (mobNo.length === 10) {
-      console.log(mobNo);
-    } else {
-      toast.error("Please enter a valid mobile number");
-      return;
-    }
 
-    toast.success('Your details are submitted');
-    // try {
-    //     const response = await fetch('/api/userDetails', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         Authorization:`Bearer ${session.accessTokenBackend}`,
-    //         'Access-Control-Allow-Origin':'*',
-    //         body: JSON.stringify({
-    //             // firstName,
-    //             // lastName,
-    //             regNo,
-    //             mobNo
-    //         })
-    //     });
-
-    //     if (response.ok) {
-    //         console.log('Data saved successfully');
-
-    //         // setFirstName('');
-    //         // setLastName('');
-    //         setRegNo('');
-    //         setMobNo('');
-
-    //         // router.push('/')
-
-    //     } else {
-    //         console.error('Failed to save data:', response.statusText);
-    //     }
-    // } catch (error) {
-    //     console.error('Error saving data:', error);
-    // }
+    
+    
   };
 
   return (
     <div className="h-[100vh] flex flex-col items-center gap-6">
-      <div>
+      {/* <div>
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
@@ -122,7 +129,7 @@ export default function UserDetails() {
           onChange={handleLastnameChange}
           style={{ color: "black" }}
         />
-      </div>
+      </div> */}
       <div>
         <label htmlFor="regNo">Registration Number:</label>
         <input
