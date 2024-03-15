@@ -110,7 +110,7 @@ const TeamPage = () => {
       console.log('data', data)
       if(data.error == false) {
         setIsLoading(true);
-        router.push('/makeTeam')
+        router.push('/events/event/makeTeam')
       }
     })
   }

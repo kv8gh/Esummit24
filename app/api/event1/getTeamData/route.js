@@ -24,6 +24,7 @@ export async function GET(req) {
 
         const teamId = user.event1TeamId;
         const team = await Event1.findById(teamId).populate('members');
+        console.log("^^^^^^",team);
         if (!team) {
             return NextResponse.json({ message: 'Team is not there ' });
         }
