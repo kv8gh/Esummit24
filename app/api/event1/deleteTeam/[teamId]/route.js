@@ -1,6 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { TeamModel } from "@/models/TeamDetails";
-import { TeamToken } from "@/models/event1TeamToken";
+import { Event1 } from "@/models/event1.model";
+
+import { event1TeamToken } from "@/models/event1TeamToken";
 import { Users } from "@/models/user.model";
 import { getTokenDetails } from "@/utils/authuser";
 import { getToken } from "next-auth/jwt";
@@ -19,7 +20,7 @@ export async function POST(req,{params}){
 
 
         const teamId=params.teamId;
-        const team = await TeamModel.findById({ _id: teamId });
+        const team = await Event1.findById({ _id: teamId });
         console.log(team);
         
         if (!team) {
@@ -38,17 +39,17 @@ export async function POST(req,{params}){
             return NextResponse.json({ message: "Team Size more than 1", status: 200 });
         }
 
-        await TeamModel.findOneAndDelete({
+        await Event1.findOneAndDelete({
             _id: teamId,
         });
     
-        await TeamToken.findOneAndDelete({
+        await event1TeamToken.findOneAndDelete({
             teamId: teamId,
         });
     
         await Users.findByIdAndUpdate(
             { _id: userId },
-            { teamId: null, teamRole: null }
+            { event1TeamId: null, event1TeamRole: null }
         );
     
 
