@@ -27,7 +27,7 @@ export async function GET(req) {
         if (!team) {
             return NextResponse.json({ message: 'Team is not there ' });
         }
-
+    
         return NextResponse.json({
             message: 'Team Details sent. ',
             status: 200,

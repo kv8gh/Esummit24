@@ -7,14 +7,13 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     await connectMongoDB();
-    const { code } = await req.json();
-    console.log(code);
-    const team = await event1TeamToken.findOne({ teamCode: code });
-    const teamDetails = await Event1.findById(team.teamId);
-
+    const { teamCode } = await req.json();
+    console.log(teamCode);
+    const team = await event1TeamToken.findOne({ token: teamCode });
     if (!team) {
       return NextResponse.json({ error: "Team not found" });
     }
+    const teamDetails = await Event1.findById(team.teamId);
 
     return NextResponse.json({
       message: "Team Details sent. ",

@@ -13,7 +13,7 @@ export async function GET(req, { params }) {
     const token = await getToken({req})
     const auth = token ? token.accessTokenFromBackend : null
     let userId = await getTokenDetails(auth);
-    
+    console.log("rrrrrrfrrrrrr",userId);
     // console.log(userId);
     const team = await Event1.findOne({ teamLeaderId: userId });
     if (!team) {

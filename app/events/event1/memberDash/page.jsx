@@ -26,14 +26,12 @@ const TeamPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.isReady) {
-      
-      if (status === "unauthenticated") {
-        router.push("/")
-      } else if(status === "authenticated"){
-        getData()
-        fetchDataFromBackend();
-      }
+    if (status === "unauthenticated") {
+      router.push("/")
+    } else if(status === "authenticated"){
+      console.log('asdf')
+      getData()
+      fetchDataFromBackend();
     }
   }, [status, router])
 
@@ -52,9 +50,10 @@ const TeamPage = () => {
       .then((data) => {
         
         const user = data.user;
+        console.log('user;;', user)
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId !== null) {
-            // router.push("/");
+            router.push("/");
             if (user.event1TeamRole === '0') {
               router.push('/leaderDashboard')
             } else {
@@ -72,7 +71,7 @@ const TeamPage = () => {
 
   const fetchDataFromBackend = () => {
     setIsLoading(true);
-    fetch('/team/getTeamData', {
+    fetch('/api/event1/getTeamData', {
       content: "application/json",
       method: "GET",
       headers: {
@@ -98,7 +97,7 @@ const TeamPage = () => {
 
   const leaveTeam = () => {
     setIsLoading(true);
-    fetch( '/user/leaveTeam/'+teamId, {
+    fetch( '/api/event1/leaveTeam/', {
       content: "application/json",
       method: "POST",
       headers: {
@@ -108,6 +107,7 @@ const TeamPage = () => {
       },
     }).then(data=>data.json())
     .then(data=>{
+      console.log('data', data)
       if(data.error == false) {
         setIsLoading(true);
         router.push('/makeTeam')
@@ -138,7 +138,7 @@ const TeamPage = () => {
         <div className="flex flex-wrap justify-center">
           {
             teamMembersData.map(el=>{
-              return <Card name={el.firstName} key={el.firstName} regNo={el.regNo} Role={el.event1TeamRole==='0'?'Leader':'Member'} leader={false} phone={el.mobno} imageSrc={boardImg} />
+              return <Card name={el.name} key={el.name} regNo={el.regNo} Role={el.event1TeamRole===0?'Leader':'Member'} leader={false} phone={el.mobNo} imageSrc={boardImg} />
             })
           }
         </div>
