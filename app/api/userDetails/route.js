@@ -43,6 +43,7 @@ export async function GET(req) {
     let userId = await getTokenDetails(auth);
 
     const user = await Users.findById(userId);
+    console.log('user', user)
 
     return NextResponse.json({
       user: user,
