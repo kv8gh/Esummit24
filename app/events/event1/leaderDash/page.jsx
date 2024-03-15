@@ -110,10 +110,10 @@ export default function LeaderDashboard() {
     setPopUpForDelete(!popUpForDelete);
   }
   function removeMember(id) {
-    console.log("||||||",teamId);
     setRemove((prev) => !prev);
+    console.log('id', id);
     setIsLoading(true);
-    fetch(`/api/event1/removeMember/${teamId}`, {
+    fetch(`/api/event1/removeMember/${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
