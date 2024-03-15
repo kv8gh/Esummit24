@@ -1,9 +1,5 @@
-import { connectMongoDB } from "@/lib/mongodb";
-import { NextResponse } from "next/server";
 import { UserToken } from "@/models/usertoken";
 import jwt from "jsonwebtoken";
-
-
 
 export async function generateTokens(user){
     try {
