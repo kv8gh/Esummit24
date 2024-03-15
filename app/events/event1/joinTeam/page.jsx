@@ -158,7 +158,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
     // tailwind
     <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
       <div className='flex flex-col justify-center items-center h-screen'>
-      <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-evenly text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
+      <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-evenly text-white rounded-lg min-w-fit min-h-[70vh]">
       <h1 className="text-[2.8rem] font-bold m-2 mb-4 text-center">
         Join a Team
       </h1>

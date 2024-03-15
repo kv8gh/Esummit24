@@ -94,7 +94,7 @@ export default function LeaderDashboard() {
 
         setIsLoading(false);
       })
-      .catch((err) => {});
+      .catch((err) => {console.log('err', err)});
   };
 
   function toggleDelete() {
