@@ -36,8 +36,10 @@ const TeamPage = () => {
   }, [status, router])
 
   const getData = ()=>{
+    console.log('asdff')
     setIsLoading(true);
-    fetch(`/userDetails`, {
+    
+    fetch(`/api/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
@@ -48,24 +50,25 @@ const TeamPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        
+        console.log('user;;', data)
         const user = data.user;
-        console.log('user;;', user)
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId !== null) {
-            router.push("/");
-            if (user.event1TeamRole === '0') {
-              router.push('/leaderDashboard')
+            // router.push("/");
+            if (user.event1TeamRole === 0) {
+              router.push('/events/event1/leaderDashboard')
             } else {
               setIsLoading(false);
             }
           } else {
-            router.push('/makeTeam')
+            router.push('/events/event1/makeTeam')
           }
         } else{
           router.push('/userDetails');
         }
-        
+      })
+      .catch((err) => {
+        console.log("err", err);
       })
   }
 
@@ -110,7 +113,7 @@ const TeamPage = () => {
       console.log('data', data)
       if(data.error == false) {
         setIsLoading(true);
-        router.push('/makeTeam')
+        router.push('/events/event/makeTeam')
       }
     })
   }

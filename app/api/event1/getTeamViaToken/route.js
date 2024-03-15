@@ -10,8 +10,9 @@ export async function POST(req) {
     const { teamCode } = await req.json();
     console.log(teamCode);
     const team = await event1TeamToken.findOne({ token: teamCode });
+   
     if (!team) {
-      return NextResponse.json({ error: "Team not found" });
+      return NextResponse.json({ error: "Token not found" });
     }
     const teamDetails = await Event1.findById(team.teamId);
 

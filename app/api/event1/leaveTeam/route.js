@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 import { getToken } from 'next-auth/jwt';
 import { getTokenDetails } from '../../../../utils/authuser';
-
+///
 export async function POST(req) {
     try {
         await connectMongoDB();
@@ -16,6 +16,7 @@ export async function POST(req) {
 
         console.log(userId);
         const user = await Users.findById(userId);
+        console.log("*********",user);
 
         if (user.event1TeamRole != 1) {
             return NextResponse.json({
