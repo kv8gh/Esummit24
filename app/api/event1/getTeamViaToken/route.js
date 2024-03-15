@@ -9,12 +9,11 @@ export async function POST(req) {
     await connectMongoDB();
     const { teamCode } = await req.json();
     console.log(teamCode);
-    const team = await event1TeamToken.findOne({ teamCode: teamCode });
+    const team = await event1TeamToken.findOne({ token: teamCode });
     if (!team) {
       return NextResponse.json({ error: "Team not found" });
     }
     const teamDetails = await Event1.findById(team.teamId);
-
 
     return NextResponse.json({
       message: "Team Details sent. ",

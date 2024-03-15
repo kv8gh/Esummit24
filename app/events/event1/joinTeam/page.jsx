@@ -1,6 +1,5 @@
 'use client'
 
-import Navbar from '@/Components/Navbar';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -49,7 +48,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         if (user.hasFilledDetails == false) {
           router.push('/');
         } else {
-          if (user.teamId !== null) {
+          if (user.event1TeamId !== null) {
             const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
             router.push(redirect);
           }
@@ -158,7 +157,6 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   return (
     // tailwind
     <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
-      <Navbar />
       <div className='flex flex-col justify-center items-center h-screen'>
       <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-evenly text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12">
       <h1 className="text-[2.8rem] font-bold m-2 mb-4 text-center">
