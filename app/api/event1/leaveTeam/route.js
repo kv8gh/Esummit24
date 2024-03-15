@@ -14,11 +14,11 @@ export async function POST(req) {
         const auth = token ? token.accessTokenFromBackend : null;
         let userId = await getTokenDetails(auth);
 
-        console.log(userId);
         const user = await Users.findById(userId);
-        console.log("*********",user);
 
-        if (user.event1TeamRole != 1) {
+        console.log("*********", user);
+
+        if (user.event1TeamRole !== 1) {
             return NextResponse.json({
                 message: 'Leader cant leave the team',
             });
@@ -37,7 +37,9 @@ export async function POST(req) {
             });
         }
 
+
         team.members.pull(userId);
+
         await team.save();
 
         await Users.findByIdAndUpdate(userId, {
@@ -49,6 +51,7 @@ export async function POST(req) {
             status: 200,
             teamDetails: team,
         });
+
     } catch (error) {
         console.error('An error occurred:', error);
         return NextResponse.json({

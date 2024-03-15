@@ -59,8 +59,8 @@ export default function LeaderDashboard() {
           if (user.event1TeamId == null) {
             router.push('/makeTeam');
           } else {
-            if (user.event1TeamRole == '1') {
-              router.push('/memberDashboard');
+            if (user.event1TeamRole == 1) {
+              router.push('/memberDash');
             } else {
               setIsLoading(false);
             }
@@ -94,7 +94,7 @@ export default function LeaderDashboard() {
 
         setIsLoading(false);
       })
-      .catch((err) => {});
+      .catch((err) => {console.log('err', err)});
   };
 
   function toggleDelete() {

@@ -13,7 +13,6 @@ export async function GET(req) {
         const token = await getToken({ req });
         const auth = token ? token.accessTokenFromBackend : null;
         let userId = await getTokenDetails(auth);
-        console.log('uuuuuuuuuuuuuuuuuuuuuuuu', userId);
 
         const user = await Users.findById({ _id: userId });
         console.log('gggggggggggggggggggggggg',user);
@@ -27,7 +26,7 @@ export async function GET(req) {
         const team = await Event1.findById(teamId).populate('members');
         console.log("^^^^^^",team);
         if (!team) {
-            return NextResponse.json({ message: 'Team is not there ' });
+            return NextResponse.json({ message: 'Team is not there' }, {status:201});
         }
     
         return NextResponse.json({

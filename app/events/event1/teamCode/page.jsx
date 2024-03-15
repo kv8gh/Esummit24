@@ -104,7 +104,7 @@ export default function TeamCode() {
           }}>
           Click here to copy
           <div>
-            <Image src={copyIcon} className="h-full p-2" />
+            <Image alt="copyIcon" src={copyIcon} className="h-full p-2" />
           </div>
         </div>
       </div>
