@@ -152,7 +152,7 @@ export default function UserDetails() {
           style={{ color: "black" }}
         />
       </div>
-      <button onClick={() => handleSubmit()}>Submit</button>
+      <button onClick={() => handleSubmit()} className="bg-blue border border-black rounded-lg p-3">Submit</button>
       <Toaster />
     </div>
   );
