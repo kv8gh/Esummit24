@@ -110,9 +110,10 @@ export default function LeaderDashboard() {
     setPopUpForDelete(!popUpForDelete);
   }
   function removeMember(id) {
+    console.log("||||||",teamId);
     setRemove((prev) => !prev);
     setIsLoading(true);
-    fetch('/team/remove/' + teamId, {
+    fetch(`/api/event1/removeMember/${teamId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ export default function LeaderDashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        location.reload();
+        //location.reload();
         setIsLoading(false);
       })
       .then(() => {
@@ -141,7 +142,7 @@ export default function LeaderDashboard() {
     }
     setIsLoading(true);
     setDeleted(!deleted);
-    fetch('/team/deleteTeam/' + teamId, {
+    fetch(`/api/event1/deleteTeam/${teamId}` , {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -152,7 +153,7 @@ export default function LeaderDashboard() {
       .then((res) => res.json())
       .then((data) => {})
       .then(() => {
-        router.push('/makeTeam');
+        router.push('/events/event1/makeTeam');
         toast.success('Team Deleted.');
         setIsLoading(false);
       })

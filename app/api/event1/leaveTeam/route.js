@@ -1,14 +1,15 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { TeamModel } from "@/models/TeamDetails";
 import { Users } from "@/models/user.model";
 import { NextResponse } from "next/server";
 
 import { getToken } from "next-auth/jwt";
 import { getTokenDetails } from "../../../../utils/authuser";
+import { Event1 } from "@/models/event1.model";
 
 
 export async function POST(req){
     try{
+        console.log("yha aa rha h bhiiiiiiii")
         await connectMongoDB();
 
         const token = await getToken({req})
@@ -17,6 +18,7 @@ export async function POST(req){
 
         console.log(userId);
         const user = await Users.findById(userId);
+        console.log("*********",user);
 
         if (user.event1TeamRole != "1") {
             return NextResponse.json({
@@ -30,7 +32,9 @@ export async function POST(req){
             });
         }
 
-        const team = await TeamModel.findById(user.event1TeamId);
+        const team = await Event1.findById(user.event1TeamId);
+
+        console.log("teamId++++",team)
         if (!team) {
             return NextResponse.json({
                 message: "Team not found",
@@ -40,7 +44,8 @@ export async function POST(req){
         team.members.pull(userId);
         await team.save();
 
-        await Users.findByIdAndUpdate(userId, { $set: { teamId: null, teamRole:-1 } });
+        await Users.findByIdAndUpdate(userId, { $set: { event1TeamId: null, event1TeamRole:-1 } });
+        console.log("teamId++++@@@@@@@@@")
 
         
 

@@ -97,7 +97,7 @@ const TeamPage = () => {
 
   const leaveTeam = () => {
     setIsLoading(true);
-    fetch( '/api/event1/leaveTeam/'+teamId, {
+    fetch( '/api/event1/leaveTeam', {
       content: "application/json",
       method: "POST",
       headers: {

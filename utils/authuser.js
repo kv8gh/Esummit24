@@ -18,7 +18,7 @@ export  async function getTokenDetails(token) {
    console.log("+++++++",userId)
 
     const user = await Users.findById(userId);
-
+    console.log("\\\\",user);
    
     return userId;
 
