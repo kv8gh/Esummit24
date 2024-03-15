@@ -22,7 +22,7 @@ export default function UserDetails() {
         console.log('button ')
        
         try {
-            const response = await fetch('http://localhost:3001/api/login', {
+            const response = await fetch('/api/userDetails', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

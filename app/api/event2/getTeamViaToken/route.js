@@ -1,22 +1,25 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import { Event2 } from "@/models/event2.model";
+import { Event1 } from "@/models/event1.model";
+import { event1TeamToken } from "@/models/event1TeamToken";
 import { NextResponse } from "next/server";
 
 
 export async function POST(req) {
   try {
     await connectMongoDB();
-    const { code } = await req.json();
-    console.log(code);
-    const team = await Event2.findOne({ teamCode: code });
+    const { teamCode } = await req.json();
+    console.log(teamCode);
+    const team = await event1TeamToken.findOne({ token: teamCode });
+   
     if (!team) {
-      return NextResponse.json({ error: "Team not found" });
+      return NextResponse.json({ error: "Token not found" });
     }
+    const teamDetails = await Event1.findById(team.teamId);
 
     return NextResponse.json({
       message: "Team Details sent. ",
       status: 200,
-      teamDetails: team,
+      teamDetails: teamDetails,
     });
   } catch (error) {
     console.error("An error occurred:", error);
