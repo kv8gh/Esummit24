@@ -1,7 +1,7 @@
 "use client";
 
 // import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 // export default function Navbar() {
 //   const { status } = useSession();
@@ -24,10 +24,10 @@ import { signIn, signOut, useSession } from "next-auth/react";
 // }
 
 // import { useSession } from 'next-auth/react';
+import logo from "@/public/assets/logos/FP LOGO.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import logo from "@/public/assets/logos/FP LOGO.svg";
 import { useEffect, useState } from "react";
 import SignInBtn from "./SignInBtn";
 // import LoginButton from './Landing Page/Loginbutton';
@@ -65,9 +65,9 @@ const Navbar = () => {
       .then((data) => {
         const user = data.user;
         if (user.teamRole === "0") {
-          setDashboardLink("/leaderDashboard");
+          setDashboardLink("/leaderDash");
         } else {
-          setDashboardLink("/memberDashboard");
+          setDashboardLink("/memberDash");
         }
       })
       .catch((error) => {});
@@ -113,7 +113,7 @@ const Navbar = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/memberDashboard">Dashboard</Link>
+              <Link href="/memberDash">Dashboard</Link>
             </li>
             <li>
               <button className="bg-red-500 text-white px-4 py-2 rounded-md"

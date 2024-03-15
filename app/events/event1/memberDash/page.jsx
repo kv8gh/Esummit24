@@ -29,14 +29,12 @@ const TeamPage = () => {
     if (status === "unauthenticated") {
       router.push("/")
     } else if(status === "authenticated"){
-      console.log('asdf')
       getData()
       fetchDataFromBackend();
     }
   }, [status, router])
 
   const getData = ()=>{
-    console.log('asdff')
     setIsLoading(true);
     
     fetch(`/api/userDetails`, {
@@ -50,13 +48,13 @@ const TeamPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('user;;', data)
+        console.log('user;;;;;;', data)
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId) {
             // router.push("/");
             if (user.event1TeamRole === 0) {
-              router.push('/events/event1/leaderDashboard')
+              router.push('/events/event1/leaderDash')
             } else {
               setIsLoading(false);
             }
@@ -99,7 +97,7 @@ const TeamPage = () => {
   };
 
   const leaveTeam = () => {
-    setIsLoading(true);
+    // setIsLoading(true);
     fetch( '/api/event1/leaveTeam/', {
       content: "application/json",
       method: "POST",
@@ -112,8 +110,9 @@ const TeamPage = () => {
     .then(data=>{
       console.log('data', data)
       if(data.status == 200) {
-        setIsLoading(true);
-        router.push('/events/event1/makeTeam')
+        console.log('sending to makeTeam')
+        // setIsLoading(true);
+        // router.push('/events/event1/makeTeam')
       }
     })
   }

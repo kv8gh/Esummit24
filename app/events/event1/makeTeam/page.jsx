@@ -44,9 +44,9 @@ const MakeTeam = () => {
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId !== null) {
             const redirect =
-              user.event1TeamRole == '1'
-                ? '/memberDashboard'
-                : '/leaderDashboard';
+              user.event1TeamRole == 1
+                ? '/memberDash'
+                : '/leaderDash';
             router.push(redirect);
           } else {
             router.push("/events/event1/makeTeam");
