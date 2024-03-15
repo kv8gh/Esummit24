@@ -97,7 +97,7 @@ const TeamPage = () => {
 
   const leaveTeam = () => {
     setIsLoading(true);
-    fetch( '/api/event1/leaveTeam/'+teamId, {
+    fetch( '/api/event1/leaveTeam/', {
       content: "application/json",
       method: "POST",
       headers: {
@@ -107,6 +107,7 @@ const TeamPage = () => {
       },
     }).then(data=>data.json())
     .then(data=>{
+      console.log('data', data)
       if(data.error == false) {
         setIsLoading(true);
         router.push('/makeTeam')
