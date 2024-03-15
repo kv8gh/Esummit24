@@ -15,7 +15,6 @@ export  async function getTokenDetails(token) {
 
 
     const userId = tokenDetails.payload._id;
-   console.log("+++++++",userId)
 
     const user = await Users.findById(userId);
     console.log("\\\\",user);

@@ -8,7 +8,6 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req, { params }) {
     try {
-        console.log("++++++++++++++++++++++++++++++++++++++++11111122334");
         await connectMongoDB();
 
         const token = await getToken({ req });
@@ -31,7 +30,6 @@ export async function POST(req, { params }) {
         const { teamCode } = await req.json();
         console.log('==========',teamCode);
         const team = await Event1.findOne({ teamCode: teamCode });
-        console.log("+++++",team);
         //check if user is not a part of any team
         if (!team) {
             return NextResponse.json({ error: 'Team not found' });

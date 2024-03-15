@@ -53,7 +53,7 @@ const TeamPage = () => {
         console.log('user;;', data)
         const user = data.user;
         if (user.hasFilledDetails == true) {
-          if (user.event1TeamId !== null) {
+          if (user.event1TeamId) {
             // router.push("/");
             if (user.event1TeamRole === 0) {
               router.push('/events/event1/leaderDashboard')
@@ -111,9 +111,9 @@ const TeamPage = () => {
     }).then(data=>data.json())
     .then(data=>{
       console.log('data', data)
-      if(data.error == false) {
+      if(data.status == 200) {
         setIsLoading(true);
-        router.push('/events/event/makeTeam')
+        router.push('/events/event1/makeTeam')
       }
     })
   }
