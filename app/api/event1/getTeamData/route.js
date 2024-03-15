@@ -15,6 +15,7 @@ export async function GET(req) {
         let userId = await getTokenDetails(auth);
 
         const user = await Users.findById({ _id: userId });
+        console.log('gggggggggggggggggggggggg',user);
 
         if (!user) {
             return NextResponse.json({ message: 'User Not found' });
