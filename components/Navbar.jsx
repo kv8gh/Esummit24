@@ -88,6 +88,7 @@ const Navbar = () => {
       <div className="hidden gap-3 sm:gap-10 items-center font-medium md:flex">
         <Link href="/">Home</Link>
         <Link href={dashboardLink}>Dashboard</Link>
+        <button className="bg-red-500 text-white px-4 py-2 rounded-md">Back</button>
         <SignInBtn />
         {/* <LoginButton /> */}
       </div>
@@ -114,6 +115,7 @@ const Navbar = () => {
               <Link href="/memberDashboard">Dashboard</Link>
             </li>
             <li>
+              <button className="bg-red-500 text-white px-4 py-2 rounded-md">Back</button>
               <SignInBtn />
               {/* <LoginButton /> */}
             </li>
