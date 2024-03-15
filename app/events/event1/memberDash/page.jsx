@@ -54,8 +54,8 @@ const TeamPage = () => {
         const user = data.user;
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId !== null) {
-            router.push("/");
-            if (user.event1TeamRole === '0') {
+            // router.push("/");
+            if (user.event1TeamRole === 0) {
               router.push('/events/event1/leaderDashboard')
             } else {
               setIsLoading(false);
