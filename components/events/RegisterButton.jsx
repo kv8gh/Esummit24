@@ -7,7 +7,6 @@ const RegisterButton = ({ event, token }) => {
   const [eventRegistered, setEventRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-   
     fetch("/api/userDetails", {
       content: "application/json",
       method: "GET",
@@ -19,12 +18,8 @@ const RegisterButton = ({ event, token }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Getting data")
         setUserDeatials(data);
-        console.log(data.user.events);
         if (data.user.events) {
-            console.log("Current array == \n\n")
-            console.log(data.user.events)
           if (data.user.events.includes(event)) {
             setEventRegistered(true);
           }
@@ -92,7 +87,11 @@ const RegisterButton = ({ event, token }) => {
           }
         }}
       >
-        {loading || !userDetails ? "loading..." : eventRegistered ? "Deregister" : "Register"}
+        {loading || !userDetails
+          ? "loading..."
+          : eventRegistered
+          ? "Deregister"
+          : "Register"}
       </button>
     </>
   );
