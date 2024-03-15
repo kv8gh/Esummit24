@@ -97,7 +97,7 @@ const TeamPage = () => {
   };
 
   const leaveTeam = () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     fetch( '/api/event1/leaveTeam/', {
       content: "application/json",
       method: "POST",
@@ -111,8 +111,8 @@ const TeamPage = () => {
       console.log('data', data)
       if(data.status == 200) {
         console.log('sending to makeTeam')
-        // setIsLoading(true);
-        // router.push('/events/event1/makeTeam')
+        setIsLoading(false);
+        router.push('/events/event1/makeTeam')
       }
     })
   }
