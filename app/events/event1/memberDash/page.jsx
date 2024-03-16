@@ -29,12 +29,12 @@ const TeamPage = () => {
     if (status === "unauthenticated") {
       router.push("/")
     } else if(status === "authenticated"){
-      getData()
+      getUserData()
       fetchDataFromBackend();
     }
   }, [status, router])
 
-  const getData = ()=>{
+  const getUserData = ()=>{
     setIsLoading(true);
     
     fetch(`/api/userDetails`, {

@@ -21,13 +21,13 @@ const MakeTeam = () => {
         router.push('/');
       } else if (status === 'authenticated') {
         // toast.success("Logged In");
-        getData();
+        getUserData();
         localStorage.setItem('asdf', 'asdf');
       }
     }
   }, [status, router]);
 
-  const getData = () => {
+  const getUserData = () => {
     fetch(`/userDetails`, {
       content: 'application/json',
       method: 'GET',

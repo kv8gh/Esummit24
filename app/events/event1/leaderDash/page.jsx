@@ -33,12 +33,12 @@ export default function LeaderDashboard() {
       router.push('/');
     } else if (status === 'authenticated') {
       console.log('aauutthh');
-      getData();
+      getUserData();
       fetchDataFromBackend();
     }
   }, [status, router]);
 
-  const getData = () => {
+  const getUserData = () => {
     console.log('ssdd')
     setIsLoading(true);
     fetch(`/api/userDetails`, {

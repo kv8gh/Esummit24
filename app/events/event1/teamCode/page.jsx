@@ -18,7 +18,7 @@ export default function TeamCode() {
     if (status === 'unauthenticated') {
       // router.push("/")
     } else if (status === 'authenticated') {
-      getData();
+      getUserData();
     }
   }, [status, router]);
 
@@ -28,7 +28,7 @@ export default function TeamCode() {
   const [showAlert, setShowAlert] = useState(false); //To show the bool to display the alert.
   const [alertText, setAlertText] = useState(''); //Store the alert text to be displayed
 
-  const getData = () => {
+  const getUserData = () => {
     fetch(`/api/userDetails`, {
       content: 'application/json',
       method: 'GET',

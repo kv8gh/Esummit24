@@ -25,13 +25,13 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       } else if (status === "authenticated") {
         
         // toast.success("Logged In");
-        getData();
+        getUserData();
         localStorage.setItem('asdf', 'asdf')
       }
     }
   }, [status, router]);
 
-  const getData = ()=>{
+  const getUserData = ()=>{
     fetch(`api/userDetails`, {
       content: "application/json",
       method: "GET",
