@@ -53,7 +53,7 @@ const authOptions = {
           console.log(userExists);
           if (!userExists) {
             const res = await fetch(
-              `${process.env.NEXTAUTH_URL}/api/register`,
+              `$/api/register`,
               {
                 method: 'POST',
                 headers: {
