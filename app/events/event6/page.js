@@ -22,6 +22,7 @@ export default function Page() {
       }
     }
   }, [status, router]);
+
   return (
     <main>
       <h1>Event 6</h1>

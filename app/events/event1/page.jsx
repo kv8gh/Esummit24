@@ -1,5 +1,6 @@
 "use client"
 
+import RegisterButton from '@/components/events/RegisterButton';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -53,11 +54,15 @@ export default function Page() {
       <br></br>
       info about Event1
       <br></br>
-      <Link
+
+      <RegisterButton event={1} token={session?.accessTokenBackend}/>
+
+      {/* <Link
         href={'/events/event1/makeTeam'}
         className="bg-blue-500 border border-black rounded-lg p-2 m-2">
         Register
-      </Link>
+      </Link> */}
+
     </div>
   );
 }
