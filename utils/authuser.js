@@ -3,7 +3,6 @@ import { jwtVerify } from 'jose';
 
 export  async function getTokenDetails(token) {
   try {
-    // connectMongoDB();
 
     if (!token) {
       throw "Token is null"

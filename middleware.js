@@ -1,6 +1,5 @@
 import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware";
-// import { connectMongoDB } from "./lib/mongodb";
 import { getTokenDetails } from "./utils/authuser";
 
 export default withAuth(
