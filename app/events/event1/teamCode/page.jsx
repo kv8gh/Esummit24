@@ -1,5 +1,5 @@
 'use client';
-import Alert from '@/Components/Alert';
+import Alert from '@/components/Alert';
 import bg from '@/public/assets/bg/spceBg.svg';
 import copyIcon from '@/public/assets/icons/copyIcon.svg';
 import { AnimatePresence } from 'framer-motion';

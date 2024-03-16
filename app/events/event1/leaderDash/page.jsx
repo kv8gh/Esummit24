@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react';
 // import LeaderDashboardCards from "./LeaderDashboardCards";
-import Card from '@/Components/Card';
-import LoadingScreen from '@/Components/LoadingScreen';
+import Card from '@/components/Card';
+import DeleteTeamButton from '@/components/DeleteTeamButton';
+import LoadingScreen from '@/components/LoadingScreen';
 import boardImg from '@/public/assets/boardpics/image2.svg';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
-import Link from 'next/link';
-import DeleteTeamButton from '@/components/DeleteTeamButton';
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);

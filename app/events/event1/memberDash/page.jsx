@@ -1,8 +1,8 @@
 "use client"
 
-import Card from '@/Components/Card';
-import LeaveButton from '@/Components/LeaveButton';
-import LoadingScreen from '@/Components/LoadingScreen';
+import Card from '@/components/Card';
+import LeaveButton from '@/components/LeaveButton';
+import LoadingScreen from '@/components/LoadingScreen';
 import boardImg from "@/public/assets/boardpics/image2.svg";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
