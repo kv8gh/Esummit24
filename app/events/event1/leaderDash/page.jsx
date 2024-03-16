@@ -41,7 +41,7 @@ export default function LeaderDashboard() {
   const getData = () => {
     console.log('ssdd')
     setIsLoading(true);
-    fetch(`/userDetails`, {
+    fetch(`/api/userDetails`, {
       content: 'application/json',
       method: 'GET',
       headers: {

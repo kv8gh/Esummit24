@@ -1,12 +1,15 @@
-import { connectMongoDB } from '@/lib/mongodb';
-import { Users } from '@/models/user.model';
+
 import { jwtVerify } from 'jose';
 
 export  async function getTokenDetails(token) {
   try {
-    connectMongoDB();
+    // connectMongoDB();
+
+    if (!token) {
+      throw "Token is null"
+    }
+
     const tokenDetails = await jwtVerify(
-      
       token,
       new TextEncoder().encode(process.env.ACCESS_TOKEN_SECRET)
     );
@@ -16,6 +19,6 @@ export  async function getTokenDetails(token) {
     return userId;
 
   } catch (err) {
-    console.log('Kuch Error hogya bro', err);
+    console.log('Error: ', err);
   }
 }

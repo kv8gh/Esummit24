@@ -39,11 +39,11 @@ export async function GET(req) {
 
     // this is how you get the token from the request. DONT TOUCH!
     const token = await getToken({req});
+    console.log('token', token)
     const auth = token ? token.accessTokenFromBackend : null;
     let userId = await getTokenDetails(auth);
 
     const user = await Users.findById(userId);
-    console.log('user', user)
 
     return NextResponse.json({
       user: user,

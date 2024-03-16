@@ -19,7 +19,6 @@ export async function GET(req) {
         if (!user) {
             return NextResponse.json({ message: 'User Not found' });
         }
-        console.log(user);
 
         const teamId = user.event1TeamId;
         const team = await Event1.findById(teamId).populate('members');
