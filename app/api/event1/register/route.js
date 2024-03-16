@@ -1,13 +1,15 @@
-import { Users } from "@/models/user.model";
 import { connectMongoDB } from "@/lib/mongodb";
+import { Users } from "@/models/user.model";
 import { getTokenDetails } from "@/utils/authuser";
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
   try {
     await connectMongoDB();
     const headers = req.headers;
-    const auth = req.headers.get("authorization").split(" ")[1];
+    const token = await getToken({req})
+    const auth = token ? token.accessTokenFromBackend : null
     const userId = await getTokenDetails(auth);
     if (!userId) {
       return NextResponse.json({ message: "User not found." }, { status: 404 });

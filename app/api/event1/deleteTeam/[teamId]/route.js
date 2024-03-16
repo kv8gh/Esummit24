@@ -12,7 +12,6 @@ export async function POST(req,{params}){
     try{
         
         await connectMongoDB();
-        const headers = req.headers;
         
         const token = await getToken({req})
         const auth = token ? token.accessTokenFromBackend : null
