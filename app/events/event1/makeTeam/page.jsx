@@ -14,7 +14,6 @@ const MakeTeam = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (router.isReady) {
       if (status === 'unauthenticated') {
         //Checks if session is not ready and redirects to root.
 
@@ -22,9 +21,7 @@ const MakeTeam = () => {
       } else if (status === 'authenticated') {
         // toast.success("Logged In");
         getUserData();
-        localStorage.setItem('asdf', 'asdf');
       }
-    }
   }, [status, router]);
 
   const getUserData = () => {
@@ -41,6 +38,7 @@ const MakeTeam = () => {
       .then((data) => {
         const user = data.user;
         setShowConsent(user.consent);
+        console.log('asdf', user)
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId !== null) {
             const redirect =

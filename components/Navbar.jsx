@@ -42,17 +42,15 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   useEffect(() => {
-    if (router.isReady) {
       if (status === "unauthenticated") {
         router.push("/");
       } else if (status === "authenticated") {
         getData();
       }
-    }
   }, [status, router]);
 
   const getData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/user/userDetails`, {
+    fetch(`/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
