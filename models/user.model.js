@@ -33,6 +33,16 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    hasEvent1Registered: {
+      type: Boolean,
+      ref: "Event1",
+      default: false,
+    },
+    hasEvent2Registered: {
+      type: Boolean,
+      ref: "Event2",
+      default: false,
+    },
     events: {
       type: Array,
       default: [],

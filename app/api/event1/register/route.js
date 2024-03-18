@@ -32,6 +32,9 @@ export async function GET(req, res) {
     const modifiedEventsArr = [...currentEventsArr, 1];
     user.events = modifiedEventsArr;
     await user.save();
+    await Users.findByIdAndUpdate(userId, {
+      $set: { hasEvent1Registered: true},
+    });
     return NextResponse.json(
       { message: "User registered for event1 successfully." },
       { status: 200 }

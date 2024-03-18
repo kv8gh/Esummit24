@@ -7,8 +7,8 @@ import { NextResponse } from "next/server";
 export async function GET(req, _) {
   try {
     await connectMongoDB();
-    const token = await getToken({req})
-    const auth = token ? token.accessTokenFromBackend : null
+    const token = await getToken({ req });
+    const auth = token ? token.accessTokenFromBackend : null;
     const userId = await getTokenDetails(auth);
     if (!userId) {
       return NextResponse.json({ message: "User not found." }, { status: 404 });
@@ -40,6 +40,9 @@ export async function GET(req, _) {
     }
     user.events = currentEventsArr;
     await user.save();
+    await Users.findByIdAndUpdate(userId, {
+      $set: { hasEvent1Registered: true },
+    });
     return NextResponse.json(
       { message: "User deregistered for event1 successfully." },
       { status: 200 }

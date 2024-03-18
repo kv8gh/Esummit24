@@ -3,6 +3,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import LoadingIcons from 'react-loading-icons';
 
 const JoinTeam = ({ teamCode: propTeamCode }) => {
@@ -32,7 +33,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   }, [status, router]);
 
   const getUserData = ()=>{
-    fetch(`api/userDetails`, {
+    fetch(`/api/userDetails`, {
       content: "application/json",
       method: "GET",
       headers: {
@@ -46,11 +47,16 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         
         const user = data.user;
         if (user.hasFilledDetails == false) {
-          router.push('/');
+          router.push('/userDetails');
         } else {
-          if (user.event1TeamId !== null) {
-            const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
-            router.push(redirect);
+          if(user.hasEvent1Registered){
+            if (user.event1TeamId !== null) {
+              const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
+              router.push(redirect);
+            }
+          }else{
+            toast.info('Please register the Event first');
+            router.push('/events/event1')
           }
         }
         

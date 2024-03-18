@@ -56,14 +56,19 @@ export default function LeaderDashboard() {
         console.log('user');
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
-          if (user.event1TeamId == null) {
-            router.push('/makeTeam');
-          } else {
-            if (user.event1TeamRole == 1) {
-              router.push('/memberDash');
+          if(user.hasEvent1Registered){
+            if (user.event1TeamId == null) {
+              router.push('/makeTeam');
             } else {
-              setIsLoading(false);
+              if (user.event1TeamRole == 1) {
+                router.push('/memberDash');
+              } else {
+                setIsLoading(false);
+              }
             }
+          }else{
+            toast.info('Please register the Event first')
+            router.push('/events/event1')
           }
         } else {
           router.push('/userDetails');
