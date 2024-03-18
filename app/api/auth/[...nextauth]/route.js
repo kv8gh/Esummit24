@@ -50,10 +50,9 @@ const authOptions = {
         try {
           await connectMongoDB();
           const userExists = await Users.findOne({ email });
-          console.log(userExists);
+          console.log("userExists", userExists);
           if (!userExists) {
-            const res = await fetch(
-              `$/api/register`,
+            const res = await fetch(`${process.env.NEXTAUTH_URL}/api/register`,
               {
                 method: 'POST',
                 headers: {
