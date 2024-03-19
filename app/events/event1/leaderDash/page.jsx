@@ -56,7 +56,7 @@ export default function LeaderDashboard() {
         console.log('user');
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
-          if(user.hasEvent1Registered){
+          if((user.events).includes(1)){
             if (user.event1TeamId == null) {
               router.push('/makeTeam');
             } else {
@@ -67,7 +67,7 @@ export default function LeaderDashboard() {
               }
             }
           }else{
-            toast.info('Please register the Event first')
+            toast.error('Please register the Event first')
             router.push('/events/event1')
           }
         } else {

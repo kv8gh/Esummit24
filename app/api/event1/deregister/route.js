@@ -40,9 +40,6 @@ export async function GET(req, _) {
     }
     user.events = currentEventsArr;
     await user.save();
-    await Users.findByIdAndUpdate(userId, {
-      $set: { hasEvent1Registered: true },
-    });
     return NextResponse.json(
       { message: "User deregistered for event1 successfully." },
       { status: 200 }

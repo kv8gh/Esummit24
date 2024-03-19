@@ -40,7 +40,7 @@ const MakeTeam = () => {
         setShowConsent(user.consent);
         console.log('asdf', user)
         if (user.hasFilledDetails == true) {
-          if(user.hasEvent1Registered){
+          if((user.events).includes(1)){
             if (user.event1TeamId !== null) {
               const redirect =
                 user.event1TeamRole == 1
@@ -51,7 +51,7 @@ const MakeTeam = () => {
               router.push("/events/event1/makeTeam");
             }
           }else{
-            toast.info('Please Register the Event first');
+            toast.error('Please Register the Event first');
             router.push('/events/event1');
           }
         } else {

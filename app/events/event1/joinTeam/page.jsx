@@ -47,13 +47,13 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         if (user.hasFilledDetails == false) {
           router.push('/userDetails');
         } else {
-          if(user.hasEvent1Registered){
+          if((user.events).includes(1)){
             if (user.event1TeamId !== null) {
               const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
               router.push(redirect);
             }
           }else{
-            toast.info('Please register the Event first');
+            toast.error('Please register the Event first');
             router.push('/events/event1')
           }
         }

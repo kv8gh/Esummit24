@@ -33,8 +33,6 @@ export async function POST(req, { params }) {
 
     const userToRemove = await Users.findById(userToRemoveId);
 
-    console.log('asdfasdf', userToRemove.event1TeamId, leader.event1TeamId.toString())
-
     if (userToRemove.event1TeamId == null ||
       userToRemove.event1TeamId.toString() !== leader.event1TeamId.toString()) {
       return NextResponse.json({
