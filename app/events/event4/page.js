@@ -11,7 +11,6 @@ export default function Page() {
 
 
   useEffect(() => {
-    if (router.isReady) {
       if (status === "unauthenticated") {
         //Checks if session is not ready and redirects to root.
 
@@ -20,7 +19,6 @@ export default function Page() {
         // toast.success("Logged In");
         console.log(session);
       }
-    }
   }, [status, router]);
   return (
     <main>

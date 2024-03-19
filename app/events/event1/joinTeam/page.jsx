@@ -18,7 +18,6 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (router.isReady) {
       if (status === "unauthenticated") {
         //Checks if session is not ready and redirects to root.
         
@@ -29,7 +28,6 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         getUserData();
         localStorage.setItem('asdf', 'asdf')
       }
-    }
   }, [status, router]);
 
   const getUserData = ()=>{
