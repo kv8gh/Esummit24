@@ -25,7 +25,7 @@ const MakeTeam = () => {
   }, [status, router]);
 
   const getUserData = () => {
-    fetch(`/userDetails`, {
+    fetch(`/api/userDetails`, {
       content: 'application/json',
       method: 'GET',
       headers: {
@@ -40,14 +40,19 @@ const MakeTeam = () => {
         setShowConsent(user.consent);
         console.log('asdf', user)
         if (user.hasFilledDetails == true) {
-          if (user.event1TeamId !== null) {
-            const redirect =
-              user.event1TeamRole == 1
-                ? '/memberDash'
-                : '/leaderDash';
-            router.push(redirect);
-          } else {
-            router.push("/events/event1/makeTeam");
+          if((user.events).includes(1)){
+            if (user.event1TeamId !== null) {
+              const redirect =
+                user.event1TeamRole == 1
+                  ? '/memberDash'
+                  : '/leaderDash';
+              router.push(redirect);
+            } else {
+              router.push("/events/event1/makeTeam");
+            }
+          }else{
+            toast.error('Please Register the Event first');
+            router.push('/events/event1');
           }
         } else {
           router.push('/userDetails');

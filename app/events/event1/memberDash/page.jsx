@@ -7,6 +7,7 @@ import boardImg from "@/public/assets/boardpics/image2.svg";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const TeamPage = () => {
 
@@ -51,15 +52,20 @@ const TeamPage = () => {
         console.log('user;;;;;;', data)
         const user = data.user;
         if (user.hasFilledDetails == true) {
-          if (user.event1TeamId) {
-            // router.push("/");
-            if (user.event1TeamRole === 0) {
-              router.push('/events/event1/leaderDash')
+          if((user.events).includes(1)){
+            if (user.event1TeamId) {
+              // router.push("/");
+              if (user.event1TeamRole === 0) {
+                router.push('/events/event1/leaderDash')
+              } else {
+                setIsLoading(false);
+              }
             } else {
-              setIsLoading(false);
+              router.push('/events/event1/makeTeam')
             }
-          } else {
-            router.push('/events/event1/makeTeam')
+          }else{
+            toast.error('Please register the Event first!!');
+            router.push('/events/event1');
           }
         } else{
           router.push('/userDetails');

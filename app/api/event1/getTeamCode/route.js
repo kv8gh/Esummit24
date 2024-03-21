@@ -13,8 +13,6 @@ export async function GET(req, { params }) {
     const token = await getToken({req})
     const auth = token ? token.accessTokenFromBackend : null
     let userId = await getTokenDetails(auth);
-    console.log("rrrrrrfrrrrrr",userId);
-    // console.log(userId);
     const team = await Event1.findOne({ teamLeaderId: userId });
     if (!team) {
       return NextResponse.json({ message: "Team Not found" });
@@ -47,8 +45,6 @@ export async function GET(req, { params }) {
       const currentTime = new Date();
       const tokenCreationTime = token.createdAt;
       const timeDifference = (currentTime - tokenCreationTime) / (1000 * 60);
-      console.log("-====", tokenCreationTime);
-      console.log("-====", currentTime);
       if (timeDifference > 10) {
         const newTeamCode = customAlphabet(
           "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",

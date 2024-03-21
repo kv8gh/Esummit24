@@ -3,14 +3,12 @@ import { Event1 } from "@/models/event1.model";
 import { event1TeamToken } from "@/models/event1TeamToken";
 import { NextResponse } from "next/server";
 
-
 export async function POST(req) {
   try {
     await connectMongoDB();
     const { teamCode } = await req.json();
-    console.log(teamCode);
     const team = await event1TeamToken.findOne({ token: teamCode });
-   
+
     if (!team) {
       return NextResponse.json({ error: "Token not found" });
     }

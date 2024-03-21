@@ -20,7 +20,6 @@ export async function POST(req,{params}){
 
         const teamId=params.teamId;
         const team = await Event1.findById({ _id: teamId });
-        console.log(team);
         
         if (!team) {
         return res.status(401).json({
