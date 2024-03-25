@@ -35,7 +35,6 @@ export async function GET(req) {
         console.log('An error occurred:', error);
         return NextResponse.json({
             message: 'Error occurred ',
-            status: 500,
-        });
+        }, {status: 500});
     }
 }
