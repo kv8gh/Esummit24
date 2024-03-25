@@ -57,10 +57,10 @@ export default function LeaderDashboard() {
         setIsLoading(false);
         if (user.hasFilledDetails == true) {
           if (user.event1TeamId == null) {
-            router.push('/makeTeam');
+            router.push('/events/event1/makeTeam');
           } else {
             if (user.event1TeamRole == 1) {
-              router.push('/memberDash');
+              router.push('/events/event1/memberDash');
             } else {
               setIsLoading(false);
             }
@@ -188,7 +188,7 @@ export default function LeaderDashboard() {
         )}
 
         {/* this is link to teamCode, if 4 members do'nt show this.  */}
-        {isQualified && (
+        {/* {isQualified && (
           <button
             className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             onClick={() => {
@@ -196,7 +196,7 @@ export default function LeaderDashboard() {
             }}>
             Start FP 9.0
           </button>
-        )}
+        )} */}
         {teamMembersData.length < 4 && (
           <Link
             className="className='text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'"
