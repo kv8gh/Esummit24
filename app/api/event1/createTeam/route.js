@@ -16,8 +16,6 @@ export async function POST(req) {
 
     const user = await Users.findById({ _id: userId });
 
-    console.log(user);
-
     const { teamName } = await req.json();
     const team = await Event1.findOne({ teamName: teamName });
     if (team) {
