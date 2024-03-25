@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function UserDetails() {
@@ -92,11 +92,11 @@ export default function UserDetails() {
 
               router.push("/");
             } else {
-              console.error("Failed to save data:", response.statusText);
+              console.log("Failed to save data:", response.statusText);
               toast.error("Failed to save data");
             }
           } catch (error) {
-            console.error("Error saving data:", error);
+            console.log("Error saving data:", error);
             toast.error("Server Error");
           }
         } else {

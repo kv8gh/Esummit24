@@ -99,7 +99,7 @@ const MakeTeam = () => {
       //}
     } catch (error) {
       setIsLoading(false);
-      console.error('Error creating team:', error);
+      console.log('Error creating team:', error);
     }
   };
 

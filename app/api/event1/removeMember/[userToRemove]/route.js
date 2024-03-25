@@ -1,12 +1,12 @@
 import { connectMongoDB } from "@/lib/mongodb";
 
 
-import { NextResponse } from "next/server";
 import { Users } from "@/models/user.model";
+import { NextResponse } from "next/server";
 
+import { Event1 } from "@/models/event1.model";
 import { getToken } from "next-auth/jwt";
 import { getTokenDetails } from "../../../../../utils/authuser";
-import { Event1 } from "@/models/event1.model";
 
 export async function POST(req, { params }) {
   try {
@@ -56,7 +56,7 @@ export async function POST(req, { params }) {
     });
 
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.log("An error occurred:", error);
     return NextResponse.json({ message: "Error occurred ", status: 500 });
   }
 }

@@ -61,7 +61,7 @@ export default function LeaderDashboard() {
               router.push('/events/event1/makeTeam');
             } else {
               if (user.event1TeamRole == 1) {
-                router.push('/memberDash');
+                router.push('/events/event1/memberDash');
               } else {
                 setIsLoading(false);
               }

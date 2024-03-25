@@ -102,7 +102,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
       }
     } catch (error) {
-      console.error('Error fetching team name:', error);
+      console.log('Error fetching team name:', error);
       showMessage('An error occurred while fetching team name.');
       setisLoading(false);
     }
@@ -146,7 +146,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       }
     } catch (error) {
       setIsMoadalLoading(false);
-      console.error('Error joining the team:', error);
+      console.log('Error joining the team:', error);
       showMessage('An error occurred while joining the team.', 'error');
     }
   };

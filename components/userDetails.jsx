@@ -1,7 +1,6 @@
 "use client"
-import { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function UserDetails() {
    const { data: session, status } = useSession();
@@ -48,10 +47,10 @@ export default function UserDetails() {
                 // router.push('/')
 
             } else {
-                console.error('Failed to save data:', response.statusText);
+                console.log('Failed to save data:', response.statusText);
             }
         } catch (error) {
-            console.error('Error saving data:', error);
+            console.log('Error saving data:', error);
         }
     };
 

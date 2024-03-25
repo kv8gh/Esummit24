@@ -70,7 +70,7 @@ export async function POST(req,{params}){
 
 
 }catch(error) {
-    console.error("An error occurred:", error);
+    console.log("An error occurred:", error);
     return NextResponse.json({ message: "Error occurred ", status: 500 });
 }
 }
