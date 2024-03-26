@@ -184,9 +184,9 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           id="joinTeamButton" 
           type="submit"
           disabled={isLoading}
-          className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+          className="px-4 py-2 text-black rounded-full cursor-pointer bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] mt-4 w-full h-12 flex items-center justify-center font-semibold"
         >
-          {isLoading ? <LoadingIcons.Oval height="20px"/> : "Join Team"}
+          {isLoading ? <LoadingIcons.Oval color='black' height="20px"/> : "Join Team"}
         </button>
       </form>
       {message && (
