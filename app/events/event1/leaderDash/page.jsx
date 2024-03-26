@@ -171,7 +171,8 @@ export default function LeaderDashboard() {
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
-      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}>
+      // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      >
       {isLoading && <LoadingScreen />}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">

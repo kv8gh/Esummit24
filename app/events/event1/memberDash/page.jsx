@@ -117,8 +117,8 @@ const TeamPage = () => {
       console.log('data', data)
       if(data.status == 200) {
         console.log('sending to makeTeam')
-        setIsLoading(false);
         router.push('/events/event1/makeTeam')
+        setIsLoading(false);
       }
     })
   }
@@ -126,7 +126,7 @@ const TeamPage = () => {
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
-      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
     {isLoading && <LoadingScreen/>}
       {/* <Navbar /> */}

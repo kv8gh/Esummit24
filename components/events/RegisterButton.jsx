@@ -66,6 +66,9 @@ const RegisterButton = ({ event, token }) => {
           setLoading(false);
           setEventRegistered(false);
           toast.success("Event Deregistered Successfully.");
+        } else if (res.status === 400) {
+          setLoading(false);
+          toast.error('Delete the existing Team first');
         }
       })
       .catch((err) => {
