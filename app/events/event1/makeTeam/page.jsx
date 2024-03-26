@@ -112,7 +112,7 @@ const MakeTeam = () => {
     <div
       className=" bg-cover bg-no-repeat bg-center"
       style={{
-        backgroundImage: 'url(/assets/bg/spceBg.svg)',
+        // backgroundImage: 'url(/assets/bg/spceBg.svg)',
         minHeight: '100vh',
       }}>
       <Toaster />

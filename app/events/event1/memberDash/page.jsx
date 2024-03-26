@@ -126,7 +126,7 @@ const TeamPage = () => {
   return (
     <div
       className="bg-cover bg-no-repeat bg-center min-h-screen"
-      style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
     {isLoading && <LoadingScreen/>}
       {/* <Navbar /> */}
