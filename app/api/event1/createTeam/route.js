@@ -20,8 +20,8 @@ export async function POST(req) {
     const team = await Event1.findOne({ teamName: teamName });
     if (team) {
       return NextResponse.json({
-        message: 'Team Already registered ',
-        status: 200,
+        message: 'Team Already registered',
+        status: 405,
       });
     }
 

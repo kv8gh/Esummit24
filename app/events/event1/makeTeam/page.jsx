@@ -81,11 +81,15 @@ const MakeTeam = () => {
 
       if (data.message == 'User Already Part of a Team') {
         // show toast
+        toast.error(
+          'User already part of Team, please delete that team first.'
+        );
         console.log('already part of team')
-      } else if (data.message == 'TeamName Already Exists') {
+      } else if (data.status == 405) {
         toast.error(
           'Team name already used. Please choose a different name.'
         );
+        setIsLoading(false);
       } else {
         // Team name is unique, so redirect to TeamCode page
         // router.push("/events/event1/leaderDash");
