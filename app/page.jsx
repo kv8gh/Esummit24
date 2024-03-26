@@ -1,8 +1,13 @@
 "use client";
 
 import SignInBtn from "@/components/SignInBtn";
+<<<<<<< HEAD
 import Speakers from "@/components/landingPage/Speakers";
 import Sponsers from "@/components/landingPage/Sponsers";
+=======
+import { IIA } from "@/components/landingPage/IIA/IIA";
+import HeroSection from "@/components/landingPage/heroSection/HeroSection";
+>>>>>>> b07cee9d0fa1f6a659e820e61809ba42590edc08
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

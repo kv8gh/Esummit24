@@ -160,7 +160,9 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
 
   return (
     // tailwind
-    <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)', minHeight: '100vh' }}>
+    <div className=" bg-cover bg-no-repeat bg-center" style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)',
+    //  minHeight: '100vh'  
+    }}>
       <div className='flex flex-col justify-center items-center h-screen'>
       <div className="w-[90%] sm:w-[55vw] bg-[#141B2B] flex flex-col items-center justify-evenly text-white rounded-lg min-w-fit min-h-[70vh]">
       <h1 className="text-[2.8rem] font-bold m-2 mb-4 text-center">
@@ -182,9 +184,9 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           id="joinTeamButton" 
           type="submit"
           disabled={isLoading}
-          className="px-4 py-2 rounded-full cursor-pointer bg-gradient-to-r from-[#03A3FE] to-[#00FFA3] mt-4 w-full h-12 flex items-center justify-center font-semibold"
+          className="px-4 py-2 text-black rounded-full cursor-pointer bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] mt-4 w-full h-12 flex items-center justify-center font-semibold"
         >
-          {isLoading ? <LoadingIcons.Oval height="20px"/> : "Join Team"}
+          {isLoading ? <LoadingIcons.Oval color='black' height="20px"/> : "Join Team"}
         </button>
       </form>
       {message && (
