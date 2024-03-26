@@ -25,20 +25,20 @@ export async function POST(req, { params }) {
     if (user.event1TeamId) {
       return NextResponse.json({
         message: "User is already a part of team",
-      });
+      }, { status:503 });
     }
 
     const { teamCode } = await req.json();
     const team = await Event1.findOne({ teamCode: teamCode });
     if (!team) {
-      return NextResponse.json({ error: "Team not found" });
+      return NextResponse.json({ error: "Team not found" }, { status: 504});
     }
     if (team.members.length === 4) {
       return NextResponse.json({ error: "Team is Full" });
     }
     const Event1TeamToken = await event1TeamToken.findOne({ teamId: team._id });
     if (!Event1TeamToken) {
-      return res.status(404).json({ error: "Token not found" });
+      return res.status(404).json({ error: "Token not found" }, {status: 505});
     }
     // const currentTime = new Date();
     // const tokenCreationTime = token.createdAt;
@@ -54,13 +54,12 @@ export async function POST(req, { params }) {
     //     });
     // }
     if (teamCode !== Event1TeamToken.token) {
-      return NextResponse.json({ error: "Incorrect token" });
+      return NextResponse.json({ error: "Incorrect token" }, {status: 506});
     }
     await Users.findOneAndUpdate(
       { _id: userId },
       { $set: { event1TeamId: team.id, event1TeamRole: 1 } }
     );
-    console.log("---------", team._id);
 
     await Event1.findOneAndUpdate(
       {

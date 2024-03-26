@@ -19,20 +19,20 @@ export async function POST(req) {
     if (user.event1TeamRole !== 1) {
       return NextResponse.json({
         message: "Leader cant leave the team",
-      });
+      }, { status: 503 });
     }
 
     if (!user.event1TeamId) {
       return NextResponse.json({
         message: "User is not part of any team",
-      });
+      }, { status: 504 });
     }
 
     const team = await Event1.findById(user.event1TeamId);
     if (!team) {
       return NextResponse.json({
         message: "Team not found",
-      });
+      }, { status: 505 });
     }
 
     team.members.pull(userId);
@@ -45,12 +45,11 @@ export async function POST(req) {
 
     return NextResponse.json({
       message: "User has left the team successfully ",
-      status: 200,
       teamDetails: team,
-    });
+    }, { status: 200 });
   } catch (error) {
     console.log("An error occurred:", error);
     return NextResponse.json({
-      message: "Error occurred "}, {status:500});
+      message: "Error occurred "}, { status:500 });
   }
 }
