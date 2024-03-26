@@ -45,7 +45,7 @@ export default function TeamCode() {
         console.log('user', user)
         if (user.hasFilledDetails === true) {
           if((user.events).includes(1)){
-            if (user.event1TeamId !== null) {
+            if (user.event1TeamId ) {
               if (user.event1TeamRole !== 0) {
                 router.push('/events/event1/memberDash');
               }

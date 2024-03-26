@@ -48,7 +48,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
           router.push('/userDetails');
         } else {
           if((user.events).includes(1)){
-            if (user.event1TeamId !== null) {
+            if (user.event1TeamId ) {
               const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
               router.push(redirect);
             }
