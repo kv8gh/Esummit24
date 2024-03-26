@@ -10,7 +10,7 @@ export async function POST(req) {
 
     // this is how you get the token from the request. DONT TOUCH!
     const token = await getToken({req});
-    const auth = token ? token.accessTokenFromBackend : null;
+    const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1];
     let userId = await getTokenDetails(auth);
 
     const { regNo, mobNo } = await req.json();
@@ -27,9 +27,7 @@ export async function POST(req) {
   } catch (error) {
     console.log('An error occurred:', error);
     return NextResponse.json({
-      message: 'Error occurred ',
-      status: 500,
-    });
+      message: 'Error occurred '}, {status:500});
   }
 }
 
@@ -39,7 +37,7 @@ export async function GET(req) {
 
     // this is how you get the token from the request. DONT TOUCH!
     const token = await getToken({req});
-    const auth = token ? token.accessTokenFromBackend : null;
+    const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1];
     let userId = await getTokenDetails(auth);
 
     const user = await Users.findById(userId);
@@ -51,8 +49,6 @@ export async function GET(req) {
   } catch (error) {
     console.log('An error occurred:', error);
     return NextResponse.json({
-      message: 'Error occurred ',
-      status: 500,
-    });
+      message: 'Error occurred '}, {status:500});
   }
 }

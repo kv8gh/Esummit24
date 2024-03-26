@@ -8,7 +8,7 @@ export async function GET(req, _) {
   try {
     await connectMongoDB();
     const token = await getToken({req})
-    const auth = token ? token.accessTokenFromBackend : null
+    const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1]
     const userId = await getTokenDetails(auth);
     if (!userId) {
       return NextResponse.json({ message: "User not found." }, { status: 404 });

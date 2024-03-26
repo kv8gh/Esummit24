@@ -2,9 +2,11 @@
 import { jwtVerify } from 'jose';
 
 export  async function getTokenDetails(token) {
-  try {
 
+  try {
+    
     if (!token) {
+      return 'Token is null'
       throw "Token is null"
     }
 

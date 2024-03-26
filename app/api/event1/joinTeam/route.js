@@ -11,8 +11,15 @@ export async function POST(req, { params }) {
     await connectMongoDB();
 
     const token = await getToken({ req });
-    const auth = token ? token.accessTokenFromBackend : null;
+    const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1];
     let userId = await getTokenDetails(auth);
+
+    if (userId === "Token is null") {
+      return NextResponse.json({
+        message: "Token is null",
+      }, {status:403});
+    }
+
     const user = await Users.findById({ _id: userId });
 
     if (user.event1TeamId) {
@@ -69,8 +76,6 @@ export async function POST(req, { params }) {
   } catch (error) {
     console.log("An error occurred:", error);
     return NextResponse.json({
-      message: "Error occurred ",
-      status: 500,
-    });
+      message: "Error occurred" }, {status:500});
   }
 }

@@ -13,7 +13,7 @@ export async function POST(req, { params }) {
     await connectMongoDB();
 
     const token = await getToken({req})
-    const auth = token ? token.accessTokenFromBackend : null
+    const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1]
     let leaderId = await getTokenDetails(auth);
 
     const leader = await Users.findById(leaderId);

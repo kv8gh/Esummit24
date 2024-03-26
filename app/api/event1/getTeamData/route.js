@@ -11,7 +11,7 @@ export async function GET(req) {
         await connectMongoDB();
 
         const token = await getToken({ req });
-        const auth = token ? token.accessTokenFromBackend : null;
+        const auth = token ? token.accessTokenFromBackend : req.headers.get('Authorization').split(' ')[1];
         let userId = await getTokenDetails(auth);
 
         const user = await Users.findById({ _id: userId });
