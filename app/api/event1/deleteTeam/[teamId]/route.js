@@ -24,10 +24,7 @@ export async function POST(req,{params}){
         if (!team) {
         return res.status(401).json({
             message: "Invalid TeamId"
-        })
-
-        }
-
+        })}
 
         if (team.teamLeaderId.toString() !== userId) {
             return NextResponse.json({ message: "User do not belong to the team or the user is not a leader", status: 200 });
@@ -50,15 +47,6 @@ export async function POST(req,{params}){
             { event1TeamId: null, event1TeamRole: null }
         );
     
-
-       
-       
-
-    
-
-        
-      
-
         /*
         const deletedTeam = await TeamModel.deleteOne({teamName:teamName});
         console.log(deletedTeam)
@@ -66,11 +54,7 @@ export async function POST(req,{params}){
  
     return NextResponse.json({ message: "Team deleted", status: 200 });
 
-
-
-
 }catch(error) {
     console.log("An error occurred:", error);
-    return NextResponse.json({ message: "Error occurred ", status: 500 });
-}
-}
+    return NextResponse.json({ message: "Error occurred ",}, {status: 500 });
+}}
