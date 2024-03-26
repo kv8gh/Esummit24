@@ -47,6 +47,7 @@ export async function POST(req) {
       message: "User has left the team successfully ",
       teamDetails: team,
     }, { status: 200 });
+
   } catch (error) {
     console.log("An error occurred:", error);
     return NextResponse.json({

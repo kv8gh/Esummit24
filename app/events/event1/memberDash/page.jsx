@@ -117,8 +117,8 @@ const TeamPage = () => {
       console.log('data', data)
       if(data.status == 200) {
         console.log('sending to makeTeam')
-        setIsLoading(false);
         router.push('/events/event1/makeTeam')
+        setIsLoading(false);
       }
     })
   }
