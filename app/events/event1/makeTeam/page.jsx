@@ -38,17 +38,14 @@ const MakeTeam = () => {
       .then((data) => {
         const user = data.user;
         setShowConsent(user.consent);
-        console.log('asdf', user)
         if (user.hasFilledDetails == true) {
           if((user.events).includes(1)){
-            if (user.event1TeamId !== null) {
+            if (user.event1TeamId) {
               const redirect =
                 user.event1TeamRole == 1
                   ? '/events/event1/memberDash'
                   : '/events/event1/leaderDash';
               router.push(redirect);
-            } else {
-              router.push("/events/event1/makeTeam");
             }
           }else{
             toast.error('Please Register the Event first');
@@ -91,7 +88,7 @@ const MakeTeam = () => {
         );
       } else {
         // Team name is unique, so redirect to TeamCode page
-        router.push("/events/event1/leaderDash");
+        // router.push("/events/event1/leaderDash");
       }
       // else {
       //  // Team name is already used, display an error message
