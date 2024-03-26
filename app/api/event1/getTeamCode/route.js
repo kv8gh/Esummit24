@@ -72,6 +72,6 @@ export async function GET(req, { params }) {
     }
   } catch (error) {
     console.log("An error occurred:", error);
-    return NextResponse.json({ message: "Error occurred ", status: 500 });
+    return NextResponse.json({ message: error,}, {status: 500 });
   }
 }

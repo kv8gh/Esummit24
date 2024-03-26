@@ -76,6 +76,7 @@ export default function TeamCode() {
             setTeamName(data.teamName);
           })
           .catch((err) => {
+            console.log('err', err);
             setLoading(true);
           });
       });
