@@ -24,12 +24,12 @@ import { useSession } from "next-auth/react";
 // }
 
 // import { useSession } from 'next-auth/react';
-import logo from "@/public/assets/logos/FP LOGO.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import SignInBtn from "./SignInBtn";
+import logo from "@/public/assets/logos/esummitLogo.svg";
 // import LoginButton from './Landing Page/Loginbutton';
 
 const Navbar = () => {
@@ -42,11 +42,11 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   useEffect(() => {
-      if (status === "unauthenticated") {
-        router.push("/");
-      } else if (status === "authenticated") {
-        getData();
-      }
+    if (status === "unauthenticated") {
+      router.push("/");
+    } else if (status === "authenticated") {
+      getData();
+    }
   }, [status, router]);
 
   const getData = () => {
@@ -72,55 +72,70 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="top-0 flex text-white w-full justify-around h-[84px] py-4">
-      <div>
-        <Image
-          src={logo}
-          alt="FP"
-          className="h-full w-auto"
-          onClick={() => {
-            router.push("/");
-          }}
-        />
-      </div>
-      <div className="hidden gap-3 sm:gap-10 items-center font-medium md:flex">
-        <Link href="/">Home</Link>
-        <Link href={dashboardLink}>Dashboard</Link>
-        <button className="bg-red-500 text-white px-4 py-2 rounded-md"
-         onClick={() => window.history.back()}>Back</button>
-        <SignInBtn />
-        {/* <LoginButton /> */}
-      </div>
-      <div className="flex flex-col justify-around md:hidden">
-        {/* Hamburger menu icon */}
-        <div
-          className="cursor-pointer text-white md:hidden"
-          onClick={toggleMenu}
-        >
-          &#9776;
-        </div>
+    // <nav className="top-0 flex text-white w-full justify-around h-[84px] py-4">
+    //   <div>
+    //     <Image
+    //       src={logo}
+    //       alt="FP"
+    //       className="h-full w-auto"
+    //       onClick={() => {
+    //         router.push("/");
+    //       }}
+    //     />
+    //   </div>
+    //   <div className="hidden gap-3 sm:gap-10 items-center font-medium md:flex">
+    //     <Link href="/">Home</Link>
+    //     <Link href={dashboardLink}>Dashboard</Link>
+    //     <button className="bg-red-500 text-white px-4 py-2 rounded-md"
+    //      onClick={() => window.history.back()}>Back</button>
+    //     <SignInBtn />
+    //     {/* <LoginButton /> */}
+    //   </div>
+    //   <div className="flex flex-col justify-around md:hidden">
+    //     {/* Hamburger menu icon */}
+    //     <div
+    //       className="cursor-pointer text-white md:hidden"
+    //       onClick={toggleMenu}
+    //     >
+    //       &#9776;
+    //     </div>
 
-        {/* Navbar links */}
-        <div
-          className={`md:flex flex-col z-10 bg-gray-800 bg-opacity-75 p-4 rounded-md top-[6vh] h-[20vh] ${
-            isOpen ? "absolute right-0" : "hidden"
-          } `}
-        >
-          <ul className="flex flex-col justify-around items-center space-x-4 h-full">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/memberDash">Dashboard</Link>
-            </li>
-            <li>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-md"
-               onClick={() => window.history.back()}>Back</button>
-              <SignInBtn />
-              {/* <LoginButton /> */}
-            </li>
-          </ul>
-        </div>
+    //     {/* Navbar links */}
+    //     <div
+    //       className={`md:flex flex-col z-10 bg-gray-800 bg-opacity-75 p-4 rounded-md top-[6vh] h-[20vh] ${
+    //         isOpen ? "absolute right-0" : "hidden"
+    //       } `}
+    //     >
+    //       <ul className="flex flex-col justify-around items-center space-x-4 h-full">
+    //         <li>
+    //           <Link href="/">Home</Link>
+    //         </li>
+    //         <li>
+    //           <Link href="/memberDash">Dashboard</Link>
+    //         </li>
+    //         <li>
+    //           <button className="bg-red-500 text-white px-4 py-2 rounded-md"
+    //            onClick={() => window.history.back()}>Back</button>
+    //           <SignInBtn />
+    //           {/* <LoginButton /> */}
+    //         </li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </nav>
+    <nav className="flex w-full py-5 px-10 h-24 items-center justify-between">
+      <div className="h-full">
+        <Image className="h-full w-auto px-10" src={logo} />
+      </div>
+      <div>
+        <ul className="flex gap-10 capitalize items-center font-semibold">
+          <li className="cursor-pointer">home</li>
+          <li className="cursor-pointer">about</li>
+          <li className="cursor-pointer">schedule</li>
+          <li className="cursor-pointer">speakers</li>
+
+          <SignInBtn />
+        </ul>
       </div>
     </nav>
   );
