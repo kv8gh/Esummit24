@@ -160,9 +160,9 @@ const Navbar = () => {
         transition={{
           duration: 0.2,
         }}
-        className="fixed top-0 bg-black bg-opacity-15 z-10 backdrop-blur-md flex w-full py-5 px-10 h-16 items-center justify-between"
+        className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md flex w-full py-5 px-10 h-16 items-center justify-between"
       >
-        <div className="h-full">
+        <div className="h-full flex items-center">
           <Image className="h-10 w-auto px-10" src={logo} />
         </div>
         <div>
