@@ -6,6 +6,7 @@ import HeroSection from "@/components/landingPage/heroSection/HeroSection";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Schedule from "@/components/landingPage/Schedule/Schedule";
 
 export default function Home() {
   const { status, data: session } = useSession();
@@ -69,7 +70,7 @@ export default function Home() {
       </div>
       <HeroSection />
       <IIA />
-    </>
-  );
-  // }
+      <Schedule/>
+      </>
+    )
 }
