@@ -29,15 +29,6 @@ body {
   }
 }
 
-/* .esummit {
-  background: linear-gradient(to bottom right, blue, #FEFAB7, #D6993F);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: textShine 5s ease-in-out infinite alternate;
-
-} */
-
 .esummit {
   background: linear-gradient(
       to bottom right,
@@ -61,4 +52,23 @@ body {
   100% {
     background-position: 100% 50%;
   }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FEFAB7;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fefab7e9;
 }
