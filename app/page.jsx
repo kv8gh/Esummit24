@@ -17,11 +17,7 @@ export default function Home() {
   // } else {
   return (
     <>
-      <div>
-        {/* main esuumit reg landing page */}
-        {/* <SignInBtn /> */}
-
-        {/* <button className="m-3"> User Details </button> */}
+      {/* <div>
         <div className="grid grid-cols-2">
           <Link
             href="/events/event1"
@@ -66,7 +62,7 @@ export default function Home() {
             go to Event 6
           </Link>
         </div>
-      </div>
+      </div> */}
       <HeroSection />
       <IIA />
     </>

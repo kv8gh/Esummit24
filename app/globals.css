@@ -18,16 +18,47 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* .esummit {
+  background: linear-gradient(to bottom right, blue, #FEFAB7, #D6993F);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: textShine 5s ease-in-out infinite alternate;
+
+} */
+
+.esummit {
+  background: linear-gradient(
+      to bottom right,
+      #DCA64E 33%,
+      #FEFAB7 66%,
+      #D6993F 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 2s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
   }
 }
