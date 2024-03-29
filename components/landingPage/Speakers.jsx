@@ -4,6 +4,7 @@ import image1 from "@/styles/landingPage/image1.png";
 import image2 from "@/styles/landingPage/image2.png";
 import image3 from "@/styles/landingPage/image3.png";
 import { FaInstagram, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Card = ({ speaker }) => {
@@ -18,9 +19,18 @@ const Card = ({ speaker }) => {
         </h1>
         <p className="font-extralight text-slate-100">{speaker.position}</p>
         <div className="flex gap-5 mt-2">
-         <Link href={speaker.instagram}> <FaInstagram /></Link>
-         <Link href={speaker.linkedin}> <FaLinkedin /></Link>
-         <Link href={speaker.twitter}> <FaTwitter /></Link>
+          <Link href={speaker.instagram}>
+            {" "}
+            <FaInstagram />
+          </Link>
+          <Link href={speaker.linkedin}>
+            {" "}
+            <FaLinkedin />
+          </Link>
+          <Link href={speaker.twitter}>
+            {" "}
+            <FaTwitter />
+          </Link>
         </div>
       </div>
     </div>
@@ -57,16 +67,28 @@ export default function Sponsers() {
       twitter: "https://twitter.com/",
     },
   ];
-  const cards = speakers.map((speaker) => <Card speaker={speaker} key={speaker.id}/>);
+  const cards = speakers.map((speaker) => (
+    <Card speaker={speaker} key={speaker.id} />
+  ));
   return (
     <section className="mx-10 md:mx-20">
       <div className="flex items-center mt-10 mb-5 text-center">
         <h1 className="uppercase w-full text-4xl md:text-5xl lg:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           meet our speakers
         </h1>
-        <div className="hidden md:block h-0.5 w-full bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"></div>
+        <div className="w-full">
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 0.75 }}
+            viewport={{ once: true, delay: 0.5}}
+            className="hidden md:block h-0.5 w-full bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"
+          ></motion.div>
+        </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-around items-center">{cards}</div>
+      <div className="flex flex-col md:flex-row justify-around items-center">
+        {cards}
+      </div>
     </section>
   );
 }
