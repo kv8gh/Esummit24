@@ -10,7 +10,7 @@ const MoreButton = () => {
         })
       }
     >
-      <div className=" flex flex-col items-center">
+      <div className=" flex flex-col items-center mb-4">
         <FaAngleDoubleDown className="animate-bounce text-2xl" />
         <h1 className="uppercase underline text-lg underline-offset-4">learn more</h1>
       </div>
