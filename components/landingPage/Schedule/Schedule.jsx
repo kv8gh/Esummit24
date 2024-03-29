@@ -1,5 +1,6 @@
 import Image from "next/image";
 import scheduleDetails from "./scheduleDetails";
+import { motion } from "framer-motion";
 
 export default function Schedule() {
   return (
@@ -27,13 +28,19 @@ export default function Schedule() {
                     />
                   </div>
                 )}
-                <div className="w-1/2 text-wrap m-2 md:m-0">
+                <motion.div
+                  initial={{ opacity: 0, translateY: 100 }}
+                  whileInView={{ opacity: 1, translateY: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="w-1/2 text-wrap m-2 md:m-0"
+                >
                   <div className="text-sm md:text-xl font-bold">{ele.date}</div>
                   <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
                     {ele.eventName}
                   </div>
                   <p className="font-extralight">{ele.description}</p>
-                </div>
+                </motion.div>
                 {index % 2 !== 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
                     <Image

@@ -10,9 +10,9 @@ import Marq from "./Marq";
 export const Footer = () => {
   return (
     <>
-      <footer className="flex mx-20 justify-between py-5">
+      <footer className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-0 mx-5 sm:mx-10 ms:mx-20 justify-between py-5">
         <div className="flex gap-10">
-          <ul className="uppercase flex flex-col gap-2">
+          <ul className="hidden md:flex uppercase flex-col gap-2">
             <li>home</li>
             <li>about</li>
             <li>schedule</li>
@@ -42,7 +42,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col gap-4 text-center">
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black">E-CELL</h1>
+            <h1 className="text-5xl sm:text-7xl font-bold">E-CELL</h1>
             <p className="font-semibold">#WeBreedBusiness</p>
           </div>
           <div>
