@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import logo from "@/public/assets/logos/esummitLogo.svg";
 
 const Card = () => {
   return (
@@ -15,9 +17,13 @@ const Card = () => {
     //     </p>
 
     // </div>
-    <div class="mx-auto flex min-h-screen max-w-screen-sm items-center justify-center">
-      <div class="h-full w-full rounded-md bg-gradient-to-b from-[#ffffff1d] via-[#fefab733] to-[#ffd18c52] p-1 border-2 border-[#D6993F]">
+    <div class="mx-auto flex min-w-screen-sm items-center justify-center">
+      <div class="h-full w-full rounded-md bg-gradient-to-b from-[#ffffff1d] via-[#fefab733] to-[#ffd18c52] p-1 border-2 border-[#D6993F] m-12 mx-16">
         <div class=" h-full w-full items-center justify-center bg-gray-800 back p-8 text-center text-white bg-transparent">
+          <div class="flex justify-center">
+            <Image src={logo} alt="E-Summit Logo" className="item-center h-[20vh]" />
+          </div>
+          {/* <Image src={logo} alt="E-Summit Logo" className="item-center h-[20vh]" /> */}
           <h1 class="text-4xl font-black p-4">About E-Summit'24</h1>
           <p className="">
             E-Summit is the conclave that opens the doors to the world of

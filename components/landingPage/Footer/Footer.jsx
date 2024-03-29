@@ -42,7 +42,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col gap-4 text-center">
           <div>
-            <h1 className="text-7xl font-bold">E-CELL</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black">E-CELL</h1>
             <p className="font-semibold">#WeBreedBusiness</p>
           </div>
           <div>

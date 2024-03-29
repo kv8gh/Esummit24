@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import Schedule from "@/components/landingPage/Schedule/Schedule";
 import FAQ from "@/components/landingPage/FAQ/FAQ";
 import { Footer } from "@/components/landingPage/Footer/Footer";
+import About from "@/components/landingPage/About";
+import Who from "@/components/landingPage/Who";
 
 export default function Home() {
   const { status, data: session } = useSession();
@@ -78,6 +80,8 @@ export default function Home() {
       </div> */}
       <HeroSection />
       <IIA />
+      <About />
+      <Who />
       <Schedule />
       <Speakers />
       <Sponsors/>
