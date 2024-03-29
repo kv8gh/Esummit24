@@ -11,7 +11,7 @@ const HeroSection = () => {
         e-cell vit presents
       </h6>
       <h1 className="esummit uppercase text-4xl md:text-6xl lg:text-9xl font-bold">
-        e-summit&apos;24
+        e-summit  24
       </h1>
       <h1 className="uppercase text-center text-sm lg:text-xl font-light px-2 mt-5 mb-10">
         The 5th edition of the biggest fest in South India
