@@ -57,7 +57,7 @@ export default function Sponsers() {
       twitter: "https://twitter.com/",
     },
   ];
-  const cards = speakers.map((speaker) => <Card speaker={speaker} />);
+  const cards = speakers.map((speaker) => <Card speaker={speaker} key={speaker.id}/>);
   return (
     <section className="mx-10 md:mx-20">
       <div className="flex items-center mt-10 mb-5 text-center">
