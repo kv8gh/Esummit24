@@ -14,23 +14,22 @@ import FAQ from "@/components/landingPage/FAQ/FAQ";
 import { Footer } from "@/components/landingPage/Footer/Footer";
 
 export default function Home() {
-  //   const { status, data: session } = useSession();
+  const { status, data: session } = useSession();
 
-  //   const router = useRouter();
-
-  //   // if (status === "authenticated") {
-  //   //     router.push('/userDetails')
-  //   // } else {
-  //   return (
-  //     <div>
-  //       {/* main esuumit reg landing page */}
-  //       {/* <SignInBtn /> */}
+  const router = useRouter();
 
   // if (status === "authenticated") {
   //     router.push('/userDetails')
   // } else {
-  return (
-    <>
+  // return (
+  //   <div>
+      {/* main esuumit reg landing page */}
+      {/* <SignInBtn /> */}
+
+  // if (status === "authenticated") {
+  //     router.push('/userDetails')
+  // }
+  return (<>
       {/* <div>
         <div className="grid grid-cols-2">
           <Link
