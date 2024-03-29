@@ -198,11 +198,34 @@ const Navbar = () => {
             </div>
             <div>
               <ul className="flex gap-10 capitalize items-center font-semibold">
-                <li className="cursor-pointer">home</li>
-                <li className="cursor-pointer">about</li>
-                <li className="cursor-pointer">schedule</li>
-                <li className="cursor-pointer">speakers</li>
-
+                <Link
+                  href={"/"}
+                  className="group text-white transition duration-300"
+                >
+                  <li className="cursor-pointer">home</li>
+                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                </Link>
+                <Link
+                  href={"/"}
+                  className="group text-white transition duration-300"
+                >
+                  <li className="cursor-pointer">about</li>
+                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                </Link>
+                <Link
+                  href={"/"}
+                  className="group text-white transition duration-300"
+                >
+                  <li className="cursor-pointer">schedule</li>
+                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                </Link>
+                <Link
+                  href={"/"}
+                  className="group text-white transition duration-300"
+                >
+                  <li className="cursor-pointer">speakers</li>
+                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                </Link>
                 <SignInBtn />
               </ul>
             </div>
