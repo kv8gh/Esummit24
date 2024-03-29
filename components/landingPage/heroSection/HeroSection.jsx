@@ -7,7 +7,7 @@ const HeroSection = () => {
     <section className=" relative flex flex-col items-center justify-center min-h-screen bg-[url('/public/assets/landingPage/heroImage.png')] bg-cover">
       <h6 className="uppercase text-xl font-light">e-cell vit presents</h6>
       <h1 className="uppercase text-9xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
-        e-summit'24
+        e-summit&apos; 24
       </h1>
       <h1 className="uppercase text-xl font-light">
         The 5th edition of the biggest fest in South India
