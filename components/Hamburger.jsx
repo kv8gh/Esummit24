@@ -21,16 +21,16 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
           />
         </div>
         <ul className="flex flex-col h-full items-center justify-around my-20 gap-5 uppercase text-4xl">
-          <Link href={"/"}>
+          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
             <li className="cursor-pointer">home</li>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
             <li>about</li>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
             <li>schedule</li>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
             <li>speakers</li>
           </Link>
         </ul>
