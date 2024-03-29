@@ -1,22 +1,23 @@
 import React from "react";
 import Timer from "./Timer";
 import MoreButton from "./MoreButton";
+import Loader from "@/components/Loader";
 
 const HeroSection = () => {
   return (
-    <section className=" relative flex flex-col items-center justify-center min-h-screen bg-[url('/assets/landingPage/heroImage.png')] bg-cover">
+    <section className=" relative flex flex-col items-center justify-center min-h-screen bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
       <h6 className="uppercase text-sm lg:text-xl font-light">
         e-cell vit presents
       </h6>
-      <h1 className="esummit uppercase text-6xl lg:text-9xl font-bold">
+      <h1 className="esummit uppercase text-4xl md:text-6xl lg:text-9xl font-bold">
         e-summit&apos;24
       </h1>
-      <h1 className="uppercase text-sm lg:text-xl font-light mt-5 mb-10">
+      <h1 className="uppercase text-center text-sm lg:text-xl font-light px-2 mt-5 mb-10">
         The 5th edition of the biggest fest in South India
       </h1>
-      <div className="w-full flex items-center justify-center gap-20">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-20">
         <Timer />
-        <button className="py-2 px-4 font-semibold rounded-xl uppercase border-4 border-[#FEFAB7] bg-transparent">
+        <button className="py-2 px-4 font-semibold rounded-xl uppercase border-4 border-[#FEFAB7] bg-transparent hover:scale-105 transition-all">
           register now!!!
         </button>
       </div>

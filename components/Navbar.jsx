@@ -36,11 +36,14 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
+import { RxHamburgerMenu } from "react-icons/rx";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [dashboardLink, setDashboardLink] = useState("/");
+  const [showHamburger, setShowHamburger] = useState(false);
   const { data: session, status } = useSession();
   const { scrollYProgress } = useScroll();
 
@@ -148,34 +151,64 @@ const Navbar = () => {
     //   </div>
     // </nav>
     <AnimatePresence mode="wait">
-      <motion.nav
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
-        className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md flex w-full py-5 px-10 h-16 items-center justify-between"
-      >
-        <div className="h-full flex items-center">
-          <Image className="h-10 w-auto px-10" src={logo} />
-        </div>
-        <div>
-          <ul className="flex gap-10 capitalize items-center font-semibold">
-            <li className="cursor-pointer">home</li>
-            <li className="cursor-pointer">about</li>
-            <li className="cursor-pointer">schedule</li>
-            <li className="cursor-pointer">speakers</li>
+      {showHamburger ? (
+        <Hamburger
+          showHamburger={showHamburger}
+          setShowHamburger={setShowHamburger}
+        />
+      ) : (
+        <>
+          <motion.nav
+            initial={{
+              opacity: 1,
+              y: -100,
+            }}
+            animate={{
+              y: visible ? 0 : -100,
+              opacity: visible ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.2,
+            }}
+            className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md  w-full py-5 px-5 h-16  justify-between "
+          >
+            <RxHamburgerMenu
+              onClick={() => {
+                setShowHamburger(true);
+              }}
+              className="text-white text-3xl font-bold"
+            />
+          </motion.nav>
+          <motion.nav
+            initial={{
+              opacity: 1,
+              y: -100,
+            }}
+            animate={{
+              y: visible ? 0 : -100,
+              opacity: visible ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.2,
+            }}
+            className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md hidden md:flex w-full py-5 px-10 h-16 items-center justify-between"
+          >
+            <div className="h-full flex items-center">
+              <Image className="h-10 w-auto px-10" src={logo} />
+            </div>
+            <div>
+              <ul className="flex gap-10 capitalize items-center font-semibold">
+                <li className="cursor-pointer">home</li>
+                <li className="cursor-pointer">about</li>
+                <li className="cursor-pointer">schedule</li>
+                <li className="cursor-pointer">speakers</li>
 
-            <SignInBtn />
-          </ul>
-        </div>
-      </motion.nav>
+                <SignInBtn />
+              </ul>
+            </div>
+          </motion.nav>
+        </>
+      )}
     </AnimatePresence>
   );
 };
