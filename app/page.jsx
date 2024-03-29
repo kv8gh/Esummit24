@@ -11,24 +11,23 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Schedule from "@/components/landingPage/Schedule/Schedule";
 
-// export default function Home() {
-//   const { status, data: session } = useSession();
+export default function Home() {
+  const { status, data: session } = useSession();
 
-//   const router = useRouter();
-
-//   // if (status === "authenticated") {
-//   //     router.push('/userDetails')
-//   // } else {
-//   return (
-//     <div>
-//       {/* main esuumit reg landing page */}
-//       {/* <SignInBtn /> */}
+  const router = useRouter();
 
   // if (status === "authenticated") {
   //     router.push('/userDetails')
   // } else {
-  return (
-    <>
+  // return (
+  //   <div>
+      {/* main esuumit reg landing page */}
+      {/* <SignInBtn /> */}
+
+  // if (status === "authenticated") {
+  //     router.push('/userDetails')
+  // }
+  return (<>
       {/* <div>
         <div className="grid grid-cols-2">
           <Link
