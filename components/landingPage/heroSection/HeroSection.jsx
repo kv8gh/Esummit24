@@ -2,6 +2,7 @@ import React from "react";
 import Timer from "./Timer";
 import MoreButton from "./MoreButton";
 import Loader from "@/components/Loader";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const HeroSection = () => {
   return (
@@ -20,6 +21,13 @@ const HeroSection = () => {
         <button className="py-2 px-4 font-semibold rounded-xl uppercase border-4 border-[#FEFAB7] bg-transparent hover:scale-105 transition-all">
           register now!!!
         </button>
+        {/* <HoverBorderGradient
+          containerClassName="rounded-full"
+          as="button"
+          className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+        >
+          <span>Aceternity UI</span>
+        </HoverBorderGradient> */}
       </div>
       <div className="absolute bottom-0">
         <MoreButton />

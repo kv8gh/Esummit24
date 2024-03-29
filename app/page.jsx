@@ -3,13 +3,15 @@
 import SignInBtn from "@/components/SignInBtn";
 
 import Speakers from "@/components/landingPage/Speakers";
-import Sponsers from "@/components/landingPage/Sponsers";
+import Sponsors from "@/components/landingPage/Sponsors";
 import { IIA } from "@/components/landingPage/IIA/IIA";
 import HeroSection from "@/components/landingPage/heroSection/HeroSection";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Schedule from "@/components/landingPage/Schedule/Schedule";
+import FAQ from "@/components/landingPage/FAQ/FAQ";
+import { Footer } from "@/components/landingPage/Footer/Footer";
 
 export default function Home() {
   const { status, data: session } = useSession();
@@ -76,7 +78,11 @@ export default function Home() {
       </div> */}
       <HeroSection />
       <IIA />
-      <Schedule/>
-      </>
-    )
+      <Schedule />
+      <Speakers />
+      <Sponsors/>
+      <FAQ/>
+      <Footer/>
+    </>
+  );
 }

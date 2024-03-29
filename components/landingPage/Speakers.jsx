@@ -4,102 +4,69 @@ import image1 from "@/styles/landingPage/image1.png";
 import image2 from "@/styles/landingPage/image2.png";
 import image3 from "@/styles/landingPage/image3.png";
 import { FaInstagram, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
+import Link from "next/link";
 
-export default function Sponsers() {
+const Card = ({ speaker }) => {
   return (
-    <div className="">
-      <div className="flex flex-row">
-        <p className="text-5xl text-center font-gotham-black font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text pb-10 pl-20">Meet Our Speakers</p>
-        <div className="pl-10 mx-auto my-4 h-[2px] w-1/5 bg-gradient-to-r from-orange-400 via-yellow-300 to-red-400"></div>
+    <div className="h-fit my-4 mx-10 w-44 md:w-56 flex flex-col gap-4">
+      <div className="flex justify-center rounded-lg overflow-hidden">
+        <Image className="w-full h-auto" src={speaker.image} />
       </div>
-      <div className="flex flex-col md:flex-row justify-around">
-        <div className="w-80">
-          <Image className=""src={image1} alt="sponser1" width={250} height={250} />
-          <div>
-            <p className="text-center text-3xl bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">Mr.XYC</p>
-            <p className="text-center">Chairman, OBH Group</p>
-
-            <div className="flex flex-row justify-evenly ">
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaInstagram />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-80">
-          <Image src={image2} alt="sponser2" width={250} height={250} />
-          <div>
-            <p className="text-center text-3xl bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">Mr.XYC</p>
-            <p className="text-center">Chairman, OBH Group</p>
-
-            <div className="flex flex-row justify-evenly ">
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaInstagram />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-80">
-          <Image src={image3} alt="sponser3" width={250} height={250} />
-          <div>
-            <p className="text-center text-3xl bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">Mr.XYC</p>
-            <p className="text-center">Chairman, OBH Group</p>
-
-            <div className="flex flex-row justify-evenly ">
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href=""
-                className="flex hover:text-blue-300"
-              >
-                <FaInstagram />
-              </a>
-            </div>
-          </div>
+      <div className="flex flex-col items-center">
+        <h1 className="uppercase text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
+          {speaker.name}
+        </h1>
+        <p className="font-extralight text-slate-100">{speaker.position}</p>
+        <div className="flex gap-5 mt-2">
+         <Link href={speaker.instagram}> <FaInstagram /></Link>
+         <Link href={speaker.linkedin}> <FaLinkedin /></Link>
+         <Link href={speaker.twitter}> <FaTwitter /></Link>
         </div>
       </div>
     </div>
+  );
+};
+
+export default function Sponsers() {
+  const speakers = [
+    {
+      id: 1,
+      name: "Mr. XYZ",
+      position: "Chairman, OBH Group",
+      image: image1,
+      instagram: "https://www.instagram.com/",
+      linkedin: "https://www.linkedin.com/",
+      twitter: "https://twitter.com/",
+    },
+    {
+      id: 2,
+      name: "Mr. XYZ",
+      position: "Chairman, OBH Group",
+      image: image2,
+      instagram: "https://www.instagram.com/",
+      linkedin: "https://www.linkedin.com/",
+      twitter: "https://twitter.com/",
+    },
+    {
+      id: 3,
+      name: "Mr. XYZ",
+      position: "Chairman, OBH Group",
+      image: image3,
+      instagram: "https://www.instagram.com/",
+      linkedin: "https://www.linkedin.com/",
+      twitter: "https://twitter.com/",
+    },
+  ];
+  const cards = speakers.map((speaker) => <Card speaker={speaker} key={speaker.id}/>);
+  return (
+    <section className="mx-10 md:mx-20">
+      <div className="flex items-center mt-10 mb-5 text-center">
+        <h1 className="uppercase w-full text-4xl md:text-5xl lg:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
+          meet our speakers
+        </h1>
+        <div className="hidden md:block h-0.5 w-full bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"></div>
+      </div>
+      <div className="flex flex-col md:flex-row justify-around items-center">{cards}</div>
+    </section>
   );
 }
