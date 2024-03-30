@@ -116,7 +116,7 @@ export default function UserDetails() {
       {/* {isLoading && <LoadingScreen/>} */}
       <div className="flex flex-col md:flex-row w-full h-[80vh] md:h-[90vh] justify-evenly items-center">
         <div
-          className="hidden md:w-100 h-5/6 md:flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl border-solid border-4 border-[linear-gradient(126deg, #DCA64E 16.34%, #FEFAB7 53.16%, #D6993F 100%)]"
+          className="hidden md:w-100 h-5/6 md:flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl border-solid border-2 border-[#D6993F]"
           style={{ backgroundColor: "black" }}
         >
           <Image
@@ -130,7 +130,7 @@ export default function UserDetails() {
         </div>
 
         <div
-          className="w-4/5 md:w-1/2 h-5/6 flex flex-col justify-evenly md:justify-around items-start rounded-3xl px-4 border-solid border-4 border-[linear-gradient(126deg, #DCA64E 16.34%, #FEFAB7 53.16%, #D6993F 100%)]"
+          className="w-4/5 md:w-1/2 h-5/6 flex flex-col justify-evenly md:justify-around items-start rounded-3xl px-4 border-solid border-2 border-[#D6993F]"
 
           style={{ backgroundColor: "black" }}
         >
