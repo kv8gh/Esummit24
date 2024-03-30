@@ -2,7 +2,10 @@ import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { Vortex } from "react-loader-spinner";
 
 export default function Loader({ visibility }) {
-  useLockBodyScroll();
+  if (visibility) {
+    useLockBodyScroll();
+  }
+
   return (
     <div
       className={`${

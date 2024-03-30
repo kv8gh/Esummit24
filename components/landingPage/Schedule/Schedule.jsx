@@ -1,13 +1,21 @@
 import Image from "next/image";
 import scheduleDetails from "./scheduleDetails";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
+import RegisterButton from "@/components/events/RegisterButton";
+import Loader from "@/components/Loader";
+import { useState } from "react";
 
 export default function Schedule({ scheduleRef }) {
+  const { data: session, status } = useSession();
+  const [loader, setLoader] = useState(false);
+
   return (
     <section
       ref={scheduleRef}
       className="bg-black min-h-screen flex flex-col justify-center items-center"
     >
+      <Loader visibility={loader}/>
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="uppercase mt-10 mb-5 text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           schedule
@@ -43,15 +51,21 @@ export default function Schedule({ scheduleRef }) {
                     <span className="text-sm font-normal">
                       {"( " + ele.time + " )"}
                     </span>
-                  </div>
-                  <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
-                    {ele.eventName}
+                    <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
+                      {ele.eventName}
+                    </div>
                   </div>
                   <p className="font-extralight">{ele.description}</p>
                   <p className="font-extralight my-1">
                     <span className="font-normal">Venue: </span>
                     {ele.venue}
                   </p>
+                  <RegisterButton
+                    loader={loader}
+                    setLoader={setLoader}
+                    event={ele.id}
+                    token={session?.accessTokenBackend}
+                  />
                 </motion.div>
                 {index % 2 !== 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
@@ -87,6 +101,12 @@ export default function Schedule({ scheduleRef }) {
                     <span className="font-normal">Venue: </span>
                     {ele.venue}
                   </p>
+                  <RegisterButton
+                    loader={loader}
+                    setLoader={setLoader}
+                    event={ele.id}
+                    token={session?.accessTokenBackend}
+                  />
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const RegisterButton = ({ event, token }) => {
+const RegisterButton = ({ event, token, loader, setLoader }) => {
   const [userDetails, setUserDeatials] = useState(null);
   const [eventRegistered, setEventRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ const RegisterButton = ({ event, token }) => {
       });
   }, []);
   const registerEvent = () => {
-    setLoading(true);
+    setLoader(true);
     fetch(`/api/event${event}/register`, {
       content: "application/json",
       method: "GET",
@@ -39,19 +39,19 @@ const RegisterButton = ({ event, token }) => {
     })
       .then((res) => {
         if (res.status === 200) {
-          setLoading(false);
+          setLoader(false);
           setEventRegistered(true);
           toast.success("Event Registered Successfully.");
         }
       })
       .catch((err) => {
-        setLoading(false);
+        setLoader(false);
         console.log(err);
         toast.error("Something went wrong.");
       });
   };
   const deregisterEvent = () => {
-    setLoading(true);
+    setLoader(true);
     fetch(`/api/event${event}/deregister`, {
       content: "application/json",
       method: "GET",
@@ -67,12 +67,12 @@ const RegisterButton = ({ event, token }) => {
           setEventRegistered(false);
           toast.success("Event Deregistered Successfully.");
         } else if (res.status === 400) {
-          setLoading(false);
-          toast.error('Delete the existing Team first');
+          setLoader(false);
+          toast.error("Delete the existing Team first");
         }
       })
       .catch((err) => {
-        setLoading(false);
+        setLoader(false);
         console.log(err);
         toast.error("Something went wrong.");
       });
@@ -81,7 +81,8 @@ const RegisterButton = ({ event, token }) => {
     <>
       <Toaster />{" "}
       <button
-        className="bg-blue-500 p-2 rounded-lg hover:bg-blue-600"
+        className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
+        disabled={loading || loader}
         onClick={() => {
           if (eventRegistered) {
             deregisterEvent();
