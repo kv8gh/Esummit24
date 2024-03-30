@@ -40,6 +40,10 @@ export default function Schedule() {
                     {ele.eventName}
                   </div>
                   <p className="font-extralight">{ele.description}</p>
+                  <p className="font-extralight my-1">
+                    <span className="font-normal">Venue: </span>
+                    {ele.venue}
+                  </p>
                 </motion.div>
                 {index % 2 !== 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
@@ -65,6 +69,10 @@ export default function Schedule() {
                   {ele.eventName}
                 </div>
                 <p className="font-extralight">{ele.description}</p>
+                <p className="font-extralight my-1">
+                  <span className="font-normal">Venue: </span>
+                  {ele.venue}
+                </p>
               </div>
             </>
           );

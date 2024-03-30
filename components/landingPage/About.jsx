@@ -17,8 +17,8 @@ const About = () => {
     //     </p>
 
     // </div>
-    <div class="mx-5 sm:mx-10 md:mx-20 flex min-w-screen-sm items-center justify-center">
-      <div class="h-full w-full rounded-lg bg-gradient-to-b from-[#ffffff00] via-[#fefab730] to-[#d69a3f20] p-1 border-2 border-[#D6993F] m-12 mx-16">
+    <div class="sm:mx-5 md:mx-20 flex items-center justify-center">
+      <div class="h-full w-full rounded-lg bg-gradient-to-b from-[#ffffff00] via-[#fefab730] to-[#d69a3f20] p-1 border-2 border-[#D6993F] m-12">
         <div class=" h-full w-full items-center justify-center bg-gray-800 back p-4 sm:p-8 text-center text-white bg-transparent">
           <div class="flex justify-center">
             <Image
@@ -27,7 +27,9 @@ const About = () => {
               className="item-center h-[20vh]"
             />
           </div>
-          <h1 class="text-3xl md:text-4xl font-black p-4">About E-Summit&apos;24</h1>
+          <h1 class="text-2xl md:text-4xl font-black p-4">
+            About E-Summit&apos;24
+          </h1>
           <p className="">
             E-Summit is the conclave that opens the doors to the world of
             entrepreneurship. Masquerading as a single event, it is a fusion of

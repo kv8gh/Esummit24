@@ -6,12 +6,12 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const HeroSection = () => {
   return (
-    <section className=" relative flex flex-col items-center justify-center min-h-screen bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
+    <section className=" relative flex flex-col items-center justify-center min-h-[100dvh] bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
       <h6 className="uppercase text-sm lg:text-xl font-light">
         e-cell vit presents
       </h6>
       <h1 className="esummit uppercase text-4xl md:text-6xl lg:text-9xl font-bold">
-        e-summit  24
+        e-summit&apos;24
       </h1>
       <h1 className="uppercase text-center text-sm lg:text-xl font-light px-2 mt-5 mb-10">
         The 5th edition of the biggest fest in South India
