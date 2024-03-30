@@ -64,28 +64,30 @@ export default function Schedule({ scheduleRef }) {
                 )}
               </div>
               {/* For smaller screens */}
-              <div className="md:hidden border-2 border-solid border-yellow-500 w-fit rounded-lg overflow-hidden h-44 mt-10">
-                <Image
-                  className="object-fit h-full"
-                  src={ele.image}
-                  alt={"Event: " + ele.eventName}
-                />
-              </div>
-              <div className="md:hidden w-1/2 text-wrap text-center m-2 mt-5">
-                <div className="text-sm md:text-xl font-bold">
-                  {ele.date}{" "}
-                  <span className="text-sm font-normal">
-                    {"( " + ele.time + " )"}
-                  </span>
+              <div className="flex flex-col items-center">
+                <div className="block md:hidden border-2 border-solid border-yellow-500 w-fit rounded-lg overflow-hidden h-44 mt-10">
+                  <Image
+                    className="object-fit w-auto h-full"
+                    src={ele.image}
+                    alt={"Event: " + ele.eventName}
+                  />
                 </div>
-                <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
-                  {ele.eventName}
+                <div className="md:hidden w-1/2 text-wrap text-center m-2 mt-5">
+                  <div className="text-sm md:text-xl font-bold">
+                    {ele.date}{" "}
+                    <span className="text-sm font-normal">
+                      {"( " + ele.time + " )"}
+                    </span>
+                  </div>
+                  <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
+                    {ele.eventName}
+                  </div>
+                  <p className="font-extralight">{ele.description}</p>
+                  <p className="font-extralight my-1">
+                    <span className="font-normal">Venue: </span>
+                    {ele.venue}
+                  </p>
                 </div>
-                <p className="font-extralight">{ele.description}</p>
-                <p className="font-extralight my-1">
-                  <span className="font-normal">Venue: </span>
-                  {ele.venue}
-                </p>
               </div>
             </div>
           );
