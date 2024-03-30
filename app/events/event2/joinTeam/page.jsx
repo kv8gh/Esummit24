@@ -47,14 +47,14 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         if (user.hasFilledDetails == false) {
           router.push('/userDetails');
         } else {
-          if((user.events).includes(1)){
-            if (user.event1TeamId ) {
-              const redirect = user.teamRole=='1' ? '/events/event1/memberDash' : '/events/event1/leaderDash';
+          if((user.events).includes(2)){
+            if (user.event2TeamId ) {
+              const redirect = user.teamRole=='1' ? '/events/event2/memberDash' : '/events/event2/leaderDash';
               router.push(redirect);
             }
           }else{
             toast.error('Please register the Event first');
-            router.push('/events/event1')
+            router.push('/events/event2')
           }
         }
 
@@ -82,7 +82,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   const fetchTeamName = async () => {
     setisLoading(true);
     try {
-      const response = await fetch(`/api/event1/getTeamViaToken`, {
+      const response = await fetch(`/api/event2/getTeamViaToken`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
     // Send a request to the API to join the team with the team code.
     setIsMoadalLoading(true);
     try {
-      const response = await fetch("/api/event1/joinTeam", {
+      const response = await fetch("/api/event2/joinTeam", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -126,17 +126,7 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         showMessage("Successfully joined the team.", "success");
         setShowDialog(false);
         setTimeout(() => {
-          // You can use react-router-dom or another routing library to handle the redirection
-
-          // React Friendly Approach
-          /*
-          import { useHistory } from 'react-router-dom'; //add to top
-          const history = useHistory(); 
-          history.push('/member-dashboard');
-          */
-
-          // non react friendly
-          window.location.href = "/events/event1/memberDash";
+          window.location.href = "/events/event2/memberDash";
         }, 1000);
       } else {
         showMessage(
@@ -161,10 +151,6 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
   return (
     <div
       className=" bg-cover bg-no-repeat bg-center"
-      // style={{
-      //   backgroundImage: "url(/assets/bg/spceBg.svg)",
-      //   //  minHeight: '100vh'
-      // }}
     >
       <div className="flex flex-col justify-center items-center h-screen ">
         <div className="w-[60%] sm:w-[55vw] bg-black flex flex-col items-center justify-evenly text-white rounded-lg min-w-fit min-h-[70vh] border-2 border-[#D6993F]">

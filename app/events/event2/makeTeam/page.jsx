@@ -39,17 +39,17 @@ const MakeTeam = () => {
         const user = data.user;
         setShowConsent(user.consent);
         if (user.hasFilledDetails == true) {
-          if (user.events.includes(1)) {
-            if (user.event1TeamId) {
+          if (user.events.includes(2)) {
+            if (user.event2TeamId) {
               const redirect =
-                user.event1TeamRole == 1
-                  ? "/events/event1/memberDash"
-                  : "/events/event1/leaderDash";
+                user.event2TeamRole == 1
+                  ? "/events/event2/memberDash"
+                  : "/events/event2/leaderDash";
               router.push(redirect);
             }
           } else {
             toast.error("Please Register the Event first");
-            router.push("/events/event1");
+            router.push("/events/event2");
           }
         } else {
           router.push("/userDetails");
@@ -67,7 +67,7 @@ const MakeTeam = () => {
 
     try {
       // Send a request to the backend to check if the team name is unique
-      const response = await fetch("/api/event1/createTeam", {
+      const response = await fetch("/api/event2/createTeam", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${session.accessTokenBackend}`,
@@ -89,7 +89,7 @@ const MakeTeam = () => {
         setIsLoading(false);
       } else {
         // Team name is unique, so redirect to TeamCode page
-        router.push("/events/event1/leaderDash");
+        router.push("/events/event2/leaderDash");
       }
       // else {
       //  // Team name is already used, display an error message
@@ -103,7 +103,7 @@ const MakeTeam = () => {
 
   const handleJoinTeam = () => {
     // Redirect to JoinTeam page
-    router.push("/events/event1/joinTeam");
+    router.push("/events/event2/joinTeam");
   };
 
   return (
@@ -156,7 +156,7 @@ const MakeTeam = () => {
             {!showConsent && (
               <button
                 onClick={() => {
-                  router.push("/events/event1/termsConditions");
+                  router.push("/events/event2/termsConditions");
                 }}
                 className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >

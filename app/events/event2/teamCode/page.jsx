@@ -44,22 +44,22 @@ export default function TeamCode() {
         const user = data.user;
         console.log('user', user)
         if (user.hasFilledDetails === true) {
-          if((user.events).includes(1)){
-            if (user.event1TeamId ) {
-              if (user.event1TeamRole !== 0) {
-                router.push('/events/event1/memberDash');
+          if((user.events).includes(2)){
+            if (user.event2TeamId ) {
+              if (user.event2TeamRole !== 0) {
+                router.push('/events/event2/memberDash');
               }
             } else {
-              router.push('/events/event1/joinTeam');
+              router.push('/events/event2/joinTeam');
             }
           }else{
             toast.error('Please register the Event first!!')
-            router.push('/events.event1')
+            router.push('/events.event2')
           }
         } else {
           router.push('/userDetails');
         }
-        fetch(`/api/event1/getTeamCode`, {
+        fetch(`/api/event2/getTeamCode`, {
           content: 'application/json',
           method: 'GET',
           headers: {
