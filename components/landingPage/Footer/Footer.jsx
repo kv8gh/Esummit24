@@ -21,19 +21,35 @@ export const Footer = () => {
           <div className="uppercase flex flex-col gap-2">
             <p className="text-lg font-semibold m-0">community</p>
             <div className="flex flex-col gap-2">
-              <Link href={"https://instagram.com/ecell_vit/"} target="blank" className="flex gap-2 items-center text-2xl">
+              <Link
+                href={"https://instagram.com/ecell_vit/"}
+                target="blank"
+                className="flex gap-2 items-center text-2xl"
+              >
                 <RiInstagramFill />
                 <p className="text-sm">Instagram</p>
               </Link>
-              <Link href={"https://twitter.com/ecell_vit"} target="blank" className="flex gap-2 items-center text-2xl">
+              <Link
+                href={"https://twitter.com/ecell_vit"}
+                target="blank"
+                className="flex gap-2 items-center text-2xl"
+              >
                 <FaSquareXTwitter />
                 <p className="text-sm">Twitter</p>
               </Link>
-              <Link href={"https://www.linkedin.com/company/ecellvitvellore"} target="blank" className="flex gap-2 items-center text-2xl">
+              <Link
+                href={"https://www.linkedin.com/company/ecellvitvellore"}
+                target="blank"
+                className="flex gap-2 items-center text-2xl"
+              >
                 <FaLinkedin />
                 <p className="text-sm">Linkedin</p>
               </Link>
-              <Link href={"https://www.facebook.com/ecellvit/"} target="blank" className="flex gap-2 items-center text-2xl">
+              <Link
+                href={"https://www.facebook.com/ecellvit/"}
+                target="blank"
+                className="flex gap-2 items-center text-2xl"
+              >
                 <FaSquareFacebook />
                 <p className="text-sm">Facebook</p>
               </Link>
