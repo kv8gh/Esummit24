@@ -18,24 +18,24 @@ export default function ResponsiveCards() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
           viewport={{ once: true }}
-          className="sm:absolute sm:top-1/2 left-0 h-24 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"
+          className="sm:absolute min-w-40 sm:top-1/2 left-0 h-24 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"
         >
           <p className="text-base">an</p>
           <h2 className="text-xl font-bold">Entrepreneur</h2>
         </motion.div>
-        <div className="sm:absolute sm:top-1/2 h-24 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-bl from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]">
-          <h2 className="text-xl font-bold">working with</h2>
-          <p className="text-base">Startups</p>
+        <div className="sm:absolute min-w-40 sm:top-1/2 h-24 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-bl from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]">
+          <p className="text-base">working with</p>
+          <h2 className="text-xl font-bold">Startups</h2>
         </div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
           viewport={{ once: true }}
-          className="sm:absolute sm:top-1/2 h-24 right-0 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-tr from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"
+          className="sm:absolute min-w-40 sm:top-1/2 h-24 right-0 card p-4 rounded-xl w-full sm:w-auto bg-gradient-to-tr from-[#DCA64E] via-[#FEFAB7] to-[#D6993F]"
         >
-          <h2 className="text-xl font-bold">interested in</h2>
-          <p className="text-base">Startups</p>
+          <p className="text-base">interested in </p>
+          <h2 className="text-xl font-bold">Startups</h2>
         </motion.div>
       </div>
     </section>

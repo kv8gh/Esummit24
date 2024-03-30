@@ -29,6 +29,10 @@ body {
   }
 }
 
+*{
+  scroll-behavior: smooth;
+}
+
 .esummit {
   background: linear-gradient(
       to bottom right,

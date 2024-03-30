@@ -176,7 +176,7 @@ const Navbar = () => {
               onClick={() => {
                 setShowHamburger(true);
               }}
-              className="text-white text-3xl font-bold"
+              className="text-white text-3xl font-bold block md:hidden"
             />
           </motion.nav>
           <motion.nav
