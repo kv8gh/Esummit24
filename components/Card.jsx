@@ -4,7 +4,7 @@ const Card = ({ name, Role, regNo, leader, removeMember, imageSrc, phone }) => {
   return (
     <div
       key={name}
-      className="relative w-96 h-48 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 flex items-center"
+      className="relative w-96 h-48 rounded-3xl overflow-hidden shadow-lg mx-4 my-4 flex items-center border-2 border-[#D6993F]"
       style={{ backgroundColor: '#141B2B' }} // Light blue color
     >
       <div className="h-3/4 w-full flex justify-center">
