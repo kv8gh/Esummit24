@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { RxCross2 } from "react-icons/rx";
 import { AnimatePresence, motion } from "framer-motion";
+import SignInBtn from "./SignInBtn";
 
 const Hamburger = ({ setShowHamburger, showHamburger }) => {
   useLockBodyScroll();
@@ -21,18 +22,39 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
           />
         </div>
         <ul className="flex flex-col h-full items-center justify-around my-20 gap-5 uppercase text-4xl">
-          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
+          <Link
+            href={"/"}
+            onClick={() => {
+              setShowHamburger(false);
+            }}
+          >
             <li className="cursor-pointer">home</li>
           </Link>
-          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
+          <Link
+            href={"/"}
+            onClick={() => {
+              setShowHamburger(false);
+            }}
+          >
             <li>about</li>
           </Link>
-          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
+          <Link
+            href={"/"}
+            onClick={() => {
+              setShowHamburger(false);
+            }}
+          >
             <li>schedule</li>
           </Link>
-          <Link href={"/"} onClick={()=>{setShowHamburger(false)}}>
+          <Link
+            href={"/"}
+            onClick={() => {
+              setShowHamburger(false);
+            }}
+          >
             <li>speakers</li>
           </Link>
+          <SignInBtn />
         </ul>
       </motion.div>
     </AnimatePresence>

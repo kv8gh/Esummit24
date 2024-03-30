@@ -14,8 +14,10 @@ import FAQ from "@/components/landingPage/FAQ/FAQ";
 import { Footer } from "@/components/landingPage/Footer/Footer";
 import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
+import { useRef } from "react";
 
 export default function Home() {
+  const scheduleRef = useRef(null);
   const { status, data: session } = useSession();
 
   const router = useRouter();
@@ -25,13 +27,18 @@ export default function Home() {
   // } else {
   // return (
   //   <div>
-      {/* main esuumit reg landing page */}
-      {/* <SignInBtn /> */}
+  {
+    /* main esuumit reg landing page */
+  }
+  {
+    /* <SignInBtn /> */
+  }
 
   // if (status === "authenticated") {
   //     router.push('/userDetails')
   // }
-  return (<>
+  return (
+    <>
       {/* <div>
         <div className="grid grid-cols-2">
           <Link
@@ -78,15 +85,15 @@ export default function Home() {
           </Link>
         </div>
       </div> */}
-      <HeroSection />
+      <HeroSection scheduleRef={scheduleRef}/>
       <IIA />
       <About />
       <Who />
-      <Schedule />
+      <Schedule scheduleRef={scheduleRef} />
       <Speakers />
-      <Sponsors/>
-      <FAQ/>
-      <Footer/>
+      <Sponsors />
+      <FAQ />
+      <Footer />
     </>
   );
 }

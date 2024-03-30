@@ -2,9 +2,12 @@ import Image from "next/image";
 import scheduleDetails from "./scheduleDetails";
 import { motion } from "framer-motion";
 
-export default function Schedule() {
+export default function Schedule({ scheduleRef }) {
   return (
-    <section className="bg-black min-h-screen flex flex-col justify-center items-center">
+    <section
+      ref={scheduleRef}
+      className="bg-black min-h-screen flex flex-col justify-center items-center"
+    >
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="uppercase mt-10 mb-5 text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           schedule
@@ -35,7 +38,12 @@ export default function Schedule() {
                   transition={{ duration: 0.5 }}
                   className="w-1/2 text-wrap m-2 md:m-0"
                 >
-                  <div className="text-sm md:text-xl font-bold">{ele.date}</div>
+                  <div className="text-sm md:text-xl font-bold">
+                    {ele.date}{" "}
+                    <span className="text-sm font-normal">
+                      {"( " + ele.time + " )"}
+                    </span>
+                  </div>
                   <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
                     {ele.eventName}
                   </div>
@@ -64,7 +72,12 @@ export default function Schedule() {
                 />
               </div>
               <div className="md:hidden w-1/2 text-wrap text-center m-2 mt-5">
-                <div className="text-sm md:text-xl font-bold">{ele.date}</div>
+                <div className="text-sm md:text-xl font-bold">
+                  {ele.date}{" "}
+                  <span className="text-sm font-normal">
+                    {"( " + ele.time + " )"}
+                  </span>
+                </div>
                 <div className="text-3xl md:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] text-transparent bg-clip-text">
                   {ele.eventName}
                 </div>
