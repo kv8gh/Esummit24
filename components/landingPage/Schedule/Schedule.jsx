@@ -17,7 +17,7 @@ export default function Schedule() {
       <div className="flex flex-col justify-center items-center m-2">
         {scheduleDetails.map((ele, index) => {
           return (
-            <>
+            <div key={ele} className="flex justify-center items-center">
               <div className="hidden md:flex flex-col md:flex-row w-3/4 justify-evenly text-white mb-4 m-2 md:m-8 md:p-2 items-center">
                 {index % 2 === 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
@@ -56,9 +56,9 @@ export default function Schedule() {
                 )}
               </div>
               {/* For smaller screens */}
-              <div className="md:hidden border-2 border-solid border-yellow-500 rounded-lg overflow-hidden h-44 mt-10">
+              <div className="md:hidden border-2 border-solid border-yellow-500 w-fit rounded-lg overflow-hidden h-44 mt-10">
                 <Image
-                  className="object-fit w-auto h-full"
+                  className="object-fit h-full"
                   src={ele.image}
                   alt={"Event: " + ele.eventName}
                 />
@@ -74,7 +74,7 @@ export default function Schedule() {
                   {ele.venue}
                 </p>
               </div>
-            </>
+            </div>
           );
         })}
       </div>

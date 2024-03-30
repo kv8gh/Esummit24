@@ -15,7 +15,9 @@ module.exports = {
           "linear-gradient(126deg, #DCA64E 16.34%, #FEFAB7 53.16%, #D6993F 100.41%)",
       },
       colors: {
-        "main-green":"#00FF68"
+        "main-green":"#00FF68",
+        "color-gradient":
+          "linear-gradient(126deg, #DCA64E 16.34%, #FEFAB7 53.16%, #D6993F 100.41%)",
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
