@@ -15,7 +15,6 @@ import { Footer } from "@/components/landingPage/Footer/Footer";
 import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
 import { useRef, useState } from "react";
-import { useRef, useState } from "react";
 
 export default function Home() {
   const scheduleRef = useRef(null);
