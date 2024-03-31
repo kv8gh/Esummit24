@@ -140,7 +140,7 @@ export default function Schedule({ scheduleRef }) {
                       event={ele.id}
                       token={session?.accessTokenBackend}
                     />
-                    {(ele.id === 0 || ele.id === 1) &&
+                    {(ele.id === 1 || ele.id === 2) &&
                       userDetails?.user?.events?.includes(ele.id) && (
                         <button
                           className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
