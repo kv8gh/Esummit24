@@ -1,4 +1,5 @@
 "use client";
+import {  useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -6,6 +7,7 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
   const [userDetails, setUserDeatials] = useState(null);
   const [eventRegistered, setEventRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     fetch("/api/userDetails", {
       content: "application/json",
@@ -27,6 +29,10 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       });
   }, []);
   const registerEvent = () => {
+    if (!userDetails.user.hasFilledDetails) {
+      router.push("/userDetails");
+      return;
+    }
     setLoader(true);
     fetch(`/api/event${event}/register`, {
       content: "application/json",
@@ -38,9 +44,10 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       },
     })
       .then((res) => {
+        setLoader(false);
         if (res.status === 200) {
-          setLoader(false);
           setEventRegistered(true);
+          // console.log('\n\n\nshowing toast\n\n\n')
           toast.success("Event Registered Successfully.");
         }
       })
@@ -51,6 +58,10 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       });
   };
   const deregisterEvent = () => {
+    if (!userDetails.user.hasFilledDetails) {
+      router.push("/userDetails");
+      return;
+    }
     setLoader(true);
     fetch(`/api/event${event}/deregister`, {
       content: "application/json",
@@ -62,12 +73,12 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       },
     })
       .then((res) => {
+        setLoader(false);
         if (res.status === 200) {
           setLoading(false);
           setEventRegistered(false);
           toast.success("Event Deregistered Successfully.");
         } else if (res.status === 400) {
-          setLoader(false);
           toast.error("Delete the existing Team first");
         }
       })
@@ -79,7 +90,7 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
   };
   return (
     <>
-      <Toaster />{" "}
+      <Toaster />
       <button
         className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
         disabled={loading || loader}

@@ -4,18 +4,37 @@ import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import RegisterButton from "@/components/events/RegisterButton";
 import Loader from "@/components/Loader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Schedule({ scheduleRef }) {
   const { data: session, status } = useSession();
   const [loader, setLoader] = useState(false);
-
+  const [userDetails, setUserDeatials] = useState(null);
+  useEffect(() => {
+    fetch("/api/userDetails", {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session?.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserDeatials(data);
+      })
+      .catch((err) => {
+        userDetails.user.events = [];
+      });
+  });
   return (
     <section
+    id="schedule"
       ref={scheduleRef}
       className="bg-black min-h-screen flex flex-col justify-center items-center"
     >
-      <Loader visibility={loader}/>
+      {loader && <Loader />}
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="uppercase mt-10 mb-5 text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           schedule
@@ -60,12 +79,25 @@ export default function Schedule({ scheduleRef }) {
                     <span className="font-normal">Venue: </span>
                     {ele.venue}
                   </p>
-                  <RegisterButton
-                    loader={loader}
-                    setLoader={setLoader}
-                    event={ele.id}
-                    token={session?.accessTokenBackend}
-                  />
+                  <div className="flex gap-4">
+                    <RegisterButton
+                      loader={loader}
+                      setLoader={setLoader}
+                      event={ele.id}
+                      token={session?.accessTokenBackend}
+                    />
+                    {(ele.id === 1 || ele.id === 2) &&
+                      userDetails?.user.events?.includes(ele.id) && (
+                        <button
+                          className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
+                          onClick={() => {
+                            window.location.href = `/events/event${ele.id}/memberDash`;
+                          }}
+                        >
+                          Go to Dashboard
+                        </button>
+                      )}
+                  </div>
                 </motion.div>
                 {index % 2 !== 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
@@ -101,12 +133,25 @@ export default function Schedule({ scheduleRef }) {
                     <span className="font-normal">Venue: </span>
                     {ele.venue}
                   </p>
-                  <RegisterButton
-                    loader={loader}
-                    setLoader={setLoader}
-                    event={ele.id}
-                    token={session?.accessTokenBackend}
-                  />
+                  <div className="flex flex-col gap-4">
+                    <RegisterButton
+                      loader={loader}
+                      setLoader={setLoader}
+                      event={ele.id}
+                      token={session?.accessTokenBackend}
+                    />
+                    {(ele.id === 0 || ele.id === 1) &&
+                      userDetails?.user.events?.includes(ele.id) && (
+                        <button
+                          className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
+                          onClick={() => {
+                            window.location.href = `/events/event${ele.id}/memberDash`;
+                          }}
+                        >
+                          Go to Dashboard
+                        </button>
+                      )}
+                  </div>
                 </div>
               </div>
             </div>

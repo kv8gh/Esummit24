@@ -31,7 +31,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li className="cursor-pointer">home</li>
           </Link>
           <Link
-            href={"/"}
+            href={"#about"}
             onClick={() => {
               setShowHamburger(false);
             }}
@@ -39,7 +39,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>about</li>
           </Link>
           <Link
-            href={"/"}
+            href={"#schedule"}
             onClick={() => {
               setShowHamburger(false);
             }}
@@ -47,7 +47,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>schedule</li>
           </Link>
           <Link
-            href={"/"}
+            href={"#speakers"}
             onClick={() => {
               setShowHamburger(false);
             }}

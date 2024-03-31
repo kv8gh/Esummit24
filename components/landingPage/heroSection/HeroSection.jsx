@@ -5,7 +5,7 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
   return (
-    <section className=" relative flex flex-col items-center justify-center min-h-[100svh] bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
+    <section className="relative flex flex-col items-center justify-center min-h-[100svh] bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
       <h6 className="uppercase text-sm lg:text-xl font-light">
         e-cell vit presents
       </h6>
