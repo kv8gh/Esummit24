@@ -27,7 +27,7 @@ export default function Schedule({ scheduleRef }) {
       .catch((err) => {
         userDetails.user.events = [];
       });
-  });
+  },[]);
   return (
     <section
     id="schedule"
@@ -47,7 +47,7 @@ export default function Schedule({ scheduleRef }) {
       <div className="flex flex-col justify-center items-center m-2">
         {scheduleDetails.map((ele, index) => {
           return (
-            <div key={ele} className="flex justify-center items-center">
+            <div key={ele.id} className="flex justify-center items-center">
               <div className="hidden md:flex flex-col md:flex-row w-3/4 justify-evenly text-white mb-4 m-2 md:m-8 md:p-2 items-center">
                 {index % 2 === 0 && (
                   <div className="border-2 border-solid border-yellow-500 h-1/6 md:h-1/5 rounded-lg overflow-hidden">
@@ -87,7 +87,7 @@ export default function Schedule({ scheduleRef }) {
                       token={session?.accessTokenBackend}
                     />
                     {(ele.id === 1 || ele.id === 2) &&
-                      userDetails?.user.events?.includes(ele.id) && (
+                      userDetails?.user?.events?.includes(ele.id) && (
                         <button
                           className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
                           onClick={() => {
@@ -141,7 +141,7 @@ export default function Schedule({ scheduleRef }) {
                       token={session?.accessTokenBackend}
                     />
                     {(ele.id === 0 || ele.id === 1) &&
-                      userDetails?.user.events?.includes(ele.id) && (
+                      userDetails?.user?.events?.includes(ele.id) && (
                         <button
                           className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
                           onClick={() => {

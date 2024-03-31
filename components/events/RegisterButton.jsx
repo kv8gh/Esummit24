@@ -1,7 +1,8 @@
 "use client";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const RegisterButton = ({ event, token, loader, setLoader }) => {
   const [userDetails, setUserDeatials] = useState(null);
@@ -29,6 +30,11 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       });
   }, []);
   const registerEvent = () => {
+    if (!token) {
+      signIn("google");
+
+      return;
+    }
     if (!userDetails.user.hasFilledDetails) {
       router.push("/userDetails");
       return;
@@ -58,6 +64,11 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
       });
   };
   const deregisterEvent = () => {
+    if (!token) {
+      signIn("google");
+
+      return;
+    }
     if (!userDetails.user.hasFilledDetails) {
       router.push("/userDetails");
       return;
@@ -100,6 +111,7 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
           } else {
             registerEvent();
           }
+          if (event === 1 || event === 2) location.reload();
         }}
       >
         {loading || !userDetails
