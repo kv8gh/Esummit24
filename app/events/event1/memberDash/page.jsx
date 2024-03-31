@@ -2,7 +2,7 @@
 
 import Card from '@/components/Card';
 import LeaveButton from '@/components/LeaveButton';
-import LoadingScreen from '@/components/LoadingScreen';
+import Loader from '@/components/Loader';
 import boardImg from "@/public/assets/boardpics/image2.svg";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -128,7 +128,7 @@ const TeamPage = () => {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
     >
-    {isLoading && <LoadingScreen/>}
+    {isLoading && <Loader/>}
       {/* <Navbar /> */}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">

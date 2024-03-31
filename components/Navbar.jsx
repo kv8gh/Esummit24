@@ -206,21 +206,21 @@ const Navbar = () => {
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"#about"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">about</li>
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"#schedule"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">schedule</li>
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"/"}
+                  href={"#speakers"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">speakers</li>

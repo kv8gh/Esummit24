@@ -14,11 +14,14 @@ import FAQ from "@/components/landingPage/FAQ/FAQ";
 import { Footer } from "@/components/landingPage/Footer/Footer";
 import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const scheduleRef = useRef(null);
-  const { status, data: session } = useSession();
+  const [regOpen, setRegOpen] = useState(true);
+
+  const { data: session, status } = useSession();
+
 
   const router = useRouter();
 
@@ -39,7 +42,11 @@ export default function Home() {
   // }
   return (
     <>
-      <HeroSection scheduleRef={scheduleRef}/>
+      <HeroSection
+        scheduleRef={scheduleRef}
+        regOpen={regOpen}
+        setRegOpen={setRegOpen}
+      />
       <IIA />
       <About />
       <Who />

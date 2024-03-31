@@ -10,8 +10,13 @@ function convertToDoubleDigit(number) {
     return "" + number;
   }
 }
-const Timer = () => {
+const Timer = ({regOpen, setRegOpen}) => {
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
+    if (completed) {
+      setRegOpen(false);
+      // Render a completed state
+      return <span className="text-2xl font-bold">Registrations Closed</span>;
+    }
     // Render a countdown
     return (
       <div className="flex w-full gap-5 justify-center uppercase">
@@ -34,7 +39,9 @@ const Timer = () => {
   };
   return (
     <div className="flex flex-col items-center gap-2">
-      <h1 className="capitalize text-2xl font-bold">Registration closes in </h1>
+      <h1 className={`${regOpen ? "" : "hidden"} capitalize text-2xl font-bold`}>
+        Registration closes in
+      </h1>
       <Countdown className="text-5xl" date={time} renderer={renderer} />
     </div>
   );
