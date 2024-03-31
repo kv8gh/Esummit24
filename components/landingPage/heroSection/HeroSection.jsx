@@ -17,7 +17,6 @@ const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
       </h1>
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-20">
         <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
-        <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
         <button
           onClick={() => {
             console.log("clicked");
