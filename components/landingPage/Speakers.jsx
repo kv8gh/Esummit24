@@ -71,7 +71,7 @@ export default function Sponsers() {
     <Card speaker={speaker} key={speaker.id} />
   ));
   return (
-    <section className="mx-10 md:mx-20">
+    <section id="speakers" className="mx-10 md:mx-20">
       <div className="flex items-center mt-10 mb-5 text-center">
         <h1 className="uppercase w-full text-4xl md:text-5xl lg:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           meet our speakers

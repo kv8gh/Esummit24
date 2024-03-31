@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 // import LeaderDashboardCards from "./LeaderDashboardCards";
 import Card from '@/components/Card';
 import DeleteTeamButton from '@/components/DeleteTeamButton';
-import LoadingScreen from '@/components/LoadingScreen';
 import boardImg from '@/public/assets/boardpics/image2.svg';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
+import Loader from '@/components/Loader';
 
 export default function LeaderDashboard() {
   const [popUpForDelete, setPopUpForDelete] = useState(false);
@@ -168,7 +168,7 @@ export default function LeaderDashboard() {
       className="bg-cover bg-no-repeat bg-center min-h-screen"
       // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
-      {isLoading && <LoadingScreen />}
+      {isLoading && <Loader />}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">
