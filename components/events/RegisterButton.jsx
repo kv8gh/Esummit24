@@ -4,7 +4,14 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-const RegisterButton = ({ event, token, loader, setLoader }) => {
+const RegisterButton = ({
+  event,
+  token,
+  loader,
+  setLoader,
+  setEvent1Reg,
+  setEvent2Reg,
+}) => {
   const [userDetails, setUserDeatials] = useState(null);
   const [eventRegistered, setEventRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -56,7 +63,8 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
           // console.log('\n\n\nshowing toast\n\n\n')
           toast.success("Event Registered Successfully.");
         }
-        if (event === 1 || event === 2) location.reload();
+        if (event === 1) setEvent1Reg(true);
+        if (event === 2) setEvent2Reg(true);
       })
       .catch((err) => {
         setLoader(false);
@@ -90,7 +98,9 @@ const RegisterButton = ({ event, token, loader, setLoader }) => {
           setLoading(false);
           setEventRegistered(false);
           toast.success("Event Deregistered Successfully.");
-          if (event === 1 || event === 2) location.reload();
+          // if (event === 1 || event === 2) location.reload();
+          if (event === 1) setEvent1Reg(false);
+          if (event === 2) setEvent2Reg(false);
         } else if (res.status === 400) {
           toast.error("Delete the existing Team first");
         }

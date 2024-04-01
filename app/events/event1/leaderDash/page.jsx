@@ -170,7 +170,7 @@ export default function LeaderDashboard() {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-screen"
+      className="bg-cover bg-no-repeat bg-center min-h-screen pt-10"
       // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
       {isLoading && <Loader/>}
