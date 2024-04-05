@@ -22,8 +22,6 @@ const Navbar = () => {
     // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current - scrollYProgress.getPrevious();
-      console.log("\n\n\n")
-      console.log(direction)
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
       } else {

@@ -68,7 +68,7 @@ export default function LeaderDashboard() {
             }
           }else{
             toast.error('Please register the Event first')
-            router.push('/events/event1')
+            router.push('/')
           }
         } else {
           router.push('/userDetails');

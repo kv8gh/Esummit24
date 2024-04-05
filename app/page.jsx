@@ -15,13 +15,13 @@ import { Footer } from "@/components/landingPage/Footer/Footer";
 import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
 import { useRef, useState } from "react";
+import Timeline from "@/components/landingPage/Schedule/Timeline";
 
 export default function Home() {
   const scheduleRef = useRef(null);
   const [regOpen, setRegOpen] = useState(true);
 
   const { data: session, status } = useSession();
-
 
   const router = useRouter();
 
@@ -50,7 +50,8 @@ export default function Home() {
       <IIA />
       <About />
       <Who />
-      <Schedule scheduleRef={scheduleRef} />
+      {/* <Schedule scheduleRef={scheduleRef} /> */}
+      <Timeline scheduleRef={scheduleRef} />
       <Speakers />
       <Sponsors />
       <FAQ />
