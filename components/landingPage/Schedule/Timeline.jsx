@@ -32,6 +32,7 @@ const Timeline = ({ scheduleRef }) => {
   }, []);
   const timeline = scheduleDetails.map((event, idx) => (
     <VerticalTimelineElement
+      key={event.id}
       className="vertical-timeline-element--work"
       contentStyle={{
         boxShadow: "none",
@@ -106,7 +107,7 @@ const Timeline = ({ scheduleRef }) => {
         </p>
       </div>
       <div className="mt-10 w-full">
-        <VerticalTimeline animate={false}>{timeline}</VerticalTimeline>;
+        <VerticalTimeline animate={true}>{timeline}</VerticalTimeline>;
       </div>
     </section>
   );
