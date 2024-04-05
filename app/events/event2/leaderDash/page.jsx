@@ -64,7 +64,7 @@ export default function LeaderDashboard() {
             }
           }else{
             toast.error('Please register the Event first')
-            router.push('/events/event2')
+            router.push('/')
           }
         } else {
           router.push('/userDetails');
@@ -165,7 +165,7 @@ export default function LeaderDashboard() {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-screen"
+      className="bg-cover bg-no-repeat bg-center min-h-screen pt-10"
       // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
       {isLoading && <Loader />}

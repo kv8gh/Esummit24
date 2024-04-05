@@ -61,7 +61,7 @@ const TeamPage = () => {
             }
           } else {
             toast.error("Please register the Event first!!");
-            router.push("/events/event2");
+            router.push("/");
           }
         } else {
           router.push("/userDetails");
@@ -120,11 +120,9 @@ const TeamPage = () => {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-screen"
-      // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
+      className="bg-cover bg-no-repeat bg-center min-h-screen pt-10"
     >
       {isLoading && <Loader />}
-      {/* <Navbar /> */}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4 mt-8 text-white">

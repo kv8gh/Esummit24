@@ -10,6 +10,8 @@ const Timeline = ({ scheduleRef }) => {
   const [loader, setLoader] = useState(false);
   const { data: session, status } = useSession();
   const [userDetails, setUserDeatials] = useState(null);
+  const [event2Reg, setEvent2Reg] = useState(false);
+  const [event1Reg, setEvent1Reg] = useState(false);
   useEffect(() => {
     fetch("/api/userDetails", {
       content: "application/json",
@@ -50,13 +52,17 @@ const Timeline = ({ scheduleRef }) => {
               setLoader={setLoader}
               event={event.id}
               token={session?.accessTokenBackend}
+              setEvent1Reg={setEvent1Reg}
+              setEvent2Reg={setEvent2Reg}
             />
             {(event.id === 1 || event.id === 2) &&
-              userDetails?.user?.events?.includes(event.id) && (
+              (userDetails?.user?.events?.includes(event.id) ||
+                (event.id == 1 && event1Reg) ||
+                (event.id == 2 && event2Reg)) && (
                 <button
                   className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
                   onClick={() => {
-                    window.location.href = `/events/event${ele.id}/memberDash`;
+                    window.location.href = `/events/event${event.id}/memberDash`;
                   }}
                 >
                   Go to Dashboard

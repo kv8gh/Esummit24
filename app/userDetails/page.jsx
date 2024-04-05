@@ -6,7 +6,6 @@ import { useState } from "react";
 import Image from "next/image";
 import eSummit from "@/public/assets/logos/esummitLogo.svg";
 import toast, { Toaster } from "react-hot-toast";
-import Navbar from "@/components/Navbar";
 
 export default function UserDetails() {
   const { data: session, status } = useSession();
@@ -111,9 +110,7 @@ export default function UserDetails() {
   };
 
   return (
-    <main className="min-w-[100vw] min-h-[100vh] flex justify-center items-center bg-black">
-    <Navbar/>
-      {/* {isLoading && <LoadingScreen/>} */}
+    <main className="min-w-[100vw] min-h-[100vh] flex justify-center items-center bg-black pt-4">
       <div className="flex flex-col md:flex-row w-full h-[80vh] md:h-[90vh] justify-evenly items-center">
         <div
           className="hidden md:w-100 h-5/6 md:flex flex-col justify-center px-4 pb-5 pt-3 rounded-3xl border-solid border-2 border-[#D6993F]"
