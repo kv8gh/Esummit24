@@ -12,7 +12,7 @@ const scheduleDetails = [
   },
   {
     id: 3,
-    eventName: "Speaker",
+    eventName: "Financial literacy Workshop",
     date: "April 14",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. z",

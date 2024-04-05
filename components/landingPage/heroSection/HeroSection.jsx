@@ -16,8 +16,7 @@ const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
         The 5th edition of the biggest fest in South India
       </h1>
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-20">
-        <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
-        <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
+        {/* <Timer regOpen={regOpen} setRegOpen={setRegOpen}/> */}
         <button
           onClick={() => {
             console.log("clicked");
