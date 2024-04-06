@@ -13,7 +13,7 @@ const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
         e-summit&apos;24
       </h1>
       <h1 className="uppercase text-center text-sm lg:text-xl font-light px-2 mt-5 mb-10">
-        The 5th edition of the biggest fest in South India
+        The 7th edition of the biggest fest in South India
       </h1>
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-20">
         <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
