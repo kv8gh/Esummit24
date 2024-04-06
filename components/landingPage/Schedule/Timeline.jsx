@@ -118,8 +118,9 @@ const Timeline = ({ scheduleRef }) => {
           schedule
         </h1>
         <p className="w-2/3 text-sm md:text-md  text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. z
+          Welcome to E-Summit 2024! Dive into a world of unparalleled
+          opportunities with our meticulously planned events and sessions,
+          designed to keep you motivated and engaged throughout the fest.
         </p>
       </div>
       <div className="mt-10 w-full">
