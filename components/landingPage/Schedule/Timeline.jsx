@@ -74,20 +74,36 @@ const Timeline = ({ scheduleRef }) => {
       }
       iconStyle={{ background: "white", scale: 0.5, color: "#fff" }}
     >
-      <h1
-        className={`text-xl sm:text-2xl md:text-3xl font-bold ${
-          idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
-        }`}
-      >
-        {event.date}
-      </h1>
-      <h1
-        className={`uppercase text-3xl sm:text-4xl md:text-5xl font-bold ${
-          idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
-        } bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent`}
-      >
-        {event.eventName}
-      </h1>
+      <div className="my-4">
+        <h1
+          className={`text-xl sm:text-2xl md:text-3xl font-bold ${
+            idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
+          }`}
+        >
+          {event.date}
+        </h1>
+        <h1
+          className={`uppercase text-3xl sm:text-4xl md:text-5xl font-bold ${
+            idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
+          } bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent`}
+        >
+          {event.eventName}
+        </h1>
+        <h1
+          className={`uppercase text-base sm:text-base md:text-lg ${
+            idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
+          }`}
+        >
+          {event.venue}
+        </h1>
+        <h1
+          className={`uppercase text-base sm:text-base md:text-lg ${
+            idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
+          }`}
+        >
+          {event.time}
+        </h1>
+      </div>
     </VerticalTimelineElement>
   ));
   return (
@@ -107,7 +123,7 @@ const Timeline = ({ scheduleRef }) => {
         </p>
       </div>
       <div className="mt-10 w-full">
-        <VerticalTimeline animate={true}>{timeline}</VerticalTimeline>
+        <VerticalTimeline animate={false}>{timeline}</VerticalTimeline>
       </div>
     </section>
   );
