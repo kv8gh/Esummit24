@@ -94,8 +94,7 @@ export default function TermsConditions() {
             AGREEMENT!
           </p>
           <p className="text-white flex flex-wrap max-md:text-base">
-            I understand that if I do not create a team or join an existing team
-            before the end of registrations, I would be added to a random team.
+            I understand that if I do not create a team or join an existing team before the end of registrations, I would be added to a random team.
           </p>
         </div>
         <div className="mt-3">
