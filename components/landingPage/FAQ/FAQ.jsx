@@ -53,7 +53,7 @@ const FAQ = () => {
   ));
 
   return (
-    <section className="relative min-h-[80vh] w-full flex justify-center items-center">
+    <section className="relative min-h-[60vh] sm:min-h-[80vh] bg-[#0E0E0E] w-full flex justify-center items-center font-poppins">
       <div className="flex flex-col sm:flex-row gap-10 items-center w-3/4">
         <div className="w-full sm:w-1/2 flex sm:flex-col items-center gap-5 sm:gap-0">
           <div className="text-left">

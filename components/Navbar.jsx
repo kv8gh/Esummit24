@@ -55,7 +55,7 @@ const Navbar = () => {
             transition={{
               duration: 0.2,
             }}
-            className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md  w-full py-5 px-5 h-16  justify-between "
+            className="fixed top-0 bg-[#0E0E0E] bg-opacity-0 z-10 backdrop-blur-md  w-full py-5 px-5 h-16  justify-between "
           >
             <RxHamburgerMenu
               onClick={() => {
@@ -76,7 +76,7 @@ const Navbar = () => {
             transition={{
               duration: 0.2,
             }}
-            className="fixed top-0 bg-black bg-opacity-0 z-10 backdrop-blur-md hidden md:flex w-full py-5 px-10 h-16 items-center justify-between"
+            className="fixed top-0 bg-[#0E0E0E] bg-opacity-0 z-10 backdrop-blur-md hidden md:flex w-full py-5 px-10 h-16 items-center justify-between"
           >
             <Link href={"/"} className="h-full flex items-center">
               <Image className="h-10 w-auto px-10" src={logo} />
@@ -91,21 +91,21 @@ const Navbar = () => {
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"#about"}
+                  href={"/#about"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">about</li>
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"#schedule"}
+                  href={"/#schedule"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">schedule</li>
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"#speakers"}
+                  href={"/#speakers"}
                   className="group text-white transition duration-300"
                 >
                   <li className="cursor-pointer">speakers</li>

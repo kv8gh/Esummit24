@@ -46,7 +46,7 @@ const Timeline = ({ scheduleRef }) => {
             idx % 2 == 0 ? "xl:items-start" : "xl:items-end"
           }`}
         >
-          <p>{event.description}</p>
+          <p className="text-justify">{event.description}</p>
           <div className="flex gap-3 py-2">
             <RegisterButton
               loader={loader}
@@ -74,7 +74,7 @@ const Timeline = ({ scheduleRef }) => {
       }
       iconStyle={{ background: "white", scale: 0.5, color: "#fff" }}
     >
-      <div className="my-4">
+      <div className="my-4 font-poppins">
         <h1
           className={`text-xl sm:text-2xl md:text-3xl font-bold ${
             idx % 2 == 0 ? "xl:text-right" : "xl:text-left"
@@ -110,21 +110,21 @@ const Timeline = ({ scheduleRef }) => {
     <section
       id="schedule"
       ref={scheduleRef}
-      className="bg-black min-h-screen flex flex-col justify-center items-center"
+      className="bg-[#0E0E0E] min-h-screen flex flex-col justify-center items-center"
     >
       {loader && <Loader />}
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="uppercase mt-10 mb-5 text-4xl md:text-5xl lg:text-7xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
           schedule
         </h1>
-        <p className="w-2/3 text-sm md:text-md  text-center">
+        <p className="w-2/3 text-sm md:text-md  text-center font-poppins">
           Welcome to E-Summit 2024! Dive into a world of unparalleled
           opportunities with our meticulously planned events and sessions,
           designed to keep you motivated and engaged throughout the fest.
         </p>
       </div>
-      <div className="mt-10 w-full">
-        <VerticalTimeline animate={true}>{timeline}</VerticalTimeline>
+      <div className="pt-10 w-full">
+        <VerticalTimeline animate={false}>{timeline}</VerticalTimeline>
       </div>
     </section>
   );

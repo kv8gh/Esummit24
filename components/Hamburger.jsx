@@ -13,7 +13,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: "100%" }}
         transition={{ duration: 0.3, type: "spring" }}
-        className="h-screen fixed z-20 top-0 flex flex-col items-center w-full bg-black bg-opacity-10 backdrop-blur-md"
+        className="h-screen fixed z-20 top-0 flex flex-col items-center w-full bg-[#0E0E0E] bg-opacity-10 backdrop-blur-md"
       >
         <div className="absolute top-0 left-0 p-5 font-bold text-4xl">
           <RxCross2
@@ -32,7 +32,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>home</li>
           </Link>
           <Link
-            href={"#about"}
+            href={"/#about"}
             onClick={() => {
               setShowHamburger(false);
             }}
@@ -40,7 +40,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>about</li>
           </Link>
           <Link
-            href={"#schedule"}
+            href={"/#schedule"}
             onClick={() => {
               setShowHamburger(false);
             }}
@@ -48,7 +48,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>schedule</li>
           </Link>
           <Link
-            href={"#speakers"}
+            href={"/#speakers"}
             onClick={() => {
               setShowHamburger(false);
             }}

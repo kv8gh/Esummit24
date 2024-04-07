@@ -16,6 +16,7 @@ import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
 import { useRef, useState } from "react";
 import Timeline from "@/components/landingPage/Schedule/Timeline";
+import Temp from "@/components/landingPage/Speaker/Temp";
 
 export default function Home() {
   const scheduleRef = useRef(null);
@@ -52,8 +53,9 @@ export default function Home() {
       <Who />
       {/* <Schedule scheduleRef={scheduleRef} /> */}
       <Timeline scheduleRef={scheduleRef} />
-      <Speakers />
-      <Sponsors />
+      <Temp/> {/* temp for speakers section */}
+      {/* <Speakers /> */}
+      {/* <Sponsors /> */}
       <FAQ />
       <Footer />
     </>
