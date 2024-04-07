@@ -55,7 +55,7 @@ const Timeline = ({ scheduleRef }) => {
               token={session?.accessTokenBackend}
               setEvent1Reg={setEvent1Reg}
               setEvent2Reg={setEvent2Reg}
-            />
+            /> 
             {(event.id === 1 || event.id === 2) &&
               (userDetails?.user?.events?.includes(event.id) ||
                 (event.id == 1 && event1Reg) ||
