@@ -276,7 +276,7 @@ export default function LeaderDashboard() {
   //       {teamMembersData?.map((ele) => (
   //         <li className="mx-4 list-none w-full self-center" key={ele}>
   //           {ele._id ===  teamLeaderId? (
-  //             <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+  //             <div className="flex flex-row justify-evenly p-8 m-4 text-lg h-full w-auto bg-[#0E0E0E] rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
   //               <div className="w-3/4 h-5/6 flex justify-evenly">
   //               <div>
   //                 <p className="font-black text-yellow-200 text-4xl m-2">
@@ -300,7 +300,7 @@ export default function LeaderDashboard() {
   //             </button> */}
   //             </div>
   //           ) : (
-  //             <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
+  //             <div className="flex flex-row justify-around p-5 m-2 text-lg h-full w-auto bg-[#0E0E0E] rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 border border-gray-100">
   //               <div className="w-3/4 h-5/6 flex justify-evenly">
   //               <div>
   //                 <p className="font-black text-yellow-200 text-4xl m-2 flex flex-wrap">

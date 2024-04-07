@@ -6,16 +6,16 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[100svh] bg-[url('/assets/landingPage/heroImage.png')] bg-cover bg-center">
-      <h6 className="uppercase text-sm lg:text-xl font-light">
+      <h6 className="uppercase font-poppins text-sm lg:text-xl font-light">
         e-cell vit presents
       </h6>
       <h1 className="esummit uppercase text-4xl md:text-6xl lg:text-9xl font-bold">
         e-summit&apos;24
       </h1>
-      <h1 className="uppercase text-center text-sm lg:text-xl font-light px-2 mt-5 mb-10">
-        The 7th edition of the biggest fest in South India
+      <h1 className="uppercase font-poppins text-center text-sm lg:text-xl font-light px-2 mt-5 mb-8">
+        The 7<sup className="lowercase">th</sup> edition of the biggest fest in South India
       </h1>
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-20">
+      <div className="w-full flex font-poppins flex-col items-center justify-between gap-6 ">
         <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
         <button
           onClick={() => {
@@ -25,7 +25,7 @@ const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
               behavior: "smooth",
             });
           }}
-          className="py-2 px-4 font-semibold rounded-xl uppercase border-4 border-[#FEFAB7] bg-transparent hover:scale-105 transition-all"
+          className="py-2 px-4 font-semibold rounded-xl font-poppins uppercase border-4 border-[#FEFAB7] bg-transparent hover:scale-105 transition-all"
         >
           register now!!!
         </button>

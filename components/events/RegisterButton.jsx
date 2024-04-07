@@ -115,7 +115,7 @@ const RegisterButton = ({
     <>
       <Toaster />
       <button
-        className="text-black font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
+        className="text-black font-poppins font-semibold hover:scale-105 transition-all bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] p-2 rounded-lg hover:bg-opacity-80"
         disabled={loading || loader}
         onClick={() => {
           if (eventRegistered) {
