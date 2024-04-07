@@ -98,10 +98,10 @@ const Navbar = () => {
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
-                  href={"/#schedule"}
+                  href={"/mySchedule"}
                   className="group text-white transition duration-300"
                 >
-                  <li className="cursor-pointer">schedule</li>
+                  <li className="cursor-pointer">my schedule</li>
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
