@@ -37,7 +37,7 @@ const MakeTeam = () => {
       .then((res) => res.json())
       .then((data) => {
         const user = data.user;
-        setShowConsent(user.consent);
+        setShowConsent(user.event2Consent);
         if (user.hasFilledDetails == true) {
           if (user.events.includes(2)) {
             if (user.event2TeamId) {
@@ -49,7 +49,7 @@ const MakeTeam = () => {
             }
           } else {
             toast.error("Please Register the Event first");
-            router.push("/");
+            router.push("/events/event2");
           }
         } else {
           router.push("/userDetails");
@@ -107,7 +107,7 @@ const MakeTeam = () => {
   };
 
   return (
-    <div className=" bg-cover bg-no-repeat bg-center pt-10 bg-[#0E0E0E]">
+    <div className=" bg-cover bg-no-repeat bg-center">
       <Toaster />
       <div className="flex flex-col justify-center items-center h-screen">
         <div className="w-[60%] sm:w-[55vw] flex flex-col items-center justify-around text-white rounded-lg p-2 min-w-fit min-h-[70vh] m-12 border-2 border-[#D6993F]">

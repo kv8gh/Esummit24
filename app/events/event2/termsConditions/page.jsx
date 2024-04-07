@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function TermsConditions() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function TermsConditions() {
       .then((res) => res.json())
       .then((data) => {
         const user = data.user;
-        setCheck(user.event1Consent);
+        setCheck(user.event2Consent);
 
         // if (user.hasFilledDetails == true) {
         //   if (user.teamId !== null) {
@@ -35,7 +35,7 @@ export default function TermsConditions() {
   };
 
   function consent() {
-    fetch("/api/event1/consent", {
+    fetch("/api/event2/consent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function TermsConditions() {
   }
 
   function disagreeConsent() {
-    fetch("/api/event1/consent", {
+    fetch("/api/event2/consent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
