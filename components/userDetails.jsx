@@ -63,7 +63,6 @@ export default function UserDetails() {
                     id="firstName"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    style={{ color: 'black' }}
                 />
             </div>
             <div>
@@ -73,7 +72,6 @@ export default function UserDetails() {
                     id="lastName"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    style={{ color: 'black' }}
                 />
             </div>
             <div>
@@ -83,7 +81,6 @@ export default function UserDetails() {
                     id="regNo"
                     value={regNo}
                     onChange={(e) => setRegNo(e.target.value)}
-                    style={{ color: 'black' }}
                 />
             </div>
             <div>
@@ -93,7 +90,6 @@ export default function UserDetails() {
                     id="mobNo"
                     value={mobno}
                     onChange={(e) => setMobno(e.target.value)}
-                    style={{ color: 'black' }}
                 />
             </div>
             <button onClick={()=>handleSubmit()}>Submit</button>
