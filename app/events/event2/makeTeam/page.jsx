@@ -37,7 +37,7 @@ const MakeTeam = () => {
       .then((res) => res.json())
       .then((data) => {
         const user = data.user;
-        setShowConsent(user.event1Consent);
+        setShowConsent(user.event2Consent);
         if (user.hasFilledDetails == true) {
           if (user.events.includes(2)) {
             if (user.event2TeamId) {

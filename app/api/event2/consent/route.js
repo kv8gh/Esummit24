@@ -16,7 +16,7 @@ export async function POST(req) {
     const consent = req.body.consent;
     await Users.findByIdAndUpdate(
       { _id: userId },
-      { event1Consent: consent }
+      { event2Consent: consent }
   );
   return NextResponse.json(
     { message: "User has event1 consent" },
