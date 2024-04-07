@@ -12,7 +12,7 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
         initial={{ opacity: 0, y: "100%" }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: "100%" }}
-        transition={{ duration: 0.3, type: "spring" }}
+        transition={{ duration: 0.3, type: "" }}
         className="h-screen fixed z-20 top-0 flex flex-col items-center w-full bg-[#0E0E0E] bg-opacity-10 backdrop-blur-md"
       >
         <div className="absolute top-0 left-0 p-5 font-bold text-4xl">
