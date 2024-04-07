@@ -37,6 +37,16 @@ const userSchema = new Schema(
       type: Array,
       default: [],
     },
+    event1Consent: {
+      type: Boolean,
+      default: false,
+      ref: "Event1"
+    },
+    event2Consent: {
+      type: Boolean,
+      default: false,
+      ref: "Event2"
+    },
   },
   { collection: "Users" }
 );
