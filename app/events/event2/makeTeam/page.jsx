@@ -49,7 +49,7 @@ const MakeTeam = () => {
             }
           } else {
             toast.error("Please Register the Event first");
-            router.push("/events/event2");
+            router.push("/");
           }
         } else {
           router.push("/userDetails");

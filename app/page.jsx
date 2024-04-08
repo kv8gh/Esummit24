@@ -14,18 +14,47 @@ import FAQ from "@/components/landingPage/FAQ/FAQ";
 import { Footer } from "@/components/landingPage/Footer/Footer";
 import About from "@/components/landingPage/About";
 import Who from "@/components/landingPage/Who";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Timeline from "@/components/landingPage/Schedule/Timeline";
 import Temp from "@/components/landingPage/Speaker/Temp";
 
 export default function Home() {
+  const router = useRouter();
   const scheduleRef = useRef(null);
   const [regOpen, setRegOpen] = useState(true);
 
   const { data: session, status } = useSession();
-
-  const router = useRouter();
-
+  useEffect(() => {
+    console.log("\n\n\n\n\n\n\n\ngetting data\n\n\n\n\n\n");
+    console.log(status);
+    if (status === "authenticated") {
+      console.log("inside if");
+      fetch("/api/userDetails", {
+        content: "application/json",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Got data");
+          console.log(data);
+          console.log("got data");
+          console.log(status === "authenticated");
+          console.log(!data.user.hasFilledDetails);
+          if (status === "authenticated" && !data.user.hasFilledDetails) {
+            console.log("pushing to userdetails");
+            router.push("/userDetails");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [status]);
   // if (status === "authenticated") {
   //     router.push('/userDetails')
   // } else {
@@ -53,7 +82,7 @@ export default function Home() {
       <Who />
       {/* <Schedule scheduleRef={scheduleRef} /> */}
       <Timeline scheduleRef={scheduleRef} />
-      <Temp/> {/* temp for speakers section */}
+      <Temp /> {/* temp for speakers section */}
       {/* <Speakers /> */}
       {/* <Sponsors /> */}
       <FAQ />

@@ -9,6 +9,9 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function UserDetails() {
   const { data: session, status } = useSession();
+  if (status === "unauthenticated") {
+    window.location.href = "/";
+  }
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -45,7 +48,6 @@ export default function UserDetails() {
   };
 
   const handleSubmit = async () => {
-
     const regNoNew = document.getElementById("regNo").value;
     const isValidInput = /^[2][0-3][a-zA-Z]{3}\d{4}$/.test(regNoNew.trim());
     if (isValidInput) {
@@ -73,7 +75,6 @@ export default function UserDetails() {
             });
 
             if (response.ok) {
-
               // setFirstName('');
               // setLastName('');
               setRegNo("");
@@ -117,7 +118,6 @@ export default function UserDetails() {
 
         <div
           className="w-4/5 md:w-1/2 h-5/6 flex flex-col justify-evenly md:justify-around items-start rounded-3xl px-4 border-solid border-2 border-[#D6993F]"
-
           style={{ backgroundColor: "black" }}
         >
           <div className="flex justify-start items-center">
@@ -200,7 +200,7 @@ export default function UserDetails() {
                 onClick={handleSubmit}
                 className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-br hover:from-amber-400 hover:via-amber-200 hover:to-yellow-400 focus:outline-none focus:ring-cyan-800 dark:focus:ring-cyan-300 font-medium rounded-3xl text-lg px-5 py-2 text-center me-2 mb-2"
               >
-                Register
+                Continue
               </button>
               <Toaster />
             </div>
