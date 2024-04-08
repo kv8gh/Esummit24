@@ -31,7 +31,7 @@ const Page = () => {
                 Financial literacy workshop ={" "}
                 {backData["financial literacy workshop"]}
               </li>
-              <li>Achiever's Conclave = {backData["achiever's conclave"]}</li>
+              <li>Achievers Conclave = {backData["achiever's conclave"]}</li>
               <li>E-talk = {backData["e-talk"]}</li>
               <li>ideathon = {backData.ideathon}</li>
             </ul>
