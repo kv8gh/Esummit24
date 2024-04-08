@@ -105,6 +105,13 @@ const Navbar = () => {
                   <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                 </Link>
                 <Link
+                  href={"/ourPatrons"}
+                  className="group text-white transition duration-300"
+                >
+                  <li className="cursor-pointer">our  patrons</li>
+                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                </Link>
+                <Link
                   href={"/#speakers"}
                   className="group text-white transition duration-300"
                 >

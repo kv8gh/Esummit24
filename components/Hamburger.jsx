@@ -48,6 +48,14 @@ const Hamburger = ({ setShowHamburger, showHamburger }) => {
             <li>my schedule</li>
           </Link>
           <Link
+            href={"/ourPatrons"}
+            onClick={() => {
+              setShowHamburger(false);
+            }}
+          >
+            <li>our patrons</li>
+          </Link>
+          <Link
             href={"/#speakers"}
             onClick={() => {
               setShowHamburger(false);
