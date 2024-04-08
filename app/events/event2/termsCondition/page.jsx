@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 export default function TermsConditions() {
     const router = useRouter();
     const { data: session, status } = useSession();
