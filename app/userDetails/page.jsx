@@ -45,16 +45,10 @@ export default function UserDetails() {
   };
 
   const handleSubmit = async () => {
-    console.log("button ");
-    console.log(firstName);
-    console.log(lastName);
 
     const regNoNew = document.getElementById("regNo").value;
     const isValidInput = /^[2][0-3][a-zA-Z]{3}\d{4}$/.test(regNoNew.trim());
-    console.log(isValidInput);
     if (isValidInput) {
-      setRegError(false);
-      console.log(regError);
     } else {
       setRegError(true);
     }
@@ -62,8 +56,6 @@ export default function UserDetails() {
     if (mobNo !== "" && regNo !== "") {
       if (mobNo.length === 10) {
         if (isValidInput && regNo.length === 9) {
-          console.log(mobNo);
-          console.log(regNo);
           try {
             const response = await fetch("/api/userDetails", {
               method: "POST",
@@ -81,7 +73,6 @@ export default function UserDetails() {
             });
 
             if (response.ok) {
-              console.log("Data saved successfully");
 
               // setFirstName('');
               // setLastName('');
@@ -91,11 +82,9 @@ export default function UserDetails() {
 
               router.push("/");
             } else {
-              console.log("Failed to save data:", response.statusText);
               toast.error("Failed to save data");
             }
           } catch (error) {
-            console.log("Error saving data:", error);
             toast.error("Server Error");
           }
         } else {

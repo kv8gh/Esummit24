@@ -1,14 +1,26 @@
 import Loader from "@/components/Loader";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaRegClock } from "react-icons/fa";
+import { FaRegClock, FaInfoCircle } from "react-icons/fa";
 import ScheduleRegisterButton from "@/components/events/ScheduleRegisterButton";
 
-const Event = ({ event }) => {
+const Event = ({ event, userDetails }) => {
   const [loader, setLoader] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
   const { data: session, status } = useSession();
-
+  useEffect(() => {
+    if(event.id == 1){
+      if(!userDetails.user.event1TeamId){
+        setShowWarning(true);
+      }
+    }
+    if(event.id == 2){
+      if(!userDetails.user.event2TeamId){
+        setShowWarning(true);
+      }
+    }
+  }, []);
   return (
     <div>
       <div>
@@ -17,13 +29,13 @@ const Event = ({ event }) => {
           <h1 className="uppercase text-2xl md:text-3xl lg:text-5xl font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
             {event.eventName}
           </h1>
-          <div className="flex gap-2 items-center">
+          <div className="uppercase flex gap-2 items-center">
             <span>
               <FaRegClock />
             </span>
             {event.time}
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="uppercase flex gap-2 items-center">
             <span>
               <FaLocationDot />
             </span>
@@ -49,6 +61,14 @@ const Event = ({ event }) => {
             </button>
           )}
         </div>
+        {showWarning && (
+          <p className="bg-green-500 bg-opacity-100 flex items-center rounded-lg gap-2 p-2 my-2 w-fit">
+            <span>
+              <FaInfoCircle />
+            </span>
+            Congratulations on registering for the event! To participate, you must create your team by April 11 2024 consisting of 3-4 members only. You can create your team by going to dashboard.
+          </p>
+        )}
       </div>
     </div>
   );

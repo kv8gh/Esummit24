@@ -19,7 +19,6 @@ const HeroSection = ({scheduleRef, regOpen, setRegOpen}) => {
         <Timer regOpen={regOpen} setRegOpen={setRegOpen}/>
         <button
           onClick={() => {
-            console.log("clicked");
             window.scrollTo({
               top: scheduleRef.current.offsetTop,
               behavior: "smooth",
