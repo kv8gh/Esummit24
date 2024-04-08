@@ -55,7 +55,7 @@ const Page = () => {
         <Card
           name={"Dr. Jayabarathi T"}
           image={barathi}
-          pos={"Hounarable Chancellor"}
+          pos={"Registrar"}
         />
         <Card
           name={"Dr. Partha Sharathi Mallick"}

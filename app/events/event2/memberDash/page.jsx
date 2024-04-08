@@ -109,10 +109,10 @@ const TeamPage = () => {
     })
       .then((data) => data.json())
       .then((data) => {
+        location.reload();
         if (data.status == 200) {
           console.log("sending to makeTeam");
           router.push("/events/event2/makeTeam");
-          location.reload();
           setIsLoading(false);
         }
       });
