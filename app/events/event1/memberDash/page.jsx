@@ -111,11 +111,11 @@ const TeamPage = () => {
     })
       .then((data) => data.json())
       .then((data) => {
+        location.reload();
         console.log("data", data);
         if (data.status == 200) {
           console.log("sending to makeTeam");
           router.push("/events/event1/makeTeam");
-          location.reload();
           setIsLoading(false);
         }
       });

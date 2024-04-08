@@ -17,12 +17,12 @@ const scheduleDetails = [
     description:
       "Financial Literacy Workshop is a workshop where participants will explore fundamental aspects of personal finance. They will investigate essential topics such as budgeting, saving methods, and diverse investment strategies. Through this workshop, participants will gain practical knowledge and skills to manage finances effectively, paving the way for long-term financial security.",
     image: image,
-    venue: "Sarojini naidu, sjt",
+    venue: "Sarojini naidu gallery, sjt",
     time: "10:00 AM to 12:00 PM",
   },
   {
     id: 4,
-    eventName: "Achiever's Conclave",
+    eventName: "Achievers' Conclave",
     date: "April 14",
     description:
       "Achiever's Conclave is an event featuring speaker sessions by accomplished Achievers from diverse backgrounds. Participants will have the opportunity to gain invaluable insights and motivation as these achievers share their inspirational journeys and secrets to success, empowering them to reach new heights in all their endeavors.",
