@@ -46,7 +46,8 @@ const MySchedule = () => {
     <section className="items-center-20 text-white min-h-screen bg-[#0E0E0E] font-poppins px-10 sm:px-16 md:px-20">
       {loader ? (
         <Loader />
-      ) : userDetails?.user?.events.length === 0 ? (
+      ) : userDetails?.user?.events.length === 0 ||
+        status === "unauthenticated" ? (
         <div className="flex flex-col min-h-[calc(100vh-5rem)] gap-10 items-center justify-center">
           <h1 className="text-2xl md:text-4xl lg:text-6xl capitalize">
             No events registered
