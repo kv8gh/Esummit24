@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-const page = () => {
+const Page = () => {
   const [backData, setBackData] = useState(null);
   const [error, setError] = useState(false);
   useEffect(() => {
@@ -44,4 +44,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
