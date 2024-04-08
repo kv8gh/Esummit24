@@ -17,16 +17,17 @@ import Who from "@/components/landingPage/Who";
 import { useEffect, useRef, useState } from "react";
 import Timeline from "@/components/landingPage/Schedule/Timeline";
 import Temp from "@/components/landingPage/Speaker/Temp";
+import Loader from "@/components/Loader";
 
 export default function Home() {
   const router = useRouter();
   const scheduleRef = useRef(null);
   const [regOpen, setRegOpen] = useState(true);
+  const [loader, setLoader] = useState(false);
 
   const { data: session, status } = useSession();
   useEffect(() => {
-    console.log("\n\n\n\n\n\n\n\ngetting data\n\n\n\n\n\n");
-    console.log(status);
+    setLoader(true);
     if (status === "authenticated") {
       console.log("inside if");
       fetch("/api/userDetails", {
@@ -40,19 +41,19 @@ export default function Home() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("Got data");
-          console.log(data);
-          console.log("got data");
-          console.log(status === "authenticated");
-          console.log(!data.user.hasFilledDetails);
           if (status === "authenticated" && !data.user.hasFilledDetails) {
             console.log("pushing to userdetails");
             router.push("/userDetails");
           }
+          setLoader(false);
         })
         .catch((err) => {
+          setLoader(false);
           console.log(err);
         });
+    }
+    else{
+      setLoader(false);
     }
   }, [status]);
   // if (status === "authenticated") {
@@ -72,6 +73,7 @@ export default function Home() {
   // }
   return (
     <>
+      {loader && <Loader />}
       <HeroSection
         scheduleRef={scheduleRef}
         regOpen={regOpen}
