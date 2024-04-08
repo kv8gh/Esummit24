@@ -153,8 +153,9 @@ export default function LeaderDashboard() {
       .then((res) => res.json())
       .then((data) => {})
       .then(() => {
-        router.push('/events/event2/makeTeam');
+        // router.push('/events/event2/makeTeam');
         toast.success('Team Deleted.');
+        window.location.href='/mySchedule';
         setIsLoading(false);
       })
       .catch(() => {
