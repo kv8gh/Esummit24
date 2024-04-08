@@ -111,7 +111,7 @@ export default function TermsConditions() {
               onClick={() => {
                 consent();
               }}
-              className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:scale-105 transition-all font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               I Agree
             </button>
@@ -120,7 +120,7 @@ export default function TermsConditions() {
               onClick={() => {
                 disagreeConsent();
               }}
-              className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:scale-105 transition-all font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               I Disgree
             </button>
