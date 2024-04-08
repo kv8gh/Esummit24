@@ -136,6 +136,7 @@ export default function LeaderDashboard() {
       })
       .then(() => {
         setRemove(!remove);
+        location.reload();
         toast.success('Member removed successfully.');
       });
   }
@@ -171,7 +172,7 @@ export default function LeaderDashboard() {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-screen pt-10"
+      className="bg-cover bg-no-repeat bg-center min-h-screen py-10"
       // style={{ backgroundImage: 'url(/assets/bg/spceBg.svg)' }}
       >
       {isLoading && <Loader/>}
