@@ -126,7 +126,7 @@ const Timeline = ({ scheduleRef }) => {
         </p>
       </div>
       <div className="pt-10 w-full">
-        <VerticalTimeline animate={false}>{timeline}</VerticalTimeline>
+        <VerticalTimeline animate={true}>{timeline}</VerticalTimeline>
       </div>
     </section>
   );
