@@ -149,11 +149,11 @@ const MakeTeam = () => {
               )}
             </button>
           </div>
-          {!showConsent && (
+          {/* {!showConsent && ( */}
             <div className="border-b border-gray-300 w-5/6 my-1 mb-4"></div>
-          )}
+          {/* )} */}
           <div className="m-2">
-            {!showConsent && (
+            {/* {!showConsent && ( */}
               <button
                 onClick={() => {
                   router.push("/events/event2/termsConditions");
@@ -162,7 +162,7 @@ const MakeTeam = () => {
               >
                 I dont have a Team
               </button>
-            )}
+            {/* )} */}
           </div>
         </div>
       </div>
