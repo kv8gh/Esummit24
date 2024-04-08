@@ -153,16 +153,14 @@ const MakeTeam = () => {
             <div className="border-b border-gray-300 w-5/6 my-1 mb-4"></div>
           )}
           <div className="m-2">
-            {!showConsent && (
-              <button
-                onClick={() => {
-                  router.push("/events/event1/termsConditions");
-                }}
-                className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-              >
-                I dont have a Team
-              </button>
-            )}
+            <button
+              onClick={() => {
+                router.push("/events/event1/termsConditions");
+              }}
+              className="text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              I dont have a Team
+            </button>
           </div>
         </div>
       </div>
