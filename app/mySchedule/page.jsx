@@ -39,7 +39,7 @@ const MySchedule = () => {
   }, []);
 
   const events = regEventsList.map((event) => {
-    return <Event key={event.id} event={event} />;
+    return <Event key={event.id} event={event} userDetails={userDetails}/>;
   });
 
   return (

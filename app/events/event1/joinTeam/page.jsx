@@ -101,7 +101,6 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
         setisLoading(fasle);
       }
     } catch (error) {
-      console.log("Error fetching team name:", error);
       showMessage("An error occurred while fetching team name.");
       setisLoading(false);
     }

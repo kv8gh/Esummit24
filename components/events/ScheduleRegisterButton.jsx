@@ -70,7 +70,6 @@ const ScheduleRegisterButton = ({
       })
       .catch((err) => {
         setLoader(false);
-        console.log(err);
         toast.error("Something went wrong.");
       });
   };

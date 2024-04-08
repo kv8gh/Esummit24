@@ -76,6 +76,7 @@ const RegisterButton = ({
         }
         if (event === 1) setEvent1Reg(true);
         if (event === 2) setEvent2Reg(true);
+        window.location.href = "/mySchedule";
       })
       .catch((err) => {
         setLoader(false);
@@ -112,12 +113,22 @@ const RegisterButton = ({
           // if (event === 1 || event === 2) location.reload();
           if (event === 1) {
             setEvent1Reg(false);
-            setExsitingUserDetials(...existingUserDetails.user.events.removeEle(existingUserDetails.user.events, 1));
+            setExsitingUserDetials(
+              ...(existingUserDetails.user.events = removeEle(
+                existingUserDetails.user.events,
+                1
+              ))
+            );
           }
           if (event === 2) {
             setEvent2Reg(false);
             setEvent1Reg(false);
-            setExsitingUserDetials(...existingUserDetails.user.events.removeEle(existingUserDetails.user.events, 1));
+            setExsitingUserDetials(
+              ...(existingUserDetails.user.events = removeEle(
+                existingUserDetails.user.events,
+                1
+              ))
+            );
           }
         } else if (res.status === 400) {
           toast.error("Delete the existing Team first");
@@ -125,7 +136,6 @@ const RegisterButton = ({
       })
       .catch((err) => {
         setLoader(false);
-        console.log(err);
         toast.error("Something went wrong.");
       });
   };
