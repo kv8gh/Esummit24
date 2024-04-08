@@ -109,19 +109,17 @@ const TeamPage = () => {
     })
       .then((data) => data.json())
       .then((data) => {
-        console.log("data", data);
         if (data.status == 200) {
           console.log("sending to makeTeam");
           router.push("/events/event2/makeTeam");
+          location.reload();
           setIsLoading(false);
         }
       });
   };
 
   return (
-    <div
-      className="bg-[#0E0E0E] bg-cover bg-no-repeat bg-center min-h-screen pt-10"
-    >
+    <div className="bg-[#0E0E0E] bg-cover bg-no-repeat bg-center min-h-screen pt-10">
       {isLoading && <Loader />}
 
       <div className="max-w-screen-xl mx-auto p-4 text-center">
