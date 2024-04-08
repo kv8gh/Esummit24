@@ -138,7 +138,7 @@ export default function TermsConditions() {
                 team and how you can contribute.
               </p>
               <Link
-                href={""}
+                href={"https://chat.whatsapp.com/IATx4u0R2tqF6V4cigNpI7"}
                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center"
               >
                 <FaWhatsapp className="w-6 h-6 mr-2" />
