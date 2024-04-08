@@ -120,7 +120,7 @@ const TeamPage = () => {
 
   return (
     <div
-      className="bg-cover bg-no-repeat bg-center min-h-screen pt-10"
+      className="bg-[#0E0E0E] bg-cover bg-no-repeat bg-center min-h-screen pt-10"
     >
       {isLoading && <Loader />}
 

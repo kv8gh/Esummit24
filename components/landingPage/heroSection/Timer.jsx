@@ -19,7 +19,7 @@ const Timer = ({regOpen, setRegOpen}) => {
     }
     // Render a countdown
     return (
-      <div className="flex w-full gap-5 justify-center uppercase">
+      <div className="flex w-full gap-5 justify-center uppercase text-white">
         <span className="flex flex-col items-center">
           <p className="text-2xl font-bold"> {convertToDoubleDigit(days)}</p>
           <p>days</p>
