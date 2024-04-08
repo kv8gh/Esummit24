@@ -30,7 +30,7 @@ const FAQ = () => {
       id: 3,
       q: "Will ODs be provided for the event?",
       ans: [
-        "Yes, ODs will be provided throughout the duration of the event except for E-Talk",
+        "Yes, ODs will be provided for all events, throughout the duration of the events.",
       ],
     },
     {

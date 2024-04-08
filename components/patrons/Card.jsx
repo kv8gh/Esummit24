@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Card = ({ image, name, pos }) => {
   return (
-    <div className=" h-72 w-60 m-4 bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] rounded-lg ">
+    <div className=" h-72 w-56 m-4 bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] rounded-lg ">
       <div className="overflow-hidden h-2/3 rounded-lg">
         <Image className="h-full w-full" src={image} />
       </div>
