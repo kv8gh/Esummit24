@@ -86,7 +86,7 @@ export default function Home() {
       <Timeline scheduleRef={scheduleRef} />
       <Temp /> {/* temp for speakers section */}
       {/* <Speakers /> */}
-      {/* <Sponsors /> */}
+      <Sponsors />
       <FAQ />
       <Footer />
     </>
