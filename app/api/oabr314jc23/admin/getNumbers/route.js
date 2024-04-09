@@ -27,7 +27,7 @@ export async function GET(req) {
     });
 
     const data = {
-        "totalUsers" :usersCount,
+        "totalUsers" :users,
         "innoventure" : event1Count,
         "financial literacy workshop" : event3,
         "achiever's conclave": event4,
