@@ -1,4 +1,5 @@
 "use client";
+import { data } from "autoprefixer";
 import { useState, useEffect } from "react";
 const Page = () => {
   const [backData, setBackData] = useState(null);
@@ -23,19 +24,39 @@ const Page = () => {
         error ? (
           "Something went wrong."
         ) : (
-          <div>
-            <ul>
-              <li>Total Users = {backData.totalUsers}</li>
-              <li>Innoventure Registrations = {backData.innoventure}</li>
-              <li>
-                Financial literacy workshop ={" "}
-                {backData["financial literacy workshop"]}
-              </li>
-              <li>Achievers Conclave = {backData["achiever's conclave"]}</li>
-              <li>E-talk = {backData["e-talk"]}</li>
-              <li>ideathon = {backData.ideathon}</li>
-            </ul>
-          </div>
+          <section className="text-center">
+            <div>
+              <h1 className="text-4xl font-bold my-2">Users</h1>
+              <p>Total number of signIns = {backData.signedIn}</p>
+              <p>Number of users who filled details = {backData.totalUsers}</p>
+              <p>
+                Number of users who registered for atleast one event ={" "}
+                {backData.atLeastOneEvent}
+              </p>
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold my-2">Innoventure</h1>
+              <p>Total teams = {backData.innoventure?.total}</p>
+              <p>Teams with one member = {backData.innoventure?.one}</p>
+              <p>Teams with two members = {backData.innoventure?.two}</p>
+              <p>Teams with three members = {backData.innoventure?.three}</p>
+              <p>Teams with four members = {backData.innoventure?.four}</p>
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold my-2">Ideathon</h1>
+              <p>Total teams = {backData.ideathon?.total}</p>
+              <p>Teams with one member = {backData.ideathon?.one}</p>
+              <p>Teams with two members = {backData.ideathon?.two}</p>
+              <p>Teams with three members = {backData.ideathon?.three}</p>
+              <p>Teams with four members = {backData.ideathon?.four}</p>
+            </div>
+            <div>
+              <h1 className="text-4xl font-bold my-2">Other Events</h1>
+              <p>Financial Literacy Workshop = {backData.financial}</p>
+              <p>Achievers&apos; Conclave = {backData.achiever}</p>
+              <p>E-Talk = {backData.etalk}</p>
+            </div>
+          </section>
         )
       ) : (
         "Loading..."
