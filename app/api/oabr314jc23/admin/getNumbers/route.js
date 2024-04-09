@@ -10,9 +10,19 @@ export async function GET(req) {
     let event3 = 0;
     let event4 = 0;
     let event5 = 0;
-    const usersCount = await Users.countDocuments();
-    const event1Count = await Event1.countDocuments();
-    const event2Count = await Event2.countDocuments();
+    const signedInUsers = await Users.find();
+    let totalUsers = 0;
+    signedInUsers.map((user) => {
+      if (user.hasFilledDetails) totalUsers++;
+    });
+    let atleastOneEvent = 0;
+    signedInUsers.map((user) => {
+      if (user.events.length > 0) {
+        atleastOneEvent++;
+      }
+    });
+    const event1Count = await Event1.find();
+    const event2Count = await Event2.find();
     const users = await Users.find();
     users.map((user) => {
       if (user.events.includes(3)) {
@@ -27,12 +37,26 @@ export async function GET(req) {
     });
 
     const data = {
-        "totalUsers" :usersCount,
-        "innoventure" : event1Count,
-        "financial literacy workshop" : event3,
-        "achiever's conclave": event4,
-        "e-talk" : event5,
-        "ideathon": event2Count
+      signedIn: signedInUsers.length,
+      totalUsers: totalUsers,
+      atLeastOneEvent: atleastOneEvent,
+      innoventure: {
+        total: event1Count.length,
+        one: nMembersTeam(event1Count, 1),
+        two: nMembersTeam(event1Count, 2),
+        three: nMembersTeam(event1Count, 3),
+        four: nMembersTeam(event1Count, 4),
+      },
+      ideathon: {
+        total: event2Count.length,
+        one: nMembersTeam(event2Count, 1),
+        two: nMembersTeam(event2Count, 2),
+        three: nMembersTeam(event2Count, 3),
+        four: nMembersTeam(event2Count, 4),
+      },
+      financial: event3,
+      achiever: event4,
+      etalk: event5,
     };
     return NextResponse.json(
       { message: "Succes", numbers: data },
@@ -44,4 +68,12 @@ export async function GET(req) {
       { status: 500 }
     );
   }
+}
+
+function nMembersTeam(event, n) {
+  let count = 0;
+  event.map((team) => {
+    if (team.members.length === n) count++;
+  });
+  return count;
 }
