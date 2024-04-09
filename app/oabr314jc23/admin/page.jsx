@@ -53,7 +53,7 @@ const Page = () => {
             <div>
               <h1 className="text-4xl font-bold my-2">Other Events</h1>
               <p>Financial Literacy Workshop = {backData.financial}</p>
-              <p>Achievers' Conclave = {backData.achiever}</p>
+              <p>Achievers&apos; Conclave = {backData.achiever}</p>
               <p>E-Talk = {backData.etalk}</p>
             </div>
           </section>
