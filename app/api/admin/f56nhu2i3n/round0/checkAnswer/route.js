@@ -1,5 +1,5 @@
-import answers from "@/constants/qualifiers/answers.json";
-import gamePoints from "@/constants/qualifiers/points.json";
+import answers from "@/constant/round0/answers.json";
+import gamePoints from "@/constant/round0/points.json";
 import { connectMongoDB } from "@/lib/mongodb";
 import { Round0 } from "@/models/round0.model";
 import { getTokenDetails } from "@/utils/authuser.js";

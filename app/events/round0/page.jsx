@@ -22,15 +22,54 @@ export default function Qualifier() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
+  useEffect(async() => {
     if (status === "unauthenticated") {
       router.push("/");
     } else if (status === "authenticated") {
+      getUserData();
       getQuestionData();
     }
   }, [status]);
 
-  const handleSubmit = async () => {
+
+  const getUserData = () => {
+    setIsLoading(true);
+    fetch(`/api/userDetails`, {
+      content: 'application/json',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const user = data.user;
+        setIsLoading(false);
+        if (user.hasFilledDetails) {
+          if((user.events).includes(1)){
+            // if (user.event1TeamId == null) {
+            //   router.push('/events/event1/makeTeam');
+            // } else {
+              // if (user.event1TeamRole == 1) {
+              //   router.push('/events/event1/memberDash');
+              // } else {
+                setIsLoading(false);
+              // }
+            // }
+          }else{
+            toast.error('Please register the Event first')
+            router.push('/')
+          }
+        } else {
+          toast.error('Please Fill your details first')
+          router.push('/userDetails');
+        }
+      });
+  };
+
+  const handleSubmit = async() => {
     setIsLoading(true);
     console.log("submit button is clicked");
     console.log(finalAnswer);
@@ -75,15 +114,10 @@ export default function Qualifier() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
         setQuestionCategory(data.category);
-        console.log("category", questionCategory);
         setQuestionNumber(data.questionNumber);
-        console.log("questionNumber", questionNumber);
         setChronoNumber(data.chronoNumber);
-        console.log("chronoNumber", chronoNumber);
         setTeamName(data.teamName);
-        console.log("questionCategory", questionCategory);
         setIsLoading(false);
       })
       .catch((err) => {
