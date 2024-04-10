@@ -1,11 +1,6 @@
-import answers from "@/constants/qualifiers/answers.json";
-import gamePoints from "@/constants/qualifiers/points.json";
-import connectMongoDB from "@/libs/mongodb";
-import { QualifierTest } from "@/models/qualifierTest";
+import { connectMongoDB } from "@/lib/mongodb";
 import { Round0 } from "@/models/round0.model";
-import { TeamModel } from "@/models/teamModel";
-import { Event1 } from "@/models/event1.model";
-import { Users } from '@/models/user';
+import { Users } from "@/models/user.model";
 import { Event1Test } from "@/models/event1Test.model";
 export default async function handler(req, res) {
   if (req.method !== "GET") {
