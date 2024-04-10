@@ -57,7 +57,7 @@ export default function AnswerForQualifier(props) {
   };
   return (
     <main className="text-white">
-      <section className="flex flex-col justify-center items-center text-white p-4">
+      <section className="flex flex-col justify-center items-center text-white p-4 select-none">
         {props.questionCategory === "easy" && (
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
@@ -78,11 +78,7 @@ export default function AnswerForQualifier(props) {
                       <div key={ele}>
                         <label>
                           <input
-                            type={
-                              props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
+                            type="radio"
                             onChange={() => {
                               handleOptionChange(props.questionNumber, ele);
                               storeAnswer(ele);
@@ -92,7 +88,7 @@ export default function AnswerForQualifier(props) {
                                 ele
                               ) || false
                             }
-                            className="mr-2"
+                            className="mr-2 select-none"
                           />
                           {
                             questions[props.questionCategory][
@@ -104,11 +100,7 @@ export default function AnswerForQualifier(props) {
                     ) : (
                       <div className="flex" key={ele}>
                         <input
-                          type={
-                            props.questionType === "single"
-                              ? "radio"
-                              : "checkbox"
-                          }
+                          type="radio"
                           onChange={() => {
                             handleOptionChange(props.questionNumber, ele);
                             storeAnswer(ele);
@@ -157,11 +149,7 @@ export default function AnswerForQualifier(props) {
                       <div key={ele}>
                         <label>
                           <input
-                            type={
-                              props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
+                            type="radio"
                             onChange={() => {
                               handleOptionChange(props.questionNumber, ele);
                               storeAnswer(ele);
@@ -183,11 +171,7 @@ export default function AnswerForQualifier(props) {
                     ) : (
                       <div className="flex" key={ele}>
                         <input
-                          type={
-                            props.questionType === "single"
-                              ? "radio"
-                              : "checkbox"
-                          }
+                          type="radio"
                           onChange={() => {
                             handleOptionChange(props.questionNumber, ele);
                             storeAnswer(ele);
@@ -292,11 +276,7 @@ export default function AnswerForQualifier(props) {
                       <div key={ele}>
                         <label>
                           <input
-                            type={
-                              props.questionType === "single"
-                                ? "radio"
-                                : "checkbox"
-                            }
+                            type="radio"
                             onChange={() => {
                               handleOptionChange(props.questionNumber, ele);
                               storeAnswer(ele);
@@ -318,11 +298,7 @@ export default function AnswerForQualifier(props) {
                     ) : (
                       <div className="flex" key={ele}>
                         <input
-                          type={
-                            props.questionType === "single"
-                              ? "radio"
-                              : "checkbox"
-                          }
+                          type="radio"
                           onChange={() => {
                             handleOptionChange(props.questionNumber, ele);
                             storeAnswer(ele);
