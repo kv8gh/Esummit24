@@ -5,7 +5,7 @@ const Page = () => {
   const [backData, setBackData] = useState(null);
   const [error, setError] = useState(false);
   useEffect(() => {
-    fetch("/api/oabr314jc23/admin/getNumbers")
+    fetch("https://members-esummit.onrender.com/getnumbers")
       .then((res) => res.json())
       .then((data) => {
         setBackData(data.numbers);
@@ -36,6 +36,7 @@ const Page = () => {
             </div>
             <div>
               <h1 className="text-4xl font-bold my-2">Innoventure</h1>
+              <p>Total participants = {backData.innoventure?.totalParticipants}</p>
               <p>Total teams = {backData.innoventure?.total}</p>
               <p>Teams with one member = {backData.innoventure?.one}</p>
               <p>Teams with two members = {backData.innoventure?.two}</p>
@@ -44,6 +45,7 @@ const Page = () => {
             </div>
             <div>
               <h1 className="text-4xl font-bold my-2">Ideathon</h1>
+              <p>Total participants = {backData.ideathon?.totalParticipants}</p>
               <p>Total teams = {backData.ideathon?.total}</p>
               <p>Teams with one member = {backData.ideathon?.one}</p>
               <p>Teams with two members = {backData.ideathon?.two}</p>
