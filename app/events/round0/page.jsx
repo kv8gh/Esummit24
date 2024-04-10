@@ -3,6 +3,8 @@ import Loader from "@/components/Loader";
 import AnswerForQualifier from "@/components/Qualifier/AnswerForQualifier";
 import Instructions from "@/components/Qualifier/Instructions";
 import QuestionForQualifier from "@/components/Qualifier/QuestionsForQualifier";
+import QuizEnd from "@/components/Qualifier/QuizEnd";
+import Waiting from "@/components/Qualifier/Waiting";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -10,9 +12,9 @@ import toast, { Toaster } from "react-hot-toast";
 import LoadingIcons from "react-loading-icons";
 
 export default function Qualifier() {
-  const [questionCategory, setQuestionCategory] = useState("instruction");
+  const [questionCategory, setQuestionCategory] = useState('');
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [chronoNumber, setChronoNumber] = useState();
+  const [chronoNumber, setChronoNumber] = useState(0);
   const [teamName, setTeamName] = useState();
   const [finalAnswer, setFinalAnswer] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,12 +27,12 @@ export default function Qualifier() {
     } else if (status === "authenticated") {
       getQuestionData();
     }
-  }, [status, router]);
+  }, [status, finalAnswer]);
 
   const handleSubmit = async() => {
     setIsLoading(true);
     console.log('submit button is clicked');
-
+    console.log(finalAnswer);
     try {
        const response = await fetch("/api/round0/submitAnswer", {
         method: "POST",
@@ -43,8 +45,12 @@ export default function Qualifier() {
           answer:finalAnswer
         })
       });
-      if(true){
+      if(response.ok){
         console.log(response);
+        // location.reload();
+        setIsLoading(false);
+      }else{
+        console.log('error');
         setIsLoading(false);
       }
       
@@ -142,9 +148,11 @@ export default function Qualifier() {
             </button>
             )
           }
+
           </div>
         </div>
       )}
+      {questionCategory==='waiting' && <QuizEnd/>}
       </div>
       </section>
     </main>

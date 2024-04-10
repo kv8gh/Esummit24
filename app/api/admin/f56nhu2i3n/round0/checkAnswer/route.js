@@ -1,20 +1,18 @@
 import answers from "@/constants/qualifiers/answers.json";
 import gamePoints from "@/constants/qualifiers/points.json";
-import connectMongoDB from "@/libs/mongodb";
-import { QualifierTest } from "@/models/qualifierTest";
+import { connectMongoDB } from "@/lib/mongodb";
 import { Round0 } from "@/models/round0.model";
+import { getTokenDetails } from "@/utils/authuser.js";
+import { getToken } from "next-auth/jwt";
+import { NextResponse } from "next/server";
 
-export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+export async function GET(req, res) {
   try {
     await connectMongoDB();
 
     const qualTeams = await Round0.find();
     if (!qualTeams) {
-      res.status(400).json({ message: "Team not found" });
-      return;
+      return NextResponse.json({ message: "Team not found" },{status:400});
     }
 
     console.log("3456765434567898765434567897654345678");
@@ -126,12 +124,12 @@ export default async function handler(req, res) {
       );
     });
     console.log("Counter ==== ",counter);
-    return res.status(200).json({
+    return NextResponse.json({
       message: "Points updated successfully",
-    });
+    },{status:200});
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: "Internal server error" });
+    return NextResponse.json({ error: "Internal server error" },{status:500});
   }
 }
 

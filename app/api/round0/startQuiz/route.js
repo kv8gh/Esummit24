@@ -18,16 +18,16 @@ export async function GET(req, res) {
 
   try{
   
-    const teamId = Event1Test.findOneById({ _id: userId });
+    // const teamId = Event1Test.findOneById({ _id: userId });
   
-    const qualTeam = await Round0.find({ teamId: userId });
+    const qualTeam = await Round0.find({ teamLeaderId: userId });
     console.log('adsffffffdffffffffffffff',qualTeam);
     if (!qualTeam) {
       return NextResponse.json({ message: "team not found" }, { status: 404 });
     }
     console.log('hhhhhhhhhhhhhhhhh',qualTeam);
     await Round0.findOneAndUpdate(
-      { teamId: teamId },
+      { teamLeaderId: userId },
       {
         $set: {
           questionCategory: 'easy',
