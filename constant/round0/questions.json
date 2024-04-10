@@ -5,24 +5,24 @@
       "q": {
         "questionType": "single", 
         "contentType": "text", 
-        "content": "The images given below represent the characteristic traits of an entrepreneur, identify which one of these is a managerial function of an entrepreneur"
+        "content": "How many of the following online retailers are based in India?\n A) Flipkart \nB) Pepe Jeans \nC) Bigbasket \nD) Grofers \nE) Amazon \nF) Snapdeal \nG) Lenskart \nH) Nykaa \nI) U.S. Polo Assn. \nJ) Myntra"
       },
       "ans": {
-       "optionsType": "image", 
-        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325402/fp9.0/ts8e9dvvgyvjzpgeixbz.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/ozbx7tytbaoxmhuujpas.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/hluon4qowchxq7uky3nd.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325403/fp9.0/psvizdyjbgktbmp5dogh.png"]
-      }
+        "optionsType": "text", 
+         "optionsContent": ["i) 6","ii) 5","iii) 7","iv) 8"]
+       }
     },
     {
       "index":1,
       "q": {
         "questionType": "single", 
-        "contentType": "image", 
-        "contentLink": "https://res.cloudinary.com/dsftfigs8/image/upload/v1705313797/fp9.0/pq6m1tx9qbabclfbgmee.png",
-        "content":"Match the following "
+        "contentType": "text", 
+        "contentLink": "",
+        "content":"Which of the following elements is typically NOT included as a core component of the Business Model Canvas (BMC)?"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["a-iv b-v c-i d-iii e-ii","a-iii b-ii c-iv d-i e-v","a-ii b-v c-iii d-i e-iv","a-iv b-i c-ii d-v e-iii"]
+        "optionsContent": ["a) Customer Segments","b) Value Propositions","c) Key Activities","d) Financial Projections"]
       }
     },
     {
@@ -31,11 +31,11 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Sandeep found his manufacturing company in the 80's with his father's money.Since 2020 ,his company Ayka has faced intense competition in the industry;there are two options for the future of Ayka ;either to reduce costs or differentiate its products.Before making this decision,what is the most important consideration to be made by the management team."
+        "content":"What is the term for the measure of how much a company's stock price moves in relation to the overall market? "
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["The market share", "Preferences of the target audience", "Industry growth rate","The Brand  of Ayka"]
+        "optionsContent": ["a) Beta", "b) Alpha", "c) Gamma","d) Delta"]
       }
     },
     {
@@ -44,11 +44,11 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Which one of the following would qualify to be a strategic HRM activity?"
+        "content":"A recent tech giant made headlines for its investment in self-driving car technology. Can you identify the company?"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Administer Wage & Salary Programmes", "Prepare Staffing Plans", "Determine the level & type of performance that is crucial for a firm's growth","Use specific job skill training correctly"]
+        "optionsContent": ["(a) Apple", "(b) Amazon ", "(c) Tesla (already a major player in self-driving cars) ","(d) Microsoft"]
       }
     },
     {
@@ -56,12 +56,12 @@
       "q": {
         "questionType": "single", 
         "contentType": "text", 
-        "content": "Find the odd one out"
+        "content": "Space exploration has been a hot topic lately.  Which private space company recently completed the first ever orbital launch from American soil since the retirement of the Space Shuttle? "
       },
       "ans": {
-       "optionsType": "image", 
-        "optionsContent": ["https://res.cloudinary.com/dsftfigs8/image/upload/v1705325068/fp9.0/sjrjusgssgmrreq4qfke.png","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/xbboeqdhei8faqkfouiy.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325125/fp9.0/jxhtssjr9bonvs9hsfmq.jpg","https://res.cloudinary.com/dsftfigs8/image/upload/v1705325069/fp9.0/fpvp5pextojqqhfltfad.jpg"]
-      }
+        "optionsType": "text", 
+         "optionsContent": ["(a) SpaceX ", "(b) Blue Origin ", "(c) Virgin Galactic ","(d) Rocket Lab"]
+       }
     },
     {
       "index":5,
@@ -69,11 +69,11 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Elevator pitch is to startup funding as _________ for a company is to winning over consumers."
+        "content":"Find the odd one out:"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Sales strategy ","Income model ","Market study ","Promo campaign"]
+        "optionsContent": ["a)Goldi, patanjali, Servotech, Waaree","b)Everest, Mondelez, Milky mist, Kelloggs","c)Tokyo electron, Lam research, ASML holdings,Applied material","d)Netease, Capgemini, Baidu, Hewlett packard"]
       }
     },
     {
@@ -82,11 +82,11 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Reliance Industries Limited  doesn't own which of the following:"
+        "content":"What is your business model, and how will you generate revenue?"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Network 18","Urban Ladder"," Jio Platforms Limited ","Reliance Power"]
+        "optionsContent": ["A. Charge a one-time fee for your product","B. Offer a subscription service with recurring fees","C. Hope people will donate to your business","D. Figure it out later, focus on the idea first"]
       }
     },
     {
@@ -95,11 +95,11 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Which of the following Indian company is not public?"
+        "content":"How will your business idea be different from existing competitors?"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Nykaa","Cipla","boAt","Sun Tv Network"]
+        "optionsContent": ["A. Offer a lower price", "B. Solve the problem in a unique and innovative way"," C. Have a more colorful logo","D. Target a completely different market"]
       }
     },
     {
@@ -108,11 +108,15 @@
         "questionType": "single",
         "contentType": "text",
         "contentLink": "",
-        "content":"Bull market : Optimism :: Bear market : ? "
+        "content":"Which approach is MOST effective in validating market demand for your business idea in the early stages?"
       },
       "ans": {
        "optionsType": "text", 
-        "optionsContent": ["Caution","Regulation","Hopeful","Stability"]
+        "optionsContent": ["A) Developing a detailed business plan",
+        "B) Focusing on gathering user feedback.",
+        "C) Designing a visually appealing logo",
+        "D) Researching your favorite competitor's strategies"
+        ]
       }
     },
     {
@@ -131,7 +135,7 @@
     {
       "index":10,
       "q": {
-        "questionType": "multiple",
+        "questionType": "single",
         "contentType": "text",
         "content": "Which of the following is true about social entrepreneurship? (Multiple options  can be correct)"
       },
@@ -589,7 +593,7 @@
   {
     "index":0,
     "q": {
-      "questionType": "multiple",
+      "questionType": "single",
       "contentType": "image",
       "contentLink": "https://res.cloudinary.com/dhrvr4sey/image/upload/v1705315420/FP/medium-15_ans_ne3ar1.jpg",
       "content": "Given that = Green-Public Start ups,Red-Private StartUps.Choose the correct answer so that the companies belong to the correct coloured box representing the stage of their Funding(multiple can be correct)"
@@ -722,7 +726,7 @@
     {
       "index":0,
       "q":{
-        "questionType": "multiple",
+        "questionType": "single",
         "contentType": "text",
         "contentLink": "",
         "content":"Emma owns a small bakery called 'Sweet Delights'.In what strategic move does Emma's surprise expansion of her bakery menu, featuring intriguing textures and boasting exotic flours, truly shine.(multiple can be correct)"
@@ -865,7 +869,7 @@
     {
       "index":0,
       "q":{
-        "questionType": "multiple",
+        "questionType": "single",
         "contentType": "text",
         "contentLink": "",
         "content":"Settling for lower salaries in the competitor airlines and breaching the contract, for the sake of resigning, why do you think such a mass chaotic resignation of pilots occurred for Akasa airlines, which led India's affordable airline to 1.17% cancellation rates and great customer dissatisfaction?(Multiple correct)"
@@ -917,7 +921,7 @@
     {
       "index":0,
       "q":{
-        "questionType": "multiple",
+        "questionType": "single",
         "contentType": "text",
         "contentLink": "",
         "content":"An unforgettable  event marked by the founders suicide of a company with a huge debt  and his wife taking over then to ultimately  reduce the debt by 75% ,What ultimately led to the debts being paid off and revival of this company?(MULTIPLE CORRECT)"
