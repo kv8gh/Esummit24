@@ -31,16 +31,19 @@ export async function POST(req, res) {
     const mediumAnswers = teamData.mediumAnswers;
     const hardAnswers = teamData.hardAnswers;
     const caseStudyAnswers = teamData.caseStudyAnswers;
-    // const endTime = teamData.endTime;
-    // if(endTime < Date.now()){
-    //   await Round0.findOneAndUpdate(
-    //     { teamId: teamId },
-    //     {
-    //       questionCategory: "waiting",
-    //     }
-    //   );
-    //   return NextResponse.json({ message: 'Time is up' },{status:400});
-    // }
+    const endTime = teamData.endTime;
+    if (endTime < Date.now()) {
+      await Round0.findOneAndUpdate(
+        { teamLeaderId: userId },
+        {
+          questionCategory: "waiting",
+        }
+      );
+      return NextResponse.json(
+        { message: "Time is up", category: questionCategory },
+        { status: 400 }
+      );
+    }
 
     let questionCategory = teamData.questionCategory;
     let newQuestionPointer = questionPointer;
