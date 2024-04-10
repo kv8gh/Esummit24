@@ -1,6 +1,5 @@
 {
-    "easyPoints":1,
-    "mediumPoints":1.5,
-    "hardPoints":2.5,
-    "caseStudyPoints":2
+    "easyPoints":2,
+    "mediumPoints":3,
+    "hardPoints":5
 }

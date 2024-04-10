@@ -59,6 +59,8 @@ const Instructions = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  
+
   const startQuiz = () => {
     console.log('inside');
     setLoading(true);
