@@ -2,8 +2,14 @@ import Loader from "@/components/Loader";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaRegClock, FaInfoCircle, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaRegClock,
+  FaInfoCircle,
+  FaCalendarAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 import ScheduleRegisterButton from "@/components/events/ScheduleRegisterButton";
+import Link from "next/link";
 
 const Event = ({ event, userDetails }) => {
   const [loader, setLoader] = useState(false);
@@ -49,7 +55,7 @@ const Event = ({ event, userDetails }) => {
           </div>
         </div>
         <p className="font-poppins py-2">{event.description}</p>
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           <ScheduleRegisterButton
             loader={loader}
             setLoader={setLoader}
@@ -64,6 +70,16 @@ const Event = ({ event, userDetails }) => {
               }}
             >
               Go to Dashboard
+            </button>
+          )}
+          {(event.id === 1 || event.id === 2) && (
+            <button className="bg-[#50CC5E] p-2 rounded-xl font-semibold">
+              <Link className="flex items-center gap-2 justify-center" href={event.whatsapp}>
+                <span className="h-full">
+                  <FaWhatsapp className="p-0 m-0 text-xl" />
+                </span>
+                Join whatsapp group
+              </Link>
             </button>
           )}
         </div>
