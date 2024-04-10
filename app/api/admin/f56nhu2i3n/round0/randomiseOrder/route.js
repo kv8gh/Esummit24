@@ -16,13 +16,13 @@ export async function GET() {
       const hard = [];
 
       const easyLength = 10;
-      const mediumLength = 8;
-      const hardLength = 8;
+      const mediumLength = 10;
+      const hardLength = 10;
 
       const getRandomUniqueNumberEasy = (array) => {
         let randomNumber;
         do {
-          randomNumber = Math.floor(Math.random() * 29) + 1;
+          randomNumber = Math.floor(Math.random() * 19) + 1;
         } while (array.includes(randomNumber));
         return randomNumber;
       };
@@ -30,7 +30,7 @@ export async function GET() {
       const getRandomUniqueNumberMedium = (array) => {
         let randomNumber;
         do {
-          randomNumber = Math.floor(Math.random() * 24) + 1;
+          randomNumber = Math.floor(Math.random() * 19) + 1;
         } while (array.includes(randomNumber));
         return randomNumber;
       };

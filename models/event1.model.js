@@ -19,6 +19,10 @@ const teamSchema = mongoose.Schema(
     leaderEmail: {
       type: String,
     },
+    isQualified: {
+      type: Boolean,
+      default: false,
+    },
     members: [
       {
         type: mongoose.Schema.Types.ObjectId,

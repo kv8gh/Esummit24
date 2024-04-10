@@ -15,7 +15,7 @@ export default function Qualifier() {
   const [questionCategory, setQuestionCategory] = useState('');
   const [questionNumber, setQuestionNumber] = useState(0);
   const [chronoNumber, setChronoNumber] = useState(0);
-  const [teamName, setTeamName] = useState();
+  const [teamName, setTeamName] = useState('');
   const [finalAnswer, setFinalAnswer] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { data: session, status } = useSession();
@@ -27,7 +27,7 @@ export default function Qualifier() {
     } else if (status === "authenticated") {
       getQuestionData();
     }
-  }, [status, finalAnswer]);
+  }, [status]);
 
   const handleSubmit = async() => {
     setIsLoading(true);
@@ -49,6 +49,7 @@ export default function Qualifier() {
         console.log(response);
         // location.reload();
         setIsLoading(false);
+        getQuestionData();
       }else{
         console.log('error');
         setIsLoading(false);

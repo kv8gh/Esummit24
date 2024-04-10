@@ -52,21 +52,21 @@ const Round0Schema = mongoose.Schema(
         type: Number,
       },
     ],
-    caseOrder: [
-      {
-        type: Number,
-      },
-    ],
+    // caseOrder: [
+    //   {
+    //     type: Number,
+    //   },
+    // ],
     easyAnswers: [
       {
         type: Schema.Types.Mixed,
-        default: Array(30).fill(null),
+        default: Array(20).fill(null),
       },
     ],
     mediumAnswers: [
       {
         type: Schema.Types.Mixed,
-        default: Array(25).fill(null),
+        default: Array(20).fill(null),
       },
     ],
     hardAnswers: [
@@ -75,12 +75,12 @@ const Round0Schema = mongoose.Schema(
         default: Array(20).fill(null),
       },
     ],
-    caseStudyAnswers: [
-      {
-        type: Schema.Types.Mixed,
-        default: Array(4).fill(null),
-      },
-    ],
+    // caseStudyAnswers: [
+    //   {
+    //     type: Schema.Types.Mixed,
+    //     default: Array(4).fill(null),
+    //   },
+    // ],
     points: {
       type: Number,
       default: 0,

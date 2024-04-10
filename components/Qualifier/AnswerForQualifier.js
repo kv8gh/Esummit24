@@ -17,16 +17,16 @@ export default function AnswerForQualifier(props) {
   // }
 
   const storeAnswer = (ele) => {
-    if (props.questionType === "single") {
+    // if (props.questionType === "single") {
       props.setFinalAnswer([ele]);
-    } else {
-      // console.log(selectedOptions)
-      if (props.finalAnswer.includes(ele)) {
-        props.setFinalAnswer(props.finalAnswer.filter((x) => x !== ele));
-      } else {
-        props.setFinalAnswer((prevAnswer) => [...prevAnswer, ele]);
-      }
-    }
+    // } else {
+    //   // console.log(selectedOptions)
+    //   if (props.finalAnswer.includes(ele)) {
+    //     props.setFinalAnswer(props.finalAnswer.filter((x) => x !== ele));
+    //   } else {
+    //     props.setFinalAnswer((prevAnswer) => [...prevAnswer, ele]);
+    //   }
+    // }
   };
   // props.setFinalAnswer(answer)
 
