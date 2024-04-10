@@ -67,7 +67,7 @@ const QualifierTimer = () => {
   });
 
   return (
-    <div className="w-full bg-red-500 h-20">
+    <div className="w-full flex justify-center items-center bg-[#1a1a1a] h-20">
       <div className="flex justify-center h-full w-fit text-white ">
         <div className="flex justify-evenly h-full w-full text-xl">
           <div className="flex flex-col items-center">

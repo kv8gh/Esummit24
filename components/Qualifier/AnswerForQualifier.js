@@ -216,9 +216,7 @@ export default function AnswerForQualifier(props) {
                     }}
                   >
                     <input
-                      type={
-                        props.questionType === "single" ? "radio" : "checkbox"
-                      }
+                      type="radio"
                       onChange={() => {
                         handleOptionChange(props.questionNumber, ele);
                         storeAnswer(ele);
@@ -323,7 +321,8 @@ export default function AnswerForQualifier(props) {
                     )}
                   </div>
                 );
-              })}
+              })
+              }
             </ul>
           </div>
         )}

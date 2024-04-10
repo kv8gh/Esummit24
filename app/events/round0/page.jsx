@@ -22,17 +22,29 @@ export default function Qualifier() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(async() => {
-    if (status === "unauthenticated") {
-      router.push("/");
-    } else if (status === "authenticated") {
-      getUserData();
-      getQuestionData();
+  useEffect(()=>{
+    const fetchData = async () => {
+      if (router.isReady) {
+        if (status === "unauthenticated") {
+            router.push("/");
+        } else if (status === "authenticated") {
+            try {
+                const userData = await getUserData();
+                const questionData = await getQuestionData();
+            } catch (error) {
+                // Handle errors if necessary
+                console.error("Error fetching data:", error);
+            }
+        }
     }
-  }, [status]);
+  };
 
+  fetchData();
+  },[]);
+  
 
   const getUserData = () => {
+    console.log('hii');
     setIsLoading(true);
     fetch(`/api/userDetails`, {
       content: 'application/json',
@@ -88,8 +100,9 @@ export default function Qualifier() {
       if (response.ok) {
         console.log(response);
         // location.reload();
-        setIsLoading(false);
         getQuestionData();
+        setFinalAnswer([]);
+        setIsLoading(false);
       } else {
         console.log("error");
         setIsLoading(false);

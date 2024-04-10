@@ -174,7 +174,7 @@ const Instructions = () => {
                 .
               </li>
               <li>
-                Selecting 'Next' without choosing any answer will result in
+                Selecting &apos;Next&apos; without choosing any answer will result in
                 automatic skipping of the current question, and there is no
                 provision to go back.
               </li>
