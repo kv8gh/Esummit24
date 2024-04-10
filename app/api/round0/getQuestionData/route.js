@@ -36,7 +36,7 @@ export async function GET(req, res) {
     console.log('adsfafdsfffffffffffffffff',pointer);
     let questionNumber = 0;
     if (questionCatogory == "waiting") {
-      return NextResponse.json({ message: "Round 0 is over" }, { status: 200 });
+      return NextResponse.json({ message: "Round 0 is over",category:"waiting" }, { status: 200 });
     }
     if (questionCatogory === "easy") {
       questionNumber = easyOrder[pointer];
@@ -44,8 +44,6 @@ export async function GET(req, res) {
       questionNumber = mediumOrder[pointer];
     } else if (questionCatogory === "hard") {
       questionNumber = hardOrder[pointer];
-    } else if (questionCatogory === "caseStudy") {
-      questionNumber = pointer;
     } else if (questionCatogory === "instruction") {
       return NextResponse.json(
         {

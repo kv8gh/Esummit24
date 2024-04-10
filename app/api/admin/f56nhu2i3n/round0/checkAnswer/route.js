@@ -28,7 +28,7 @@ export async function GET(req, res) {
       const easyAnswers = qualifierData.easyAnswers;
       const mediumAnswers = qualifierData.mediumAnswers;
       const hardAnswers = qualifierData.hardAnswers;
-      const caseStudyAnswers = qualifierData.caseStudyAnswers;
+      // const caseStudyAnswers = qualifierData.caseStudyAnswers;
       // console.log("fasgfasgasg");
       // console.log(qualifierData);
       // console.log(qualifierData.easyAnswers[1]);
@@ -101,22 +101,7 @@ export async function GET(req, res) {
         }
       }
       // for comparing caseStudy answers
-      for (
-        let pointer = 0;
-        pointer < answers.caseStudyAnswers.length;
-        pointer++
-      ) {
-        if (typeof qualifierData.caseStudyAnswers[pointer] === "object") {
-          if (
-            compareArrays(
-              qualifierData.caseStudyAnswers[pointer],
-              answers.caseStudyAnswers[pointer]
-            )
-          ) {
-            points += gamePoints.caseStudyPoints;
-          }
-        }
-      }
+      
 
       await Round0.findOneAndUpdate(
         { teamName: qualTeam.teamName },

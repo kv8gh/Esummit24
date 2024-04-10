@@ -61,16 +61,13 @@ export async function POST(req, res) {
     if (questionCategory === "easy" && questionPointer === 9) {
       newQuestionPointer = 0;
       questionCategory = "medium";
-    } else if (questionCategory === "medium" && questionPointer === 7) {
+    } else if (questionCategory === "medium" && questionPointer === 9) {
       newQuestionPointer = 0;
       questionCategory = "hard";
-    } else if (questionCategory === "hard" && questionPointer === 7) {
-      newQuestionPointer = 0;
-      questionCategory = "caseStudy";
-    } else if (questionCategory === "caseStudy" && questionPointer === 3) {
+    } else if (questionCategory === "hard" && questionPointer === 9) {
       newQuestionPointer = 0;
       questionCategory = "waiting";
-    } else if (questionCategory == "waiting") {
+    } else if (questionCategory === "waiting") {
       return NextResponse.json(
         { message: "Qualifier round is completed." },
         { status: 400 }
