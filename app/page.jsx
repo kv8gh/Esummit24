@@ -29,6 +29,18 @@ export default function Home() {
   const { data: session, status } = useSession();
   useEffect(() => {
     setLoader(true);
+    fetch("/api/getCap")
+      .then((res) => res.json())
+      .then((data) => {
+        setCaps(data.caps);
+        setLoader(false);
+      })
+      .catch((err) => {
+        setLoader(false);
+      });
+  }, []);
+  useEffect(() => {
+    setLoader(true);
     if (status === "authenticated") {
       console.log("inside if");
       fetch("/api/userDetails", {
@@ -47,13 +59,6 @@ export default function Home() {
             router.push("/userDetails");
           }
           setLoader(false);
-        })
-        .then(() => {
-          fetch("/api/getCap")
-            .then((res) => res.json())
-            .then((data) => {
-              setCaps(data.caps);
-            });
         })
         .catch((err) => {
           setLoader(false);
@@ -90,7 +95,7 @@ export default function Home() {
       <About />
       <Who />
       {/* <Schedule scheduleRef={scheduleRef} /> */}
-      <Timeline scheduleRef={scheduleRef} caps={caps}/>
+      <Timeline scheduleRef={scheduleRef} caps={caps} />
       <Temp /> {/* temp for speakers section */}
       {/* <Speakers /> */}
       <Sponsors />
