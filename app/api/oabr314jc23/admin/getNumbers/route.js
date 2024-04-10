@@ -12,11 +12,11 @@ export async function GET(req) {
     let event5 = 0;
     const signedInUsers = await Users.find();
     let totalUsers = 0;
-    signedInUsers.map((user) => {
+    signedInUsers.forEach((user) => {
       if (user.hasFilledDetails) totalUsers++;
     });
     let atleastOneEvent = 0;
-    signedInUsers.map((user) => {
+    signedInUsers.forEach((user) => {
       if (user.events.length > 0) {
         atleastOneEvent++;
       }
@@ -24,7 +24,7 @@ export async function GET(req) {
     const event1Count = await Event1.find();
     const event2Count = await Event2.find();
     const users = await Users.find();
-    users.map((user) => {
+    users.forEach((user) => {
       if (user.events.includes(3)) {
         event3++;
       }
@@ -63,6 +63,7 @@ export async function GET(req) {
       { status: 200 }
     );
   } catch (err) {
+    console.log(err);
     return NextResponse.json(
       { message: `Internal Server Error. ${err.message}` },
       { status: 500 }
@@ -72,7 +73,7 @@ export async function GET(req) {
 
 function nMembersTeam(event, n) {
   let count = 0;
-  event.map((team) => {
+  event.forEach((team) => {
     if (team.members.length === n) count++;
   });
   return count;

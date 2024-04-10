@@ -24,6 +24,7 @@ export default function Home() {
   const scheduleRef = useRef(null);
   const [regOpen, setRegOpen] = useState(true);
   const [loader, setLoader] = useState(false);
+  const [caps, setCaps] = useState(null);
 
   const { data: session, status } = useSession();
   useEffect(() => {
@@ -47,12 +48,18 @@ export default function Home() {
           }
           setLoader(false);
         })
+        .then(() => {
+          fetch("/api/getCap")
+            .then((res) => res.json())
+            .then((data) => {
+              setCaps(data.caps);
+            });
+        })
         .catch((err) => {
           setLoader(false);
           console.log(err);
         });
-    }
-    else{
+    } else {
       setLoader(false);
     }
   }, [status]);
@@ -83,7 +90,7 @@ export default function Home() {
       <About />
       <Who />
       {/* <Schedule scheduleRef={scheduleRef} /> */}
-      <Timeline scheduleRef={scheduleRef} />
+      <Timeline scheduleRef={scheduleRef} caps={caps}/>
       <Temp /> {/* temp for speakers section */}
       {/* <Speakers /> */}
       <Sponsors />
