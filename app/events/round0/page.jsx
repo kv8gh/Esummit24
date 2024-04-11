@@ -5,7 +5,6 @@ import Instructions from "@/components/Qualifier/Instructions";
 import QualifierTimer from "@/components/Qualifier/QualifierTimer";
 import QuestionForQualifier from "@/components/Qualifier/QuestionsForQualifier";
 import QuizEnd from "@/components/Qualifier/QuizEnd";
-import Waiting from "@/components/Qualifier/Waiting";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
