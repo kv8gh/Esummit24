@@ -253,13 +253,13 @@ export default function LeaderDashboard() {
         {/* {isQualified && (
           <div className="flex flex-col text-white items-center border p-2 rounded-xl my-2">
             <h1 className="text-lg font-bold">
-              Congratulations! Your team has been shortlisted for the
-              main round of Futurepreneurs 9.0.
+              Congratulations! Your team has been qualified for the
+              main round of Innoventure.
             </h1>
             <h6 className="font-bold">See you at the event!</h6>
-            <h6>Date : 19 January 2024</h6>
-            <h6>Reporting Time : 9 AM</h6>
-            <h6>Venue : Sarojini Naidu Hall, SJT</h6>
+            <h6>Date : 13 April 2024</h6>
+            <h6>Reporting Time : 10:30 AM</h6>
+            <h6>Venue : MGB Hall, SJT</h6>
           </div>
         )} */}
         <Toaster />
