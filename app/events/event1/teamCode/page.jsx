@@ -17,8 +17,9 @@ export default function TeamCode() {
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      // router.push("/")
+      router.push("/")
     } else if (status === 'authenticated') {
+      router.push('/');
       getUserData();
     }
   }, [status, router]);

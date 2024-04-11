@@ -163,12 +163,12 @@ const TeamPage = () => {
           })}
         </div>
       </div>
-      <div className="flex justify-center mt-4">
+      {/* <div className="flex justify-center mt-4">
         <LeaveButton
           // onClick={()=>{
           onClick={() => leaveTeam()}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
