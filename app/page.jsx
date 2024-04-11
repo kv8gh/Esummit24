@@ -29,7 +29,7 @@ export default function Home() {
   const { data: session, status } = useSession();
   useEffect(() => {
     setLoader(true);
-    fetch("/api/getCap")
+    fetch("https://members-esummit.onrender.com/getcapacity")
       .then((res) => res.json())
       .then((data) => {
         setCaps(data.caps);
