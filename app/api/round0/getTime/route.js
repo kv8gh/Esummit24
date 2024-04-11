@@ -25,13 +25,11 @@ export async function GET(req) {
     let team;
     teams.forEach(t=>{
       if(t.teamLeaderId == userId) {
-        console.log("Got team")
+        console.log(" team")
         team = t;
         return
       }
     })
-    console.log("\n\neffw\n\n")
-    console.log(team);
     const teamId = team._id;
     const teamData = await Round0.findOne({ teamId: teamId });
     if (teamData.startTime === undefined || teamData.startTime === null) {
