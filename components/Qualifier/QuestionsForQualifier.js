@@ -136,6 +136,9 @@ export default function QuestionForQualifier(props) {
                     Your browser does not support the audio element.
                   </audio>
                 )}
+                <div>
+                (If you encounter identical audio from previous questions, please refresh the page for the current question.)
+              </div>
               </div>
             )}
           </div>
@@ -205,6 +208,9 @@ export default function QuestionForQualifier(props) {
                     Your browser does not support the audio element.
                   </audio>
                 )}
+              <div>
+                (If you encounter identical audio from previous questions, please refresh the page for the current question.)
+              </div>
               </div>
             )}
           </div>
