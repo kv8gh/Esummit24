@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import time from "@/constant/round0/time";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import LoadingIcons from "react-loading-icons";
 
 const Instructions = () => {
   const [buttonEnabled, setButtonEnabled] = useState(false);
-  const[loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { data: session, status } = useSession();
 
@@ -59,10 +59,8 @@ const Instructions = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  
-
   const startQuiz = () => {
-    console.log('inside');
+    console.log("inside");
     setLoading(true);
     fetch("/api/round0/startQuiz", {
       method: "GET",
@@ -73,7 +71,7 @@ const Instructions = () => {
       },
     })
       .then((res) => {
-        console.log('inside response',res);
+        console.log("inside response", res);
         console.log(res.status);
         if (res.status === 200) {
           console.log("quizStartingNow.");
@@ -97,130 +95,61 @@ const Instructions = () => {
 
   return (
     <main className="min-h-[100vh] text-white flex flex-col items-center">
-      <div>
-        <h1 className="flex justify-center my-2 text-xl underline ">
-          Quiz Starts In
-        </h1>
-        <div className="flex gap-4">
-          <div className="flex flex-col items-center ">
-            <div className="flex flex-col">{timeRemaining.hours}</div>
-            Hours
-          </div>
-          <span>:</span>
-          <div className="flex flex-col items-center">
-            <div className="flex flex-col">{timeRemaining.minutes}</div>
-            MINS
-          </div>
-          <span>:</span>
-          <div className="flex flex-col items-center">
-            <div className="flex flex-col">{timeRemaining.seconds}</div>
-            SECS
-          </div>
-        </div>
-      </div>
       <div className="flex flex-col items-start w-[90vw] px-8 py-4 border rounded-xl m-2">
         <p>
-        Welcome to the Qualifying round of Innoventure! The quiz is designed to assess your knowledge and skills. To successfully qualify, you must answer the questions with accuracy and precision.
-
+          Welcome to the Qualifying round of Innoventure! The quiz is designed
+          to assess your knowledge and skills. To successfully qualify, you must
+          answer the questions with accuracy and precision.
         </p>
         <br />
         <p>
-        Read the following instructions carefully to ensure a smooth and successful completion of the quiz.
+          Read the following instructions carefully to ensure a smooth and
+          successful completion of the quiz.
         </p>
         <ul className="list-inside list-disc">
           <li>
-            <span className="underline">Basic Rules:</span>
-            <ol className="list-inside list-decimal ml-6">
-              <li>
-                Participants will be given{" "}
-                <span className="font-bold">35 minutes</span> to complete the
-                quiz.
-              </li>
-              <li>
-                Once logged in, participants{" "}
-                <span className="font-bold">
-                  cannot open any other application
-                </span>
-                without submitting the quiz.
-              </li>
-              <li>A timer will be displayed at the top of the screen.</li>
-              <li>
-                The quiz can only be submitted after completion, otherwise, it
-                will auto-submit after 35 minutes.
-              </li>
-              <li>
-                There is <span className="font-bold">no</span> negative marking.
-              </li>
-            </ol>
+            The quiz is only <span className="text-red-400">16 mins</span> long
+            and can only be accessed using the button given below.
           </li>
           <li>
-            <span className="underline">Navigation Rules:</span>
-            <ol className="list-inside list-decimal ml-6">
-              <li>
-                Each section is accessible{" "}
-                <span className="font-bold">only once</span>.
-              </li>
-              <li>
-                Participants are not allowed to navigate between questions
-                within a section.
-              </li>
-              <li>
-                The navigation is designed to be one-way, therefore{" "}
-                <span className="font-bold">
-                  every question can be visited only once
-                </span>
-                .
-              </li>
-              <li>
-                Selecting &apos;Next&apos; without choosing any answer will result in
-                automatic skipping of the current question, and there is no
-                provision to go back.
-              </li>
-            </ol>
+            The Quiz will{" "}
+            <span className="text-red-400">
+              stop accepting responses at 10:30 PM
+            </span>
+            , and hence maximum you can start the quiz is by 10:10 PM.
           </li>
           <li>
-           <span className="underline"> Section Division:</span>
-            <ol className="list-inside list-decimal ml-6">
-              <li>
-                The quiz is divided into <span className="font-bold">THREE</span>{" "}
-                sections.
-              </li>
-              <li>
-                Sections are categorized by level of difficulty: Easy, Medium and
-                Hard.
-              </li>
-              <li>
-                Section one consists of 10 questions, carrying 2 mark each.
-              </li>
-              <li>
-                Section two consists of 10 questions, carrying 3 marks each.
-              </li>
-              <li>
-                Section three consists of 10 questions, carrying 5 marks each.
-              </li>
-            </ol>
+            The quiz contains{" "}
+            <span className="text-red-400">only Single Choice Correct</span>{" "}
+            questions. Be careful when you choose answers.
           </li>
           <li>
-          <span className="underline">Question types:</span>
-            <ol className="list-inside list-none ml-6">
-              <li>
-                All the questions are multiple-choice questions.
-              </li>
-            </ol>
+            If you feel the answer is not given in the questions, you can choose
+            the option closest to what you think is correct.
+          </li>
+          <li>
+            <span className="text-red-400">Only one response per team</span>{" "}
+            will be accepted, quiz link would be visible only on the team
+            leader&apos;s dashboard.
+          </li>
+          <li className="text-red-400">
+            Make sure that the form is opened using the same account / email ID
+            from which the leader had logged in and registered for the event.
+          </li>
+          <li className="text-red-400">
+            In case of a submission form a mail ID that is different from the
+            mail ID that was used to register will lead to immediate
+            disqualification.
           </li>
         </ul>
       </div>
       <div>
         <button
-          disabled={!buttonEnabled}
-          className={`px-4 py-2 rounded-full text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none m-4 w-full h-12 flex items-center justify-center font-bold ${
-            !buttonEnabled
-              ? "opacity-75 hover:cursor-not-allowed"
-              : "hover:opacity-80 hover:cursor-pointer"
-          }}`}
-          onClick={() => startQuiz()}
+          className={`px-4 py-2 rounded-full text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none m-4 w-full h-12 flex items-center justify-center font-bold hover:opacity-80 hover:cursor-pointer`}
+          // onClick={() => startQuiz()}
         >
-          {loading ? <LoadingIcons.Oval height={"20px"}/> : "Start Quiz"}
+          {/* {loading ? <LoadingIcons.Oval height={"20px"} /> : "Start Quiz"} */}
+          Start Quiz
         </button>
       </div>
       <Toaster />
