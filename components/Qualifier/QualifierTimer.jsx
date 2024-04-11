@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
-const QualifierTimer = () => {
+const QualifierTimer = (props) => {
   const [endTime, setEndTime] = useState(Date.now());
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -44,7 +44,7 @@ const QualifierTimer = () => {
     }
 
     if (Math.floor(timeDiff / 1000) <= 0) {
-      // submitAnswer
+      props.autoSubmit();
       location.reload();
     }
 
@@ -68,7 +68,10 @@ const QualifierTimer = () => {
 
   return (
     <div className="w-full flex justify-center items-center bg-[#1a1a1a] h-20">
-      <div className="flex justify-center h-full w-fit text-white ">
+      <div className="flex flex-col justify-center items-center h-full w-fit text-white ">
+      <div className="text-2xl">
+        Team Name : {props.teamName}
+      </div>
         <div className="flex justify-evenly h-full w-full text-xl">
           <div className="flex flex-col items-center">
             <div className="flex flex-col">{timeRemaining.minutes}</div>

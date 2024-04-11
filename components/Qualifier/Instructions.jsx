@@ -16,7 +16,7 @@ const Instructions = () => {
 
     const targetTime = new Date(
       2024,
-      0,
+      3,
       time.quizStartTime.day,
       time.quizStartTime.hour,
       time.quizStartTime.minute,
@@ -120,14 +120,12 @@ const Instructions = () => {
       </div>
       <div className="flex flex-col items-start w-[90vw] px-8 py-4 border rounded-xl m-2">
         <p>
-          Welcome to the Qualifying round of Futureprenuers 9.0! The quiz is
-          designed to assess your knowledge and skills. To successfully qualify,
-          you must answer the questions with accuracy and precision.
+        Welcome to the Qualifying round of Innoventure! The quiz is designed to assess your knowledge and skills. To successfully qualify, you must answer the questions with accuracy and precision.
+
         </p>
         <br />
         <p>
-          Read the following instructions carefully to ensure a smooth and
-          successful completion of the quiz.
+        Read the following instructions carefully to ensure a smooth and successful completion of the quiz.
         </p>
         <ul className="list-inside list-disc">
           <li>
@@ -135,7 +133,7 @@ const Instructions = () => {
             <ol className="list-inside list-decimal ml-6">
               <li>
                 Participants will be given{" "}
-                <span className="font-bold">45 minutes</span> to complete the
+                <span className="font-bold">35 minutes</span> to complete the
                 quiz.
               </li>
               <li>
@@ -148,7 +146,7 @@ const Instructions = () => {
               <li>A timer will be displayed at the top of the screen.</li>
               <li>
                 The quiz can only be submitted after completion, otherwise, it
-                will auto-submit after 45 minutes.
+                will auto-submit after 35 minutes.
               </li>
               <li>
                 There is <span className="font-bold">no</span> negative marking.
@@ -184,44 +182,29 @@ const Instructions = () => {
            <span className="underline"> Section Division:</span>
             <ol className="list-inside list-decimal ml-6">
               <li>
-                The quiz is divided into <span className="font-bold">FOUR</span>{" "}
+                The quiz is divided into <span className="font-bold">THREE</span>{" "}
                 sections.
               </li>
               <li>
-                Sections are categorized by level of difficulty: Easy, Medium,
-                Hard and Case Study.
+                Sections are categorized by level of difficulty: Easy, Medium and
+                Hard.
               </li>
               <li>
-                Section one consists of 10 questions, carrying 1 mark each.
+                Section one consists of 10 questions, carrying 2 mark each.
               </li>
               <li>
-                Section two consists of 8 questions, carrying 1.5 marks each.
+                Section two consists of 10 questions, carrying 3 marks each.
               </li>
               <li>
-                Section three consists of 8 questions, carrying 2.5 marks each.
-              </li>
-              <li>
-                Section four consists of 4 questions, carrying 2 marks each.
+                Section three consists of 10 questions, carrying 5 marks each.
               </li>
             </ol>
           </li>
           <li>
           <span className="underline">Question types:</span>
-            <ol className="list-inside list-decimal ml-6">
+            <ol className="list-inside list-none ml-6">
               <li>
-                There are <span className="font-bold">THREE</span> question
-                types: Multiple Choice, Multiple Correct, and Fill in the Blank.
-              </li>
-              <li>
-                For Multiple Correct questions, full marks are awarded only if
-                all correct answers are chosen. If the number of selected
-                answers is less than the correct options, marks will be awarded
-                based on the correct choices selected.
-              </li>
-              <li>
-                For Multiple Correct questions, if the number of answered
-                choices are more than the number of correct choices, <span className="font-bold">zero</span> marks
-                are awarded.
+                All the questions are multiple-choice questions.
               </li>
             </ol>
           </li>

@@ -22,26 +22,53 @@ export default function Qualifier() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(()=>{
-    const fetchData = async () => {
-      if (router.isReady) {
-        if (status === "unauthenticated") {
-            router.push("/");
-        } else if (status === "authenticated") {
-            try {
-                const userData = await getUserData();
-                const questionData = await getQuestionData();
-            } catch (error) {
-                // Handle errors if necessary
-                console.error("Error fetching data:", error);
-            }
-        }
-    }
-  };
+  // useEffect(()=>{
+  //   const fetchData = async () => {
+  //     if (router.isReady) {
+  //       if (status === "unauthenticated") {
+  //           router.push("/");
+  //       } else if (status === "authenticated") {
+  //           try {
+  //               const userData = await getUserData();
+  //               const questionData = await getQuestionData();
+  //           } catch (error) {
+  //               // Handle errors if necessary
+  //               console.error("Error fetching data:", error);
+  //           }
+  //       }
+  //   }
+  // };
 
-  fetchData();
-  },[]);
+  // fetchData();
+  // },[]);
   
+  useEffect(()=>{
+    if(status==="unauthenticated"){
+      router.push('/');
+    }else if(status==="authenticated"){
+      getUserData();
+      getQuestionData();
+    }
+  },[status])
+
+  const autoSubmit = () => {
+    setIsLoading(true);
+    console.log('hii');
+    setIsLoading(true);
+    fetch(`/api/round0/autoSubmit`, {
+      content: 'application/json',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+      });
+  };
 
   const getUserData = () => {
     console.log('hii');
@@ -58,25 +85,26 @@ export default function Qualifier() {
       .then((res) => res.json())
       .then((data) => {
         const user = data.user;
-        setIsLoading(false);
+        // setIsLoading(false);
         if (user.hasFilledDetails) {
           if((user.events).includes(1)){
-            // if (user.event1TeamId == null) {
-            //   router.push('/events/event1/makeTeam');
-            // } else {
-              // if (user.event1TeamRole == 1) {
-              //   router.push('/events/event1/memberDash');
-              // } else {
+            if (user.event1TeamId == null) {
+              router.push('/');
+            } else {
+              if (user.event1TeamRole == 1) {
+                toast.error("Only leader's can access the quiz");
+                router.push('/');
+              } else {
                 setIsLoading(false);
-              // }
-            // }
+              }
+            }
           }else{
             toast.error('Please register the Event first')
             router.push('/')
           }
         } else {
           toast.error('Please Fill your details first')
-          router.push('/userDetails');
+          router.push('/');
         }
       });
   };
@@ -139,21 +167,22 @@ export default function Qualifier() {
   };
 
   return (
-    <main className="min-h-screen pt-[5rem] bg-[#0e0e0e]">
+    <main className="min-h-screen pt-[5rem] bg-[#0e0e0e] p-6">
       <section>
         {isLoading && <Loader />}
-        <div className="">
+        <div className="gap-2">
           {questionCategory === "instruction" && <Instructions />}
           {questionCategory !== "instruction" &&
             questionCategory !== "waiting" && (
-              <div className="bg-[#0e0e0e] ">
-                <QualifierTimer />
+              <div className="bg-[#0e0e0e]">
+                <QualifierTimer teamName={teamName} autoSubmit={autoSubmit}/>
                 <QuestionForQualifier
                   questionCategory={questionCategory}
                   questionNumber={questionNumber}
                   chronoNumber={chronoNumber}
                   setChronoNumber={setChronoNumber}
                   setQuestionNumber={setQuestionNumber}
+                  className=""
                 />
                 <AnswerForQualifier
                   questionCategory={questionCategory}
@@ -165,7 +194,7 @@ export default function Qualifier() {
                   setFinalAnswer={setFinalAnswer}
                 />
                 <div className="w-full flex  justify-center items-center">
-                  {questionCategory === "hard" && questionNumber === 9 ? (
+                  {(questionCategory === "hard" && questionNumber === 9) ? (
                     <button
                       id="nextButton"
                       type="submit"
