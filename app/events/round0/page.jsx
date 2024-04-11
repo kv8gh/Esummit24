@@ -18,7 +18,7 @@ export default function Qualifier() {
   const [chronoNumber, setChronoNumber] = useState(0);
   const [teamName, setTeamName] = useState("");
   const [finalAnswer, setFinalAnswer] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { data: session, status } = useSession();
   const router = useRouter();
 
