@@ -35,7 +35,7 @@ export async function GET(req) {
       );
     } else {
       return NextResponse.json(
-        { message: "Time already set", startTime: startTime, endTime: endTime },
+        { message: "Time already set", startTime: teamData.startTime, endTime: teamData.endTime },
         { status: 200 }
       );
     }

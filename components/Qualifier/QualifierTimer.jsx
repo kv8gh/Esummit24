@@ -25,6 +25,8 @@ const QualifierTimer = (props) => {
           }
         })
         .then((data) => {
+          console.log(data);
+          console.log("TIME----", data.endTime)
           setEndTime(data.endTime);
         })
         .catch((err) => {
