@@ -20,6 +20,7 @@ const MakeTeam = () => {
       router.push("/");
     } else if (status === "authenticated") {
       // toast.success("Logged In");
+      router.push('/')
       getUserData();
     }
   }, [status, router]);
@@ -52,7 +53,8 @@ const MakeTeam = () => {
             router.push("/");
           }
         } else {
-          router.push("/userDetails");
+          // router.push("/userDetails");
+          router.push('/');
         }
       });
   };
@@ -103,7 +105,8 @@ const MakeTeam = () => {
 
   const handleJoinTeam = () => {
     // Redirect to JoinTeam page
-    router.push("/events/event1/joinTeam");
+    // router.push("/events/event1/joinTeam");
+    router.push('/')
   };
 
   return (
