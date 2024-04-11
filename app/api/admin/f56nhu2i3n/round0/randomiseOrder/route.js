@@ -78,7 +78,7 @@ export async function GET() {
       qualTeams[i].hardOrder = hard;
       await qualTeams[i].save();
     }
-    return NextResponse.json({ message: "success" }, { status: 200 });
+    return NextResponse.json({ message: "success"}, { status: 200 });
   } catch (e) {
     console.log(e);
     return NextResponse.json({ message: e }, { status: 500 });

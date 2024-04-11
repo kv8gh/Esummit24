@@ -62,7 +62,7 @@ export default function AnswerForQualifier(props) {
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
-                questions[props.questionCategory][props.questionNumber].ans
+                questions[props.questionCategory][props.questionNumber]?.ans
                   .optionsContent
               ).map((ele) => {
                 return (
@@ -73,7 +73,7 @@ export default function AnswerForQualifier(props) {
                       storeAnswer(ele);
                     }}
                   >
-                    {questions[props.questionCategory][props.questionNumber].ans
+                    {questions[props.questionCategory][props.questionNumber]?.ans
                       .optionsType === "text" ? (
                       <div key={ele}>
                         <label>
@@ -93,7 +93,7 @@ export default function AnswerForQualifier(props) {
                           {
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                         </label>
                       </div>
@@ -116,7 +116,7 @@ export default function AnswerForQualifier(props) {
                           src={
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
                           alt="answer image"
@@ -133,7 +133,7 @@ export default function AnswerForQualifier(props) {
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
-                questions[props.questionCategory][props.questionNumber].ans
+                questions[props.questionCategory][props.questionNumber]?.ans
                   .optionsContent
               ).map((ele) => {
                 return (
@@ -144,7 +144,7 @@ export default function AnswerForQualifier(props) {
                       storeAnswer(ele);
                     }}
                   >
-                    {questions[props.questionCategory][props.questionNumber].ans
+                    {questions[props.questionCategory][props.questionNumber]?.ans
                       .optionsType === "text" ? (
                       <div key={ele}>
                         <label>
@@ -164,7 +164,7 @@ export default function AnswerForQualifier(props) {
                           {
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                         </label>
                       </div>
@@ -187,7 +187,7 @@ export default function AnswerForQualifier(props) {
                           src={
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
                           alt="answer image"
@@ -204,7 +204,7 @@ export default function AnswerForQualifier(props) {
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
-                questions[props.questionCategory][props.questionNumber].ans
+                questions[props.questionCategory][props.questionNumber]?.ans
                   .optionsContent
               ).map((ele) => {
                 return (
@@ -227,13 +227,13 @@ export default function AnswerForQualifier(props) {
                       }
                       className="mr-2"
                     />
-                    {questions[props.questionCategory][props.questionNumber].ans
+                    {questions[props.questionCategory][props.questionNumber]?.ans
                       .optionsType === "text" ? (
                       <label>
                         {
                           questions[props.questionCategory][
                             props.questionNumber
-                          ].ans.optionsContent[ele]
+                          ]?.ans.optionsContent[ele]
                         }
                       </label>
                     ) : (
@@ -241,7 +241,7 @@ export default function AnswerForQualifier(props) {
                         src={
                           questions[props.questionCategory][
                             props.questionNumber
-                          ].ans.optionsContent[ele]
+                          ]?.ans.optionsContent[ele]
                         }
                         className="w-[300px] h-auto "
                         alt="answer image"
@@ -258,7 +258,7 @@ export default function AnswerForQualifier(props) {
           <div className="flex text-xl">
             <ul className="grid grid-cols-2 gap-8">
               {Object.keys(
-                questions[props.questionCategory][props.questionNumber].ans
+                questions[props.questionCategory][props.questionNumber]?.ans
                   .optionsContent
               ).map((ele) => {
                 return (
@@ -269,7 +269,7 @@ export default function AnswerForQualifier(props) {
                       storeAnswer(ele);
                     }}
                   >
-                    {questions[props.questionCategory][props.questionNumber].ans
+                    {questions[props.questionCategory][props.questionNumber]?.ans
                       .optionsType === "text" ? (
                       <div key={ele}>
                         <label>
@@ -289,7 +289,7 @@ export default function AnswerForQualifier(props) {
                           {
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                         </label>
                       </div>
@@ -312,7 +312,7 @@ export default function AnswerForQualifier(props) {
                           src={
                             questions[props.questionCategory][
                               props.questionNumber
-                            ].ans.optionsContent[ele]
+                            ]?.ans.optionsContent[ele]
                           }
                           className="w-[300px] h-auto "
                           alt="answer image"

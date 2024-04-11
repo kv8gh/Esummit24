@@ -18,7 +18,7 @@ export default function Qualifier() {
   const [chronoNumber, setChronoNumber] = useState(0);
   const [teamName, setTeamName] = useState("");
   const [finalAnswer, setFinalAnswer] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -66,7 +66,7 @@ export default function Qualifier() {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         setIsLoading(false);
       });
   };
@@ -157,8 +157,11 @@ export default function Qualifier() {
       .then((res) => res.json())
       .then((data) => {
         setQuestionCategory(data.category);
+        console.log(questionCategory);
         setQuestionNumber(data.questionNumber);
+        console.log(data.questionNumber);
         setChronoNumber(data.chronoNumber);
+        console.log(data.chronoNumber);
         setTeamName(data.teamName);
         setIsLoading(false);
       })

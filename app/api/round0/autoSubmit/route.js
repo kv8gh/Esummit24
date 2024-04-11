@@ -8,6 +8,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
   await connectMongoDB();
+  console.log('llllllllllllllllllllllllllllllllllll inside autoSubmit');
   try {
     const token = await getToken({ req });
     const auth = token
