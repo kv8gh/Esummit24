@@ -4,8 +4,11 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import LoadingIcons from "react-loading-icons";
+import Link from "next/link";
+import formLinks from "@/constant/round0/form";
 
 const Instructions = () => {
+  console.log(formLinks);
   const [buttonEnabled, setButtonEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -48,6 +51,24 @@ const Instructions = () => {
 
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
 
+  const [form, setForm] = useState(-1);
+  useEffect(() => {
+    fetch("/api/event1/getForm", {
+      content: "application/json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("\n\n\n\n\n\n\n\n", data);
+        console.log(data.user.linkNumber);
+        setForm(data.user.linkNumber);
+      });
+  }, []);
   useEffect(() => {
     // if early then disable button
 
@@ -144,13 +165,17 @@ const Instructions = () => {
         </ul>
       </div>
       <div>
-        <button
-          className={`px-4 py-2 rounded-full text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none m-4 w-full h-12 flex items-center justify-center font-bold hover:opacity-80 hover:cursor-pointer`}
-          // onClick={() => startQuiz()}
-        >
-          {/* {loading ? <LoadingIcons.Oval height={"20px"} /> : "Start Quiz"} */}
-          Start Quiz
-        </button>
+        {form !== -1 && (
+          <Link href={formLinks[form]}>
+            <button
+              className={`px-4 py-2 rounded-full text-black bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none m-4 w-full h-12 flex items-center justify-center font-bold hover:opacity-80 hover:cursor-pointer`}
+              // onClick={() => startQuiz()}
+            >
+              {/* {loading ? <LoadingIcons.Oval height={"20px"} /> : "Start Quiz"} */}
+              Start Quiz
+            </button>
+          </Link>
+        )}
       </div>
       <Toaster />
     </main>

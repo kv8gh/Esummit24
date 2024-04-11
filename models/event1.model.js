@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const teamSchema = mongoose.Schema(
   {
@@ -8,7 +8,7 @@ const teamSchema = mongoose.Schema(
     },
     teamLeaderId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users',
+      ref: "Users",
     },
     teamNumber: {
       type: Number,
@@ -26,16 +26,18 @@ const teamSchema = mongoose.Schema(
     members: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users',
+        ref: "Users",
       },
     ],
     teamCode: {
       type: String,
-    }
+    },
+    linkNumber: {
+      type: Number,
+    },
   },
-  { collection: 'Event1' }
+  { collection: "Event1" }
 );
 
 export const Event1 =
-  mongoose.models.Event1 ||
-  mongoose.model('Event1', teamSchema);
+  mongoose.models.Event1 || mongoose.model("Event1", teamSchema);
