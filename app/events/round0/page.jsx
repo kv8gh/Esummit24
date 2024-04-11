@@ -46,6 +46,7 @@ export default function Qualifier() {
     if(status==="unauthenticated"){
       router.push('/');
     }else if(status==="authenticated"){
+      setIsLoading(true);
       getUserData();
       getQuestionData();
     }

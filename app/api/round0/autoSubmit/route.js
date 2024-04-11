@@ -6,7 +6,7 @@ import { getTokenDetails } from "@/utils/authuser.js";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-export async function POST(req, res) {
+export async function GET(req, res) {
   await connectMongoDB();
   try {
     const token = await getToken({ req });
