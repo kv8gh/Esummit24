@@ -53,6 +53,7 @@ const Instructions = () => {
 
   const [form, setForm] = useState(-1);
   useEffect(() => {
+    setLoading(true)
     fetch("/api/event1/getForm", {
       content: "application/json",
       method: "GET",
@@ -67,6 +68,7 @@ const Instructions = () => {
         console.log("\n\n\n\n\n\n\n\n", data);
         console.log(data.user.linkNumber);
         setForm(data.user.linkNumber);
+        setLoading(false);
       });
   }, []);
   useEffect(() => {
@@ -172,7 +174,7 @@ const Instructions = () => {
               // onClick={() => startQuiz()}
             >
               {/* {loading ? <LoadingIcons.Oval height={"20px"} /> : "Start Quiz"} */}
-              Start Quiz
+              {loading ? "Loading..." : "Start Quiz"}
             </button>
           </Link>
         )}
