@@ -17,7 +17,21 @@ export async function GET(req) {
   try {
     const startTime = new Date().getTime();
     const endTime = startTime + 1000 * 60 * time.round0; //mins
-    const team = await Event1Test.findOne({ teamLeaderId: userId });
+    console.log(userId);
+    console.log(typeof userId);
+    // userId = userId.toString();
+    // console.log(typeof userId);
+    const teams = await Event1Test.find();
+    let team;
+    teams.forEach(t=>{
+      if(t.teamLeaderId == userId) {
+        console.log("Got team")
+        team = t;
+        return
+      }
+    })
+    console.log("\n\neffw\n\n")
+    console.log(team);
     const teamId = team._id;
     const teamData = await Round0.findOne({ teamId: teamId });
     if (teamData.startTime === undefined || teamData.startTime === null) {

@@ -1,10 +1,10 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from "mongoose";
 
 const Round0Schema = mongoose.Schema(
   {
     teamId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event1',
+      ref: "Event1",
     },
     teamName: {
       type: String,
@@ -12,7 +12,7 @@ const Round0Schema = mongoose.Schema(
     },
     teamLeaderId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users',
+      ref: "Users",
     },
     teamNumber: {
       type: Number,
@@ -35,7 +35,7 @@ const Round0Schema = mongoose.Schema(
     },
     questionCategory: {
       type: String,
-      default: 'instruction',
+      default: "instruction",
     },
     easyOrder: [
       {
@@ -85,6 +85,12 @@ const Round0Schema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    startTime: {
+      type: Date,
+    },
+    endTime: {
+      type: Date,
+    },
 
     // members: [
     //     {
@@ -93,12 +99,11 @@ const Round0Schema = mongoose.Schema(
     //     },
     // ],
   },
-  { collection: 'Round0' }
+  { collection: "Round0" }
 );
 
 export const Round0 =
-  mongoose.models.Round0 ||
-  mongoose.model('Round0', Round0Schema);
+  mongoose.models.Round0 || mongoose.model("Round0", Round0Schema);
 
 // mcq store option No.
 // multiple correct store array of correct options. eg. [1,2]

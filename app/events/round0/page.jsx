@@ -198,7 +198,7 @@ export default function Qualifier() {
                   setFinalAnswer={setFinalAnswer}
                 />
                 <div className="w-full flex  justify-center items-center">
-                  {(questionCategory === "hard" && questionNumber === 9) ? (
+                  {(questionCategory === "hard" && chronoNumber === 9) ? (
                     <button
                       id="nextButton"
                       type="submit"
