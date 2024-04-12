@@ -10,6 +10,7 @@ const scheduleDetails = [
     venue: "Bhagat Singh Gallery ,SJT",
     time: "10:00 AM to 07:00 PM",
     whatsapp: "https://chat.whatsapp.com/E9iJqPqJbMHBUCn2GfCf1N",
+    loc: "https://maps.app.goo.gl/zmn9e7PeoWbDQ5gd6",
   },
   {
     id: 3,
@@ -21,6 +22,7 @@ const scheduleDetails = [
     venue: "CHANNA REDDY AUDITORIUM, MB",
     time: "10:00 AM to 12:00 PM",
     whatsapp: "",
+    loc: "https://maps.app.goo.gl/ksZpHxsiXcZ6zjD47",
   },
   {
     id: 4,
@@ -32,6 +34,7 @@ const scheduleDetails = [
     venue: "CHANNA REDDY AUDITORIUM, MB",
     time: "02:00 PM to 07:00 PM",
     whatsapp: "",
+    loc: "https://maps.app.goo.gl/ksZpHxsiXcZ6zjD47",
   },
   {
     id: 5,
@@ -43,6 +46,7 @@ const scheduleDetails = [
     venue: "ANNA AUDITORIUM",
     time: "02:00 PM to 07:00 PM",
     whatsapp: "",
+    loc: "https://maps.app.goo.gl/N9De5HkUC7Gcgqga8",
   },
   {
     id: 2,
@@ -54,8 +58,8 @@ const scheduleDetails = [
     venue: "coming soon",
     time: "10:00 AM to 05:00 PM",
     whatsapp: "https://chat.whatsapp.com/EIxnuFBAJheHUTcGm5B0zr",
+    loc: null,
   },
 ];
 
 export default scheduleDetails;
-
