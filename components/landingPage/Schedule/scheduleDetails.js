@@ -7,8 +7,8 @@ const scheduleDetails = [
     description:
       "Innoventure is a business simulation event that offers a platform to the participants to showcase their problem-solving skills. Covering aspects from product development to business analysis, Innoventure provides hands-on experience with the startup lifecycle.",
     image: image,
-    venue: "MGB HALL",
-    time: "10:30 AM to 07:00 PM",
+    venue: "Bhagat Singh Gallery ,SJT",
+    time: "10:00 AM to 07:00 PM",
     whatsapp: "https://chat.whatsapp.com/E9iJqPqJbMHBUCn2GfCf1N",
   },
   {
@@ -18,7 +18,7 @@ const scheduleDetails = [
     description:
       "Financial Literacy Workshop is a workshop where participants will explore fundamental aspects of personal finance. They will investigate essential topics such as budgeting, saving methods, and diverse investment strategies. Through this workshop, participants will gain practical knowledge and skills to manage finances effectively, paving the way for long-term financial security.",
     image: image,
-    venue: "Sarojini naidu gallery, sjt",
+    venue: "CHANNA REDDY AUDITORIUM, MB",
     time: "10:00 AM to 12:00 PM",
     whatsapp: "",
   },
@@ -29,7 +29,7 @@ const scheduleDetails = [
     description:
       "Achiever's Conclave is an event featuring speaker sessions by accomplished Achievers from diverse backgrounds. Participants will have the opportunity to gain invaluable insights and motivation as these achievers share their inspirational journeys and secrets to success, empowering them to reach new heights in all their endeavors.",
     image: image,
-    venue: "MGB hall",
+    venue: "CHANNA REDDY AUDITORIUM, MB",
     time: "02:00 PM to 07:00 PM",
     whatsapp: "",
   },
@@ -51,7 +51,7 @@ const scheduleDetails = [
     description:
       "The Ideathon is an event based on the participants' entrepreneurial spirit where they will brainstorm and pitch innovative business ideas through teamwork and creativity and develop actionable plans to tackle real-world challenges, competing for recognition.",
     image: image,
-    venue: "mgb hall",
+    venue: "coming soon",
     time: "10:00 AM to 05:00 PM",
     whatsapp: "https://chat.whatsapp.com/EIxnuFBAJheHUTcGm5B0zr",
   },
