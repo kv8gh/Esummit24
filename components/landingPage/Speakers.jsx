@@ -17,7 +17,11 @@ const Card = ({ speaker }) => {
   return (
     <div className="h-fit my-4 mx-10 w-44 md:w-56 flex flex-col gap-4">
       <div className="flex justify-center rounded-lg overflow-hidden">
-        <Image alt={speaker.name} className="w-full h-auto" src={speaker.image} />
+        <Image
+          alt={speaker.name}
+          className="w-full h-auto"
+          src={speaker.image}
+        />
       </div>
       <div className="flex flex-col items-center">
         <h1 className="uppercase text-lg md:text-2xl lg:text-2xl text-center font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
@@ -27,15 +31,30 @@ const Card = ({ speaker }) => {
           {speaker.position}
         </p>
         {/* <div className="flex gap-5 mt-2">
-          <Link href={speaker.instagram}>
-            <FaInstagram />
-          </Link>
-          <Link href={speaker.linkedin}>
-            <FaLinkedin />
-          </Link>
-          <Link href={speaker.twitter}>
-            <FaTwitter />
-          </Link>
+          {speaker.instagram && (
+            <Link
+              className="hover:text-pink-600 transition-all"
+              href={speaker.instagram}
+            >
+              <FaInstagram />
+            </Link>
+          )}
+          {speaker.linkedin && (
+            <Link
+              className="hover:text-blue-700 transition-all"
+              href={speaker.linkedin}
+            >
+              <FaLinkedin />
+            </Link>
+          )}
+          {speaker.twitter && (
+            <Link
+              className="hover:text-blue-400 transition-all"
+              href={speaker.twitter}
+            >
+              <FaTwitter />
+            </Link>
+          )}
         </div> */}
       </div>
     </div>
@@ -49,81 +68,81 @@ export default function Sponsers() {
       name: "Mr. Ashneer Grover",
       position: "Founder | BharatPe",
       image: img1,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: "https://www.instagram.com/ashneer.grover/",
+      linkedin: "https://www.linkedin.com/in/ashneer/",
+      twitter: "https://twitter.com/Ashneer_Grover",
     },
     {
       id: 2,
       name: "Mr. Udit Kumar Goyal",
       position: "COO | Google Cloud India",
       image: img2,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: null,
+      linkedin: null,
+      twitter: null,
     },
     {
       id: 3,
       name: "Mr. Sunny Garg",
       position: "Co-Founder & CEO | CRIB",
       image: img3,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: "https://instagram.com/iamsunnygarg/",
+      linkedin: "https://www.linkedin.com/in/iamsunnygarg/",
+      twitter: null,
     },
     {
       id: 4,
       name: "Mr. Vijender Singh Chauhan",
       position: "Drishti IAS | Interviewer",
       image: img4,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: null,
+      linkedin: null,
+      twitter: null,
     },
     {
       id: 5,
       name: "Dr. Gajendra Purohit",
       position: "Founder | Mathscare",
       image: img5,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: "https://www.instagram.com/dr.gajendrapurohit/",
+      linkedin: "https://www.linkedin.com/in/dr-gajendra-purohit/",
+      twitter: "https://twitter.com/GPSirOfficial",
     },
     {
       id: 6,
       name: "Mr. Suresh Prabhu",
       position: "Former union minister of Civil Aviation, Railways, Commerce",
       image: img7,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: "https://www.instagram.com/sureshpprabhu/",
+      linkedin: "https://www.linkedin.com/in/sureshpprabhu/",
+      twitter: "https://twitter.com/sureshpprabhu",
     },
     {
       id: 7,
       name: "Mr. Vivek Atray",
       position: "Co-Founder | playwrite",
       image: img6,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: null,
+      linkedin: null,
+      twitter: "https://twitter.com/vivekatray",
     },
     {
       id: 8,
       name: "Dr. Anil Lamba",
       position: "financial literacy activist",
       image: img8,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: "https://www.instagram.com/anillamba/",
+      linkedin: "https://www.linkedin.com/in/anil-lamba/",
+      twitter: "https://twitter.com/anillamba03",
     },
     {
       id: 9,
       name: "cmde vs rawat",
       position: "navy veteran | ex marine commando",
       image: img9,
-      instagram: "https://www.instagram.com/",
-      linkedin: "https://www.linkedin.com/",
-      twitter: "https://twitter.com/",
+      instagram: null,
+      linkedin: null,
+      twitter: null,
     },
   ];
   const cards = speakers.map((speaker) => (
@@ -145,7 +164,7 @@ export default function Sponsers() {
           ></motion.div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-around items-start flex-wrap">
+      <div className="flex flex-col md:flex-row justify-around items-center md:items-start flex-wrap">
         {cards}
       </div>
     </section>
