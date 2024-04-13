@@ -17,7 +17,7 @@ const Card = ({ speaker }) => {
   return (
     <div className="h-fit my-4 mx-10 w-44 md:w-56 flex flex-col gap-4">
       <div className="flex justify-center rounded-lg overflow-hidden">
-        <Image className="w-full h-auto" src={speaker.image} />
+        <Image alt={speaker.name} className="w-full h-auto" src={speaker.image} />
       </div>
       <div className="flex flex-col items-center">
         <h1 className="uppercase text-lg md:text-2xl lg:text-2xl text-center font-bold bg-gradient-to-br from-[#DCA64E] via-[#FEFAB7] to-[#D6993F] bg-clip-text text-transparent">
