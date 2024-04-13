@@ -24,7 +24,8 @@ const JoinTeam = ({ teamCode: propTeamCode }) => {
       router.push("/");
     } else if (status === "authenticated") {
       // toast.success("Logged In");
-      getUserData();
+      router.push('/');
+      // getUserData();
       localStorage.setItem("asdf", "asdf");
     }
   }, [status, router]);
