@@ -3,12 +3,12 @@ import Image from "next/image";
 import img1 from "@/public/assets/speakers/img1.jpg";
 import img2 from "@/public/assets/speakers/img2.jpg";
 import img3 from "@/public/assets/speakers/img3.jpg";
-import img4 from "@/public/assets/speakers/img4.jpg";
+import img4 from "@/public/assets/speakers/img4.JPG";
 import img5 from "@/public/assets/speakers/img5.jpeg";
-import img6 from "@/public/assets/speakers/img6.jpg";
-import img7 from "@/public/assets/speakers/img7.jpg";
+import img6 from "@/public/assets/speakers/img6.JPG";
+import img7 from "@/public/assets/speakers/img7.JPG";
 import img8 from "@/public/assets/speakers/img8.webp";
-import img9 from "@/public/assets/speakers/img9.jpg";
+import img9 from "@/public/assets/speakers/img9.JPG";
 import { FaInstagram, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -30,9 +30,10 @@ const Card = ({ speaker }) => {
         <p className="font-extralight uppercase text-center text-slate-100">
           {speaker.position}
         </p>
-        {/* <div className="flex gap-5 mt-2">
+        <div className="flex gap-5 mt-2">
           {speaker.instagram && (
             <Link
+            target="_blank"
               className="hover:text-pink-600 transition-all"
               href={speaker.instagram}
             >
@@ -41,6 +42,7 @@ const Card = ({ speaker }) => {
           )}
           {speaker.linkedin && (
             <Link
+            target="_blank"
               className="hover:text-blue-700 transition-all"
               href={speaker.linkedin}
             >
@@ -49,13 +51,14 @@ const Card = ({ speaker }) => {
           )}
           {speaker.twitter && (
             <Link
+            target="_blank"
               className="hover:text-blue-400 transition-all"
               href={speaker.twitter}
             >
               <FaTwitter />
             </Link>
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );
@@ -78,7 +81,7 @@ export default function Sponsers() {
       position: "COO | Google Cloud India",
       image: img2,
       instagram: null,
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/uditgoyal/",
       twitter: null,
     },
     {
@@ -95,7 +98,7 @@ export default function Sponsers() {
       name: "Mr. Vijender Singh Chauhan",
       position: "Drishti IAS | Interviewer",
       image: img4,
-      instagram: null,
+      instagram: "https://www.instagram.com/masijeevi/",
       linkedin: null,
       twitter: null,
     },
@@ -141,7 +144,7 @@ export default function Sponsers() {
       position: "navy veteran | ex marine commando",
       image: img9,
       instagram: null,
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/in/vijay03068y/",
       twitter: null,
     },
   ];
